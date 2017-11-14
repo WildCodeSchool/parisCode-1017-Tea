@@ -1,15 +1,80 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My APP</title>
+
+    <link rel="icon" type="image/png" href="https://s-media-cache-ak0.pinimg.com/originals/0e/54/6b/0e546b2fe8980de9a753d517a5323508.png" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Sacramento|Raleway" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/half-slider.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+    
 </head>
 <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="home.php">Volup't</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home.php">Home
+                        <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="concept.php">Concept</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.php">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Contact</a>
+                    </li>
+                    
+                        <li>
+                        <a href="resum_order.php" class="btn btn-warning">Cart</a></li>
+                         
+                        <li>
+                        <a href="registration.php" class="btn btn-success btn-block">Login</a></li>
+                    </ul>
+            </div>
+        </div>
+    </nav>
     {% block body %}
 
     {% endblock %}
-</body>
+ <!-- Footer -->
+    <footer class="py-5 bg-dark fixed-bottom">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Team WCS 2017 </p>
+        </div>
+    <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  </body>
+
 </html>
