@@ -1,12 +1,12 @@
 <?php
 
-namespace MyApp\Controllers;
+namespace Tea\Controllers;
 
-use MyApp\Model\Repository\UserManager;
+use Tea\Model\Repository\UserManager;
 
 /**
  * Class DefaultController
- * @package MyApp\Controllers
+ * @package Tea\Controllers
  */
 class DefaultController extends Controller
 {
@@ -14,12 +14,10 @@ class DefaultController extends Controller
 	 * Render index
 	 */
 	public function indexAction(){
-		$userManager = new UserManager();
-		$allUsers = $userManager->getAll();
 
-		return $this->twig->render('user/home.html.twig', array(
-			'allUsers' => $allUsers
-		));
+
+		return $this->twig->render('user/home.html.twig'
+		);
 	}
 
 	/**
@@ -37,4 +35,23 @@ class DefaultController extends Controller
 			));
 		}
 	}
+
+    public function homeAction(){
+        return $this->twig->render('user/home.html.twig');
+
+    }
+    public function conceptAction(){
+        return $this->twig->render('user/concept.html.twig');
+
+    }
+
+    public function shopAction(){
+        return $this->twig->render('user/shop.html.twig');
+
+    }
+
+    public function contactAction(){
+        return $this->twig->render('user/contact.html.twig');
+
+    }
 }
