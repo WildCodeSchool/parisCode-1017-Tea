@@ -8,8 +8,8 @@
 6. page Contact
 6.1 page Success Contact
 7. page produit
-7.1 page resume_order
-7.2 page success commande
+    (7.1 page resume_order)
+    (7.2 page success commande)
 8. Footer // 
 9. Buttons
 10.Page Registration Admin
@@ -77,172 +77,13 @@ body {
   background-size: cover;
 }
 
-
-/*.glyphicon {
-    color: #4B140B !important;
-}
-
-.glyphicon:hover {
-    font-weight: bold;
-}
-
-.img_full_slider {  
-    height: 100%;
-    width : auto;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    height: 100%;
-    width: 60%;
-    overflow: hidden;
-}
-
-#slider .slide {
-    background-image: url('../img/fond-ardoise.jpg');
-    background-color: white;
-}*/
-
 /********************CONCEPT*********************/
 
-/*.txt_concept {
-    padding: 0;
-    color:#222222;
-    font-size: 20px;
-    text-align:center;
-}*/
 
 /********************MIX*************************/
-/*@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
-.col-item
-{
-    border: 1px solid #E1E1E1;
-    border-radius: 5px;
-    background: #FFF;
-}
-.col-item .photo img
-{
-    margin: 0 auto;
-    width: 100%;
-}
-
-.col-item .info
-{
-    padding: 10px;
-    border-radius: 0 0 5px 5px;
-    margin-top: 1px;
-}
-
-.col-item:hover .info {
-    background-color: #F5F5DC;
-}
-.col-item .price
-{
-    width: 50%;
-    float: left;
-    margin-top: 5px;
-}
-
-.col-item .price h5
-{
-    line-height: 20px;
-    margin: 0;
-}
-
-.price-text-color
-{
-    color: #219FD1;
-}
-
-.col-item .info .rating
-{
-    color: #777;
-}
-
-.col-item .rating
-{
-    width: 50%;
-    float: left;
-    font-size: 17px;
-    text-align: right;
-    line-height: 52px;
-    margin-bottom: 10px;
-    height: 52px;
-}
-
-.col-item .separator
-{
-    border-top: 1px solid #E1E1E1;
-}
-
-.clear-left
-{
-    clear: left;
-}
-
-.col-item .separator p
-{
-    line-height: 20px;
-    margin-bottom: 0;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.col-item .separator p i
-{
-    margin-right: 5px;
-}
-.col-item .btn-add
-{
-    width: 50%;
-    float: left;
-}
-
-.col-item .btn-add
-{
-    border-right: 1px solid #E1E1E1;
-}
-
-.col-item .btn-details
-{
-    width: 50%;
-    float: left;
-    padding-left: 10px;
-}
-.controls
-{
-    margin-top: 20px;
-}
-[data-slide="prev"]
-{
-    margin-right: 10px;
-}*/
 
 
 /********************INFOS***********************/
-
-/*****map*******/
-/*.map-responsive{
-overflow:hidden;
-padding-bottom:56.25%;
-position:relative;
-height:0;
-}
-
-.map-responsive iframe{
-left:0;
-top:0;
-height:100%;
-width:100%;
-position:absolute;
-padding-bottom: 20px;
-}
-*/
-/*****infos*******/
-/*.info_boutique {
-    color:#222222;
-    font-size: 12px;
-    text-align:center!important;
-}*/
 
 
 /************************************************\
@@ -433,20 +274,3 @@ padding-bottom: 20px;
 \************************************************/
 
 
-
-
-/************************************************\
-==================================================
-11.REGISTRATION ADMIN
-==================================================
-\************************************************/
-
-
-.centered-form{
-    margin-top: 60px;
-}
-
-.centered-form .panel{
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
-}
