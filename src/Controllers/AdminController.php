@@ -47,4 +47,13 @@ class AdminController extends Controller
         ));
     }
 
+    /**
+     * function 'formsAdminAction'
+     * Get SQLfunction 'getAllCitations' then go to 'admin/formsAdmin.html.twig.twig' page
+     * @return string
+     */
+    public function formsAdminAction(){
+        return $this->twig->render('/admin/formsAdmin.html.twig');
+    }
+
 }

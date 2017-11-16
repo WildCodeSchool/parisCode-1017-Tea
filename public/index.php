@@ -52,3 +52,6 @@ elseif ($_GET['section'] === 'loginAdmin') {
 elseif ($_GET['section'] === 'tablesAdmin') {
     echo $adminController->tablesAdminAction();
 }
+elseif ($_GET['section'] === 'formsAdmin') {
+    echo $adminController->formsAdminAction();
+}

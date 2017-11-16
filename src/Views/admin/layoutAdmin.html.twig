@@ -20,6 +20,16 @@
     <link href="../public/assets/css/admin/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="../public/assets/css/admin/stylesheet.css">
 
+    <!-- Custom add ln-t CSS -->
+    <link href="../public/assets/css/admin/metisMenu.min.css" rel="stylesheet">
+    <link href="../public/assets/css/admin/sb-admin-2.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
 <body class="fixed-nav sticky-footer bg-light" id="page-top">
@@ -34,13 +44,19 @@
         <span class="navbar-toggler-icon inverse"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-        <a class="navbar-brand logo-font" href="index.php"><img src="../public/assets/img/logo.png" height="15%" width="15%">Yo website name</a>
+        <a class="navbar-brand logo-font" href="index.php"><img src="../public/assets/img/logo.png" height="15%" width="15%">Volup'T</a>
         <ul class="navbar-nav navbar-sidenav bg-light id=" exampleAccordion
         ">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
             <a class="nav-link">
                 <i class="fa fa-fw fa-dashboard"></i>
                 <span class="nav-link-text"> Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link" href="index.php?section=formsAdmin">
+                <i class="fa fa-fw fa-file-text-o"></i>
+                <span class="nav-link-text"> Forms</span>
             </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
@@ -56,6 +72,7 @@
                 <li class="nav-item">
                     <a class="" href="index.php?section=tablesAdmin">
                         <i class="fa fa-tag"></i> Products</a>
+                </li>
                 </li>
                 {#<li class="nav-item">#}
                 {#<a class="nav-link text-dark" href="index.php?section=tablesAdmin">#}
@@ -251,7 +268,11 @@
 <script src="../public/assets/js/admin/sb-admin.min.js"></script>
 <!-- Custom scripts for this page-->
 <script src="../public/assets/js/admin/sb-admin-datatables.min.js"></script>
-</div>
+<!-- Add LN-T -->
+<script src="../public/assets/js/admin/metisMenu.min.js"></script>
+<script src="../public/assets/js/admin/sb-admin-2.min.js"></script>
+
+
 </body>
 
 </html>
