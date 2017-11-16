@@ -2,9 +2,12 @@
 
 // Get Vendor autoload
 require_once '../vendor/autoload.php';
-//require_once '../app/config.php';
+require_once '../app/config.php';
 
 use Tea\Controllers\DefaultController;
+use Tea\Controllers\AdminController;
+
+$adminController = new AdminController();
 
 if (empty($_GET)){
 	$defaultController = new DefaultController();
@@ -34,4 +37,21 @@ elseif($_GET['section']=='shop'){
 elseif($_GET['section']=='contact'){
     $defaultController = new DefaultController();
     echo $defaultController->contactAction();
+}
+
+/**
+ * ADMIN
+ */
+
+elseif ($_GET['section'] === 'homeAdmin') {
+    echo $adminController->homeAdminAction();
+}
+elseif ($_GET['section'] === 'loginAdmin') {
+    echo $adminController->loginAdminAction();
+}
+elseif ($_GET['section'] === 'tablesAdmin') {
+    echo $adminController->tablesAdminAction();
+}
+elseif ($_GET['section'] === 'formsAdmin') {
+    echo $adminController->formsAdminAction();
 }
