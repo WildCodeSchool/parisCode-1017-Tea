@@ -26,8 +26,13 @@ body {
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 100px;*/
+  font-family: 'Raleway';
 }
 
+h1 h2 {
+  font-family: 'Sacramento' !important;
+  text-align: center !important;
+}
 
 img {
   max-height:100%;
@@ -114,6 +119,7 @@ header a:hover {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin-top: 0px;
 }
 
 .card {
@@ -121,7 +127,7 @@ header a:hover {
 }
 
 .carousel-item {
-  height: 65vh;
+  height: 95vh;
   min-height: 300px;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
@@ -130,8 +136,45 @@ header a:hover {
   background-size: cover;
 }
 
+
 /********************CONCEPT*********************/
 
+.concept {
+
+
+  border: 1px !important;
+  padding: 30px 15px !important;
+  margin-top: 15px;
+  margin-bottom: 15px;
+ /* width: 1233px;*/
+
+}
+
+.concept h1 {
+  font-family: 'Sacramento' !important;
+  text-align: center !important;
+}
+
+.concept p {
+  text-align: center;
+}
+
+.btnconcept {
+  margin-top: 20px;
+}
+
+.btnconcept a {
+  text-decoration: none !important;
+  text-transform: uppercase;
+  color : white !important;
+
+}
+
+.btn1{
+  background-color: red;
+  border-radius: 3px;
+  padding: 15px;
+}
 
 /********************MIX*************************/
 
