@@ -22,28 +22,80 @@
 ==================================================
 \************************************************/
 body {
-  margin-top: 100px;
+  /*margin-top: 0px;
   margin-left: 50px;
   margin-right: 50px;
-  margin-bottom: 100px;
-
+  margin-bottom: 100px;*/
 }
 
-@media (min-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
-}
 
+img {
+  max-height:100%;
+  max-width:100%;
+}
 
 /************************************************\
 ==================================================
 2. INCLUDE HEADER/NAVBAR
 ==================================================
 \************************************************/
-.navbar {
-    height: 150px !important;
+#menu {
+  background:black;
+  margin-bottom:0;
+  border:none;
+  font-size: 2em !important;
 }
+.navbar-navi {
+  display: flex !important;
+}
+.navbar-brand {
+  padding-top:8px !important;
+  padding-bottom:0 !important;
+  margin-left:0 !important;
+}
+.navbar-inverse .navbar-nav>li>a {
+  -webkit-transition:all 0.4s;
+  -moz-transition:all 0.4s;
+  -o-transition:all 0.4s;
+  transition:all 0.4s;
+}
+.nav>li>a>img {
+  width:50%;
+}
+
+header a {
+  text-decoration: none !important;
+  color: white !important;
+  font-family: 'Raleway';
+  font-weight:bold;
+}
+
+header a:hover {
+  color: red !important;
+  background-color: white !important;
+  border-radius: 3px;
+
+}
+
+@media (min-width:768px) {
+  .navbar-navi {
+    display: flex !important;
+    width:100%;
+    text-align: center !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    }
+  .navbar-nav>li {
+    display:inline-block !important;
+    float:none;
+    }
+    
+  .navbar-right {
+    margin-right: 0;
+    }
+}
+
+
 
 /************************************************\
 ==================================================
