@@ -1,15 +1,85 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My APP</title>
+
+    <link rel="icon" type="image/png" href="https://s-media-cache-ak0.pinimg.com/originals/0e/54/6b/0e546b2fe8980de9a753d517a5323508.png" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Sacramento|Raleway" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../public/assets/css/half-slider.css" rel="stylesheet">
+
+    <link href="../public/assets/css/style.css" rel="stylesheet">
+    
 </head>
 <body>
+
+    <!-- Navigation -->
+    <header>
+    <div id="menu" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle fixed-right" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.php?section=home"><img src="../public/assets/img/Volup't.png"></a>
+        </div><!-- navbar-header -->
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-navi navbar-right">
+                <li><a href="index.php?section=home">Home</a></li>
+                <li><a href="index.php?section=concept">Concept</a></li>
+                <li class="hidden-xs">
+                    <a href="index.php?section=home">
+                        <img src="../public/assets/img/Volup't.png" alt="logo_tea" class="logo-phone">
+                    </a>
+                </li>
+                <li><a href="index.php?section=shop">Shop</a></li>
+                <li><a href="index.php?section=contact">Contact</a></li>
+
+                <!--fix for scroll spy active menu element-->
+                <li style="display:none;"><a href="#header"></a></li>
+
+            </ul>
+        </div><!--/.navbar-collapse -->
+    </div><!-- container -->
+</div><!-- menu -->
+</header>
+
+                        <!-- <a href="index.php?section=homeAdmin" class="btn btn-success btn-block">Login</a></li> -->
+
     {% block body %}
 
+
+
+
     {% endblock %}
-</body>
+ <!-- Footer -->
+    <footer class="py-5 bg-dark fixed-bottom">
+        <div class="container">
+           <p class="m-0 text-center text-white"><a href="https://drive.google.com/file/d/0B3xAwadNG33WQTNhTXpXT044V2M/view?usp=sharing/view?usp=sharing">Copyright © 2017, Volup'T</a></p>
+        </div>
+    <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../public/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  </body>
+
 </html>

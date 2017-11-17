@@ -1,6 +1,6 @@
 <?php
 
-namespace MyApp\Controllers;
+namespace Tea\Controllers;
 
 use Twig_Loader_Filesystem;
 use Twig_Environment;
