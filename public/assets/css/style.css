@@ -8,8 +8,8 @@
 6. page Contact
 6.1 page Success Contact
 7. page produit
-7.1 page resume_order
-7.2 page success commande
+    (7.1 page resume_order)
+    (7.2 page success commande)
 8. Footer // 
 9. Buttons
 10.Page Registration Admin
@@ -22,28 +22,80 @@
 ==================================================
 \************************************************/
 body {
-  margin-top: 100px;
+  /*margin-top: 0px;
   margin-left: 50px;
   margin-right: 50px;
-  margin-bottom: 100px;
-
+  margin-bottom: 100px;*/
 }
 
-@media (min-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
-}
 
+img {
+  max-height:100%;
+  max-width:100%;
+}
 
 /************************************************\
 ==================================================
 2. INCLUDE HEADER/NAVBAR
 ==================================================
 \************************************************/
-.navbar {
-    height: 150px !important;
+#menu {
+  background:black;
+  margin-bottom:0;
+  border:none;
+  font-size: 2em !important;
 }
+.navbar-navi {
+  display: flex !important;
+}
+.navbar-brand {
+  padding-top:8px !important;
+  padding-bottom:0 !important;
+  margin-left:0 !important;
+}
+.navbar-inverse .navbar-nav>li>a {
+  -webkit-transition:all 0.4s;
+  -moz-transition:all 0.4s;
+  -o-transition:all 0.4s;
+  transition:all 0.4s;
+}
+.nav>li>a>img {
+  width:50%;
+}
+
+header a {
+  text-decoration: none !important;
+  color: white !important;
+  font-family: 'Raleway';
+  font-weight:bold;
+}
+
+header a:hover {
+  color: red !important;
+  background-color: white !important;
+  border-radius: 3px;
+
+}
+
+@media (min-width:768px) {
+  .navbar-navi {
+    display: flex !important;
+    width:100%;
+    text-align: center !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    }
+  .navbar-nav>li {
+    display:inline-block !important;
+    float:none;
+    }
+    
+  .navbar-right {
+    margin-right: 0;
+    }
+}
+
+
 
 /************************************************\
 ==================================================
@@ -77,172 +129,13 @@ body {
   background-size: cover;
 }
 
-
-/*.glyphicon {
-    color: #4B140B !important;
-}
-
-.glyphicon:hover {
-    font-weight: bold;
-}
-
-.img_full_slider {  
-    height: 100%;
-    width : auto;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    height: 100%;
-    width: 60%;
-    overflow: hidden;
-}
-
-#slider .slide {
-    background-image: url('../img/fond-ardoise.jpg');
-    background-color: white;
-}*/
-
 /********************CONCEPT*********************/
 
-/*.txt_concept {
-    padding: 0;
-    color:#222222;
-    font-size: 20px;
-    text-align:center;
-}*/
 
 /********************MIX*************************/
-/*@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
-.col-item
-{
-    border: 1px solid #E1E1E1;
-    border-radius: 5px;
-    background: #FFF;
-}
-.col-item .photo img
-{
-    margin: 0 auto;
-    width: 100%;
-}
-
-.col-item .info
-{
-    padding: 10px;
-    border-radius: 0 0 5px 5px;
-    margin-top: 1px;
-}
-
-.col-item:hover .info {
-    background-color: #F5F5DC;
-}
-.col-item .price
-{
-    width: 50%;
-    float: left;
-    margin-top: 5px;
-}
-
-.col-item .price h5
-{
-    line-height: 20px;
-    margin: 0;
-}
-
-.price-text-color
-{
-    color: #219FD1;
-}
-
-.col-item .info .rating
-{
-    color: #777;
-}
-
-.col-item .rating
-{
-    width: 50%;
-    float: left;
-    font-size: 17px;
-    text-align: right;
-    line-height: 52px;
-    margin-bottom: 10px;
-    height: 52px;
-}
-
-.col-item .separator
-{
-    border-top: 1px solid #E1E1E1;
-}
-
-.clear-left
-{
-    clear: left;
-}
-
-.col-item .separator p
-{
-    line-height: 20px;
-    margin-bottom: 0;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.col-item .separator p i
-{
-    margin-right: 5px;
-}
-.col-item .btn-add
-{
-    width: 50%;
-    float: left;
-}
-
-.col-item .btn-add
-{
-    border-right: 1px solid #E1E1E1;
-}
-
-.col-item .btn-details
-{
-    width: 50%;
-    float: left;
-    padding-left: 10px;
-}
-.controls
-{
-    margin-top: 20px;
-}
-[data-slide="prev"]
-{
-    margin-right: 10px;
-}*/
 
 
 /********************INFOS***********************/
-
-/*****map*******/
-/*.map-responsive{
-overflow:hidden;
-padding-bottom:56.25%;
-position:relative;
-height:0;
-}
-
-.map-responsive iframe{
-left:0;
-top:0;
-height:100%;
-width:100%;
-position:absolute;
-padding-bottom: 20px;
-}
-*/
-/*****infos*******/
-/*.info_boutique {
-    color:#222222;
-    font-size: 12px;
-    text-align:center!important;
-}*/
 
 
 /************************************************\
@@ -264,6 +157,67 @@ padding-bottom: 20px;
 6. PAGE CONTACT
 ==================================================
 \************************************************/
+
+form {
+    /* Pour le centrer dans la page */
+    margin: 0 auto;
+    width: 700px;
+    /* Pour voir les limites du formulaire */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+div{
+    margin-top: 2em;
+}
+label {
+    /* Afin de s'assurer que toutes les étiquettes aient la même dimension et soient alignées correctement */
+    display: inline-block;
+    width: 100px;
+    text-align: left !important;
+}
+input, textarea {
+    /* Afin de s'assurer que tous les champs textuels utilisent la même police
+    Par défaut, textarea utilise une police à espacement constant */
+    font: 1em sans-serif;
+    /* Pour donner la même dimension à tous les champs textuels */
+    width: 678px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Pour harmoniser l'apparence des bordures des champs textuels */
+    border: 1px solid #999;
+}
+input:focus, textarea:focus {
+    /* Afin de réhausser les éléments actifs */
+    border-color: #000;
+}
+textarea {
+    /* Pour aligner correctement les champs multilignes et leurs étiquettes */
+    vertical-align: top;
+    /* Pour donner assez d'espace pour entrer du texte */
+    height: 10em;
+    /* Pour permettre aux utilisateurs de redimensionner un champ textuel horizontalement
+    Cela ne marche pas avec tous les navigateurs  */
+    resize: vertical;
+}
+.button {
+    /* Pour positionner les boutons de la même manière que les champs textuels */
+    padding-left: 100px; /* même dimension que les étiquettes */
+}
+button {
+    /* Cette marge représente approximativement le même espace
+    que celui entre les étiquettes et les champs textuels */
+    margin-left: .5em;
+    float: right;
+}
+.errors {
+    color: red;
+}
+
+
+
+
+
 
 /************************************************\
 ==================================================
@@ -433,20 +387,3 @@ padding-bottom: 20px;
 \************************************************/
 
 
-
-
-/************************************************\
-==================================================
-11.REGISTRATION ADMIN
-==================================================
-\************************************************/
-
-
-.centered-form{
-    margin-top: 60px;
-}
-
-.centered-form .panel{
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
-}
