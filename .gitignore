@@ -1,3 +1,6 @@
-#PHPStorm config
 .idea
+.DS_Store
+notes-ln-t.md
+
 vendor
+app/config.php
