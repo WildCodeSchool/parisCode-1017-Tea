@@ -406,6 +406,10 @@ footer {
     -o-transition-duration: 0.5s;
 }
 
+.fa-3x {
+    color: white;
+}
+
 /*
     Multicoloured Hover Variations
 */
@@ -427,7 +431,6 @@ footer {
     display: block;
     text-align: center
 }
-
 
 /************************************************\
 ==================================================
