@@ -51,6 +51,32 @@ class DefaultController extends Controller
     }
 
     public function contactAction(){
+        if ($_POST) {
+            // errors array
+            $errors = array();
+            //start validation
+            if (empty($_POST['fn'])) {
+                $errors['fn']="Votre nom ne peut pas être vide";
+            }
+            if (empty($_POST['ln'])) {
+                $errors['ln']="Votre prenom ne peut pas être vide";
+            }
+            if (empty($_POST['phone'])) {
+                $errors['phone']="Votre tel ne peut pas être vide";
+            }
+            if (empty($_POST['email'])) {
+                $errors['email']="Votre mail ne peut pas être vide";
+            }
+            if (empty($_POST['message'])) {
+                $errors['message']="Votre message ne peut pas être vide";
+            }
+            else {
+                return $this->twig->render('user/success_contact.html.twig');
+            }
+
+
+        }
+
         return $this->twig->render('user/contact.html.twig');
 
     }
