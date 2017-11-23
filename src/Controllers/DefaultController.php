@@ -70,14 +70,61 @@ class DefaultController extends Controller
             if (empty($_POST['message'])) {
                 $errors['message']="Votre message ne peut pas être vide";
             }
-            else {
-                return $this->twig->render('user/success_contact.html.twig');
+            if (count($errors) > 0){
+                return $this->twig->render('user/contact.html.twig', array(
+                    'errors' => $errors,
+                    'post' => $_POST
+                ));
             }
-
+            else {
+                return $this->sendEmail($_POST);
+            }
 
         }
 
         return $this->twig->render('user/contact.html.twig');
+    }
+
+
+    public function sendEmail($infoForm)
+    {
+        // Create the Transport
+        $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+            ->setUsername('contact.volupt@gmail.com')
+            ->setPassword('jecode4wcs');
+
+        // Create the Mailer using your created Transport
+        $mailer = new \Swift_Mailer($transport);
+
+        // Create a message
+        $message = (new \Swift_Message('Wonderful Subject'))
+            ->setFrom([$infoForm['email'] => $infoForm['fn']])
+            ->setTo(['contact.volupt@gmail.com' => 'Team Volupt'])
+            ->setBody($infoForm['message']." ".$infoForm['email']);
+
+        // Send the message
+
+        $mailer->send($message);
+
+        return $this->twig->render('user/success_contact.html.twig');
+    }
+
+
+
+
+
+
 
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+
