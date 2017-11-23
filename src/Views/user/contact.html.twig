@@ -58,7 +58,7 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-lg-12 control-label" for="message">Message :</label>
+                    <label class="col-lg-12 control-label" for="message">*Message :</label>
                     <div class="col-lg-12">
                         <textarea name="message" rows=10 cols=420> {% if post.message is defined %}{{ post.message }}{% endif %} </textarea>
                         {% if errors.message is defined %}

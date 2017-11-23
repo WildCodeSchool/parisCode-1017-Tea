@@ -219,6 +219,7 @@ button {
     float: right;
 }
 .errors {
+    font-size: 1.1em;
     color: red;
 }
 
