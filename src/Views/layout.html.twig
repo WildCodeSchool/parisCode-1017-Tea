@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Sacramento|Raleway" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="../public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/twitter/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../public/assets/css/half-slider.css" rel="stylesheet">
@@ -68,21 +68,68 @@
     {% endblock %}
 
  <!-- Footer -->
-    -<footer class="py-5">
+    <footer class="py-1">
         <div class="container containerFooter">
-           <p class="m-0 text-center text-white">
-           <a href="#">Copyright © 2017, Volup'T</a></p>
-            <p class="m-0 text-center text-white">
-                <a href="https://drive.google.com/file/d/0B3xAwadNG33WQTNhTXpXT044V2M/view?usp=sharing/view?usp=sharing">Mentions légales</a></p>
-           <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+            <a href=""><i class="fa fa-facebook-square fa-3x social"></i></a>
+            <a href=""><i class="fa fa-twitter-square fa-3x social"></i></a>
+            <a href=""><i class="fa fa-google-plus-square fa-3x social"></i></a>
+            <p class="nav-item text-white" data-toggle="modal" data-target="#exampleModal3" title="Mentions Légales">
+                - Volup'T.com - <u>Copyright © 2017</u> -
+            </p>
         </div>
     </footer>
 
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Mentions légales</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body mentionslegales">
+                    <ul>
+                        <p>Éditeur :</p>
+                        <li>Volup'T</li>
+                        <li>Siège social : 11, rue de Poissy 75005 PARIS</li>
+                        <li>Directrice de la publication : Plopinette de Plop</li>
+                        <li>SAS au capital social de 1 000 000 €</li>
+                        <li>Immatriculée au RCS de Paris sous le numéro 123 456 789</li>
+                    </ul>
+                    <ul>
+                        <p>Hébergement :</p>
+                        <li>SAS OVH – http://www.ovh.com</li>
+                        <li>2 rue Kellermann</li>
+                        <li>BP 80157</li>
+                        <li>59100 Roubaix</li>
+                    </ul>
+                    <ul>
+                        <p>Responsabilités :</p>
+                        <li>...</li>
+                    </ul>
+                    <ul>
+                        <p>Propriété intellectuelle :</p>
+                        <li>...</li>
+                    </ul>
+                    <ul>
+                        <p>Numéro CNIL :</p>
+                        <li>...</li>
+                    </ul>
+                    <ul>
+                        <p>Règles de confidentialité :</p>
+                        <li>...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript -->
-    <script src="../public/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="../public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/components/jquery/jquery.js"></script>
+    <script src="../vendor/twitter/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
