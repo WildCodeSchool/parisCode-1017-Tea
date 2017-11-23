@@ -56,19 +56,19 @@ class DefaultController extends Controller
             $errors = array();
             //start validation
             if (empty($_POST['fn'])) {
-                $errors['fn']="Votre nom ne peut pas être vide";
+                $errors['fn']="Merci de bien vouloir saisir votre nom";
             }
             if (empty($_POST['ln'])) {
-                $errors['ln']="Votre prenom ne peut pas être vide";
+                $errors['ln']="Merci de bien vouloir saisir votre prénom";
             }
             if (empty($_POST['phone'])) {
-                $errors['phone']="Votre tel ne peut pas être vide";
+                $errors['phone']="Merci de bien vouloir saisir votre numéro de téléphone";
             }
             if (empty($_POST['email'])) {
-                $errors['email']="Votre mail ne peut pas être vide";
+                $errors['email']="Merci de bien vouloir saisir votre adresse email";
             }
             if (empty($_POST['message'])) {
-                $errors['message']="Votre message ne peut pas être vide";
+                $errors['message']="Merci de bien vouloir saisir votre message";
             }
             if (count($errors) > 0){
                 return $this->twig->render('user/contact.html.twig', array(
