@@ -2,83 +2,111 @@
 
 {% block body %}
 
+  <header class="business-header-contact">
     <div class="container">
-        <form action="index.php?section=contact" method="post" class="form-horizontal">
-            <fieldset>
-
-                <!-- Form Name -->
-                <div align="center" class="title-contact">
-                    <h3>Nous contacter</h3>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-lg-12 control-label" for="fn">*Nom :</label>
-                    <div class="col-lg-12">
-                        <input id="fn" name="fn" type="text" required="" placeholder="Nom" class="form-control input-md" value="{% if post.fn is defined %}{{ post.fn }}{% endif %}">
-
-                        {% if errors.fn is defined %}
-                            <p class="errors">{{ errors.fn }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-lg-12 control-label" for="ln">*Prénom :</label>
-                    <div class="col-lg-12">
-                        <input id="ln" name="ln" type="text" required="" placeholder="Prenom" class="form-control input-md" value="{% if post.ln is defined %}{{ post.ln }}{% endif %}">
-                        {% if errors.ln is defined %}
-                            <p class="errors">{{ errors.ln }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-lg-12 control-label" for="phone">Téléphone :</label>
-                    <div class="col-lg-12">
-                        <input id="phone" name="phone" type="tel" minlength=10 maxlength=10 placeholder="Telephone" class="form-control input-md" value="{% if post.phone is defined %}{{ phone.fn }}{% endif %}">
-                        {% if errors.phone is defined %}
-                            <p class="errors">{{ errors.phone }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-lg-12 control-label" for="email">*Email :</label>
-                    <div class="col-lg-12">
-                        <input id="email" name="email" type="email" required="" placeholder="Email" class="form-control input-md" value="{% if post.email is defined %}{{ post.email }}{% endif %}">
-                        {% if errors.email is defined %}
-                            <p class="errors">{{ errors.email }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-lg-12 control-label" for="message">*Message :</label>
-                    <div class="col-lg-12">
-                        <textarea name="message" rows=10 cols=420 required=""> {% if post.message is defined %}{{ post.message }}{% endif %} </textarea>
-                        {% if errors.message is defined %}
-                            <p class="errors">{{ errors.message }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <!-- Button -->
-                <div class="form-group">
-                    <label class="col-lg-12 control-label" for="envoyer"></label>
-                    <div class="col-lg-12">
-                        <button id="submit" type="submit" name="submit" class="btn btn-primary">ENVOYER</button>
-                    </div>
-                </div>
-
-            </fieldset>
-        </form>
-
     </div>
+  </header>
+
+  <div class="container">
+    <form action="index.php?section=contact" method="post" class="form-horizontal">
+      <fieldset>
+
+        <!-- Form Name -->
+        <div align="center" class="title-contact">
+          <h3>Nous contacter</h3>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="fn">*Nom :</label>
+          <div class="col-lg-12">
+            <input id="fn" name="fn" type="text" placeholder="Nom" type="text" required="" class="form-control input-md" value="{% if post.fn is defined %}{{ post.fn }}{% endif %}">
+
+              {% if errors.fn is defined %}
+                <p class="errors">{{ errors.fn }}</p>
+              {% endif %}
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="ln">*Prénom :</label>
+          <div class="col-lg-12">
+            <input id="ln" name="ln" type="text" placeholder="Prenom" type="text" required="" class="form-control input-md" value="{% if post.ln is defined %}{{ post.ln }}{% endif %}">
+              {% if errors.ln is defined %}
+                <p class="errors">{{ errors.ln }}</p>
+              {% endif %}
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="phone">*Téléphone :</label>
+          <div class="col-lg-12">
+            <input id="phone" name="phone" type="text" type="tel" minlength=10 maxlength=10 placeholder="Telephone" class="form-control input-md" value="{% if post.phone is defined %}{{ phone.fn }}{% endif %}">
+              {% if errors.phone is defined %}
+                <p class="errors">{{ errors.phone }}</p>
+              {% endif %}
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="email">*Email :</label>
+          <div class="col-lg-12">
+            <input id="email" name="email" type="text" placeholder="Email" type="email" required="" class="form-control input-md" value="{% if post.email is defined %}{{ post.email }}{% endif %}">
+              {% if errors.email is defined %}
+                <p class="errors">{{ errors.email }}</p>
+              {% endif %}
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="message">*Message :</label>
+          <div class="col-lg-12">
+            <textarea name="message" rows=10 cols=420 required=""> {% if post.message is defined %}{{ post.message }}{% endif %} </textarea>
+              {% if errors.message is defined %}
+                <p class="errors">{{ errors.message }}</p>
+              {% endif %}
+          </div>
+        </div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-lg-12 control-label" for="envoyer"></label>
+  <div class="col-lg-12" align="center">
+    <button id="submit" name="submit" class="btn btn-envoi">Envoyer</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+  <section class="infos">
+    <div class="col-lg-12 titlecontact" align="center">
+      <h2>Où nous trouver</h2>
+    </div>
+    <div class="row-fluid">
+      <div class="col-lg-8 hidden-xs googlemap" align="center">
+        <iframe class="map"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.620984652678!2d2.40433451555134!3d48.865437408164695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d9b51bb7ce5%3A0x26c2589249081fc0!2s22+Rue+Emile+Pierre+Casel%2C+75020+Paris!5e0!3m2!1sfr!2sfr!4v1511439693698" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+
+      <div class="col-lg-4 address">
+        <h3>Volup'T</h3>
+
+        <p>
+          22 rue Pierre Emile Casel<br>
+          75020 Paris<br>
+          Tel : 01 23 45 67 89<br>
+          Ouvert du Lundi au Samedi de 10h à 19h.
+        </p>
+        <p class="contactLien"><a class="btn btn-lg btncontact" href="index.php?section=contact">CONTACT</a></p>
+      </div>
+    </div>
+  </section>
+
+</div>
 
 
 {% endblock %}
