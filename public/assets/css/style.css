@@ -22,12 +22,12 @@
 ==================================================
 \************************************************/
 body {
-
+    /*margin-top: 0px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 100px;*/
 }
 
-.container {
-
-}
 
 img {
   max-height:100%;
@@ -278,7 +278,14 @@ h5{
 ==================================================
 4. PAGE CONCEPT
 ==================================================
+css Diana
+
+.imgconc {
+    width: 630px;
+    height: 350px;
+}
 \************************************************/
+
 
 .business-header-concept{
     margin-top:px;
@@ -362,6 +369,11 @@ h5{
 ==================================================
 5. PAGE SHOP
 ==================================================
+CSS DIANA
+.imgshop {
+    width: 700px;
+    height: 350px;
+}
 \************************************************/
 .business-header-shop {
     margin-top:px;
@@ -521,6 +533,7 @@ textarea {
 
 .errors {
     color: #ca0000;
+    font-size: 1.1em;
 }
 
 /********************INFOS***********************/
@@ -735,6 +748,9 @@ footer {
     -o-transition-duration: 0.5s;
 }
 
+.fa-3x {
+    color: white;
+}
 /*
     Multicoloured Hover Variations
 */
@@ -755,6 +771,14 @@ footer {
 .containerFooter {
     display: block;
     text-align: center
+}
+
+.mentionslegales>ul>p {
+    text-decoration: underline;
+}
+
+.mentionslegales>ul>li {
+    list-style-type: none;
 }
 
 
