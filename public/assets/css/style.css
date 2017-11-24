@@ -22,21 +22,73 @@
 ==================================================
 \************************************************/
 body {
-  /*margin-top: 0px;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 100px;*/
-  font-family: 'Raleway';
+
 }
 
-h1 h2 {
-  font-family: 'Sacramento' !important;
-  text-align: center !important;
+.container {
+
 }
 
 img {
   max-height:100%;
   max-width:100%;
+}
+
+a {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    background: none !important;
+}
+
+p{
+    font-family: 'Raleway';
+}
+h1, h2, h3, h4, h5 {
+    font-family:'Satisfy';
+    text-align:center;
+}
+
+h1 {
+    font-family: 'Satisfy' !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    font-size: 100px;
+    color:black;
+    text-shadow: 3px 3px 9px white;
+    padding-top: 75px;
+
+}
+h1:first-letter {
+    color : #ca0000;
+}
+
+h2 {
+    font-size: 3em!important;
+    text-align:center;
+    text-shadow: 3px 3px 9px grey;
+}
+
+h3 {
+    font-size: 2em!important;
+    color: black;
+    text-shadow: 3px 3px 9px grey;
+}
+
+h4 {
+    font-size: 1.2em!important;
+    color: #fff;
+    text-shadow: 3px 3px 9px grey;
+}
+
+h4:first-letter {
+    color : #ca0000;
+}
+
+h5{
+    font-size: 20px;
 }
 
 /************************************************\
@@ -45,7 +97,7 @@ img {
 ==================================================
 \************************************************/
 #menu {
-  background:black;
+  background:#8bc8aa;
   margin-bottom:0;
   border:none;
   font-size: 2em !important;
@@ -65,42 +117,61 @@ img {
   -o-transition:all 0.4s;
   transition:all 0.4s;
 }
-.nav>li>a>img {
-  width:50%;
+
+.navbar-header {
+    margin-top: 0 !important;
+    position: absolute;
+}
+.anav {
+    font-family: 'Satisfy';
+    text-shadow: 3px 3px 9px grey;
 }
 
-header a {
-  text-decoration: none !important;
-  color: white !important;
-  font-family: 'Raleway';
-  font-weight:bold;
+.anav:hover {
+    border-radius: 5% !important;
+    background: #ca0000 !important;
+    color: #fff !important;
+    transition: all 0.3s ease-in 0s;
 }
 
-header a:hover {
-  color: red !important;
-  background-color: white !important;
-  border-radius: 3px;
-
+#navbar {
+    margin-top: 0px;
 }
 
+
+
+/************************************************\
+@media-queries NAVBAR/HEADER
+\************************************************/
 @media (min-width:768px) {
-  .navbar-navi {
-    display: flex !important;
-    width:100%;
-    text-align: center !important;
-    justify-content: space-around !important;
-    align-items: center !important;
+    .navbar-navi {
+        display: flex !important;
+        width: 100%;
+        text-align: center !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+
     }
-  .navbar-nav>li {
-    display:inline-block !important;
-    float:none;
-    }
-    
-  .navbar-right {
-    margin-right: 0;
+
+    .navbar-nav > li {
+        display: inline-block !important;
+        float: none;
     }
 }
+@media (max-width:768px) {
+    header a {
+        text-decoration: none !important;
+        color: #ca0000 !important;
+        font-family: 'Satisfy'!important;
+        font-weight:bold;
+        font-size: 15px;
+    }
+    .navbar-navi {
+        padding-top: 20px;
+        margin-left: 30px;
 
+    }
+}
 
 
 /************************************************\
@@ -109,39 +180,135 @@ header a:hover {
 ==================================================
 \************************************************/
 
-/********************SLIDER**********************/
+/********************HEADER**********************/
 
-.carousel-item {
-  height: 65vh;
-  min-height: 300px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  margin-top: 0px;
+.business-header {
+    margin-top:76px;
+    height: 50vh;
+    min-height: 500px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-Teas-for-Your-Health-RM-1440x810.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
-.card {
-  height: 100%;
+@media (max-width:768px) {
+    .business-header {
+        margin-top:0px;
+        height: 50vh;
+        min-height: 300px;
+        background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-Teas-for-Your-Health-RM-1440x810.jpg') center center no-repeat scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
 }
-
-.carousel-item {
-  height: 95vh;
-  min-height: 300px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 
 /********************CONCEPT*********************/
 
-.concept {
+.titleconcept{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.titleconcept h2 {
+    margin-top: 0px;
+}
+
+.img-fluid {
+    border-radius: 2%;
+    box-shadow: 8px 8px 12px #aaa;
+    max-width: 100%;
+    height: auto;
+}
 
 
+/********************MIX*************************/
+
+.top10 {
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.titletop h2{
+    margin-top: 0px;
+}
+
+.card {
+    height: 80%;
+    border-radius: 2% !important;
+    box-shadow: 8px 8px 12px #aaa;
+    margin-top:0px;
+}
+
+.card-img-top {
+    border-radius: 2% !important;
+}
+
+.card-text {
+    padding: 5px 5px;
+}
+
+.btn-shop {
+    background-color: #ca0000;
+    border-color:#ca0000;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-shop:hover {
+    background-color: #333!important;
+    border-color:#333 !important;
+    transition: all 0.3s ease-in 0s;
+}
+
+/******************PARALLAXE*************************/
+
+#slide1 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-and-Worst-Drinks-for-Type-2-Diabetes-07-1440x810.jpg') center 0 no-repeat fixed;
+}
+
+/************************************************\
+==================================================
+4. PAGE CONCEPT
+==================================================
+\************************************************/
+
+.business-header-concept{
+    margin-top:px;
+    height: 50vh;
+    min-height: 500px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Can-Drinking-Tea-Prevent-Type-2-Diabetes-1440x810.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@media (max-width:768px) {
+    .business-header-concept {
+        height: 50vh;
+        min-height: 300px;
+        background: url('https://images.agoramedia.com/everydayhealth/gcms/Can-Drinking-Tea-Prevent-Type-2-Diabetes-1440x810.jpg') center center no-repeat scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+}
+
+.imgconc {
+    width: 630px;
+    height: 350px;
+}
+
+.conceptpage {
   border: 1px !important;
   padding: 30px 15px !important;
   margin-top: 15px;
@@ -150,57 +317,115 @@ header a:hover {
 
 }
 
-.concept h1 {
-  font-family: 'Sacramento' !important;
+.conceptpage h2 {
   text-align: center !important;
 }
 
-.concept p {
+.conceptpage p {
   text-align: center;
 }
 
-.btnconcept {
-  margin-top: 20px;
+.btn-concept-page {
+    background-color: #ca0000;
+    border-color:#ca0000;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.btnconcept a {
-  text-decoration: none !important;
-  text-transform: uppercase;
-  color : white !important;
-
+.btn-concept-page:hover{
+    background-color: #333!important;
+    border-color:#333 !important;
+    transition: all 0.3s ease-in 0s;
 }
 
-.btn1{
-  background-color: red;
-  border-radius: 3px;
-  padding: 15px;
+/******************PARALLAXE*************************/
+
+#slide2 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/The-8-Best-Natural-Ingredients-for-Your-Skin-08-1440x810.jpg') center 0 no-repeat fixed;
 }
 
-/********************MIX*************************/
-
-
-/********************INFOS***********************/
-
-
-/************************************************\
-==================================================
-4. PAGE CONCEPT
-==================================================
-\************************************************/
-.imgconc {
-    width: 630px;
-    height: 350px;
+#slide3 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-and-Worst-Drinks-for-Crohns-Disease-09-1440x810.jpg') center 0 no-repeat fixed;
 }
-/*blalalala = blablablalaaaaa*/
 
+#slide4 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-and-Worst-Drinks-for-Type-2-Diabetes-07-1440x810.jpg') center 0 no-repeat fixed;
+}
 /************************************************\
 ==================================================
 5. PAGE SHOP
 ==================================================
 \************************************************/
-.imgshop {
-    width: 700px;
-    height: 350px;
+.business-header-shop {
+    margin-top:px;
+    height: 50vh;
+    min-height: 500px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/cs-psoriatic-arthritis-ease-inflammation-tea-1440x810.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@media (max-width:768px) {
+    .business-header-shop {
+        height: 50vh;
+        min-height: 300px;
+        background: url('https://images.agoramedia.com/everydayhealth/gcms/cs-psoriatic-arthritis-ease-inflammation-tea-1440x810.jpg') center center no-repeat scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+}
+
+.btn-panier {
+    background-color: #8bc8aa;
+    border-color:#8bc8aa;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-panier:hover {
+    background-color: #333!important;
+    border-color:#333 !important;
+    transition: all 0.3s ease-in 0s;
+}
+
+.btn-produitplus {
+    background-color: #ca0000;
+    border-color:#ca0000;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-produitplus:hover {
+    background-color: #333!important;
+    border-color:#333 !important;
+    transition: all 0.3s ease-in 0s;
+}
+
+/******************PARALLAXE*************************/
+
+#slide5 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/The-8-Best-Natural-Ingredients-for-Your-Skin-08-1440x810.jpg') center 0 no-repeat fixed;
+}
+
+#slide6 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-and-Worst-Drinks-for-Crohns-Disease-09-1440x810.jpg') center 0 no-repeat fixed;
 }
 
 /************************************************\
@@ -209,14 +434,39 @@ header a:hover {
 ==================================================
 \************************************************/
 
+.business-header-contact {
+    margin-top:px;
+    height: 50vh;
+    min-height: 500px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Eat-to-Beat-Inflammation-02-1440x810.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@media (max-width:768px) {
+    .business-header-contact {
+        height: 50vh;
+        min-height: 300px;
+        background: url('https://images.agoramedia.com/everydayhealth/gcms/Eat-to-Beat-Inflammation-02-1440x810.jpg') center center no-repeat scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+}
+
 form {
     /* Pour le centrer dans la page */
     margin: 0 auto;
     width: 700px;
     /* Pour voir les limites du formulaire */
     padding: 1em;
-    border: 1px solid #CCC;
+    border: 1px solid #333;
     border-radius: 1em;
+    background-color: #fff;
+    box-shadow: 8px 8px 12px #aaa;
 }
 div{
     margin-top: 2em;
@@ -251,21 +501,57 @@ textarea {
     Cela ne marche pas avec tous les navigateurs  */
     resize: vertical;
 }
-.button {
-    /* Pour positionner les boutons de la même manière que les champs textuels */
-    padding-left: 100px; /* même dimension que les étiquettes */
+
+
+.btn-envoi {
+    background-color: #8bc8aa;
+    border-color:#8bc8aa;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
 }
-button {
-    /* Cette marge représente approximativement le même espace
-    que celui entre les étiquettes et les champs textuels */
-    margin-left: .5em;
-    float: right;
+
+.btn-envoi:hover {
+    background-color: #333!important;
+    border-color:#333 !important;
+    transition: all 0.3s ease-in 0s;
+    color: #fff;
 }
+
 .errors {
-    color: red;
+    color: #ca0000;
+}
+
+/********************INFOS***********************/
+
+
+.infos {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 
+.titlecontact h2{
+    margin-top:30px;
+    margin-bottom:5px;
+}
+
+.infos h3{
+    padding-bottom: 20px;
+    padding-top:15px;
+}
+
+.address p {
+    font-family: 'Raleway';
+    font-size: 12px;
+    text-align: center;
+}
+
+.map {
+    border-radius: 2% !important;
+    box-shadow: 8px 8px 12px #aaa;
+}
 
 
 
@@ -430,7 +716,7 @@ button {
 \************************************************/
 footer {
   margin-top: 20px;
-  background-color: black !important;
+  background-color: #8bc8aa!important;
 }
 
 .social:hover {
