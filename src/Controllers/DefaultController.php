@@ -97,7 +97,7 @@ class DefaultController extends Controller
         $mailer = new \Swift_Mailer($transport);
 
         // Create a message
-        $message = (new \Swift_Message('Wonderful Subject'))
+        $message = (new \Swift_Message('Voici le message de votre client'))
             ->setFrom([$infoForm['email'] => $infoForm['fn']])
             ->setTo(['contact.volupt@gmail.com' => 'Team Volupt'])
             ->setBody($infoForm['message']." ".$infoForm['email']);
