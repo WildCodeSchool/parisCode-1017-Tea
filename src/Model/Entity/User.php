@@ -1,10 +1,10 @@
 <?php
 
-namespace MyApp\Model\Entity;
+namespace Tea\Model\Entity;
 
 /**
  * Class User
- * @package MyApp\Model\Entity
+ * @package Tea\Model\Entity
  */
 class User
 {

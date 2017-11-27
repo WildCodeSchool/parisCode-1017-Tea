@@ -1,15 +1,135 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My APP</title>
+
+    <link rel="icon" type="image/png" href="https://s-media-cache-ak0.pinimg.com/originals/0e/54/6b/0e546b2fe8980de9a753d517a5323508.png" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Sacramento|Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+
+    <link href="../public/assets/css/style.css" rel="stylesheet">
+    
 </head>
 <body>
+
+    <!-- Navigation -->
+    <div id="menu" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header fixed-left visible-xs">
+            <button type="button" class="navbar-toggle burger" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand hidden-xs hidden-md" href="index.php?section=home"><img src="../public/assets/img/Volup't.png"></a>
+        </div><!-- navbar-header -->
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-navi navbar-left">
+                <li class="anav"><a href="index.php?section=home">Home</a></li>
+                <li class="anav"><a href="index.php?section=concept">Concept</a></li>
+                <li class="hidden-xs">
+                    <a href="index.php?section=home" class="logo">
+                        <h4>Volup't</h4>
+                    </a>
+                </li>
+                <li class="anav"><a href="index.php?section=shop">Shop</a></li>
+                <li class="anav"><a href="index.php?section=contact">Contact</a></li>
+
+                <!--fix for scroll spy active menu element-->
+                <li style="display:none;"><a href="#header"></a></li>
+
+            </ul>
+        </div><!--/.navbar-collapse -->
+    </div><!-- container -->
+</div><!-- menu -->
+
+
+                        <!-- <a href="index.php?section=homeAdmin" class="btn btn-success btn-block">Login</a></li> -->
+
     {% block body %}
 
+
+
+
     {% endblock %}
-</body>
+    <!-- Footer -->
+    <footer class="py-1">
+        <div class="container containerFooter">
+            <a href=""><i class="fa fa-facebook-square fa-3x social"></i></a>
+            <a href=""><i class="fa fa-twitter-square fa-3x social"></i></a>
+            <a href=""><i class="fa fa-google-plus-square fa-3x social"></i></a>
+            <p class="nav-item text-white" data-toggle="modal" data-target="#exampleModal3" title="Mentions Légales">
+                - Volup'T.com - <u>Copyright © 2017</u> -
+            </p>
+        </div>
+    </footer>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Mentions légales</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body mentionslegales">
+                    <ul>
+                        <p>Éditeur :</p>
+                        <li>Volup'T</li>
+                        <li>Siège social : 11, rue de Poissy 75005 PARIS</li>
+                        <li>Directrice de la publication : Plopinette de Plop</li>
+                        <li>SAS au capital social de 1 000 000 €</li>
+                        <li>Immatriculée au RCS de Paris sous le numéro 123 456 789</li>
+                    </ul>
+                    <ul>
+                        <p>Hébergement :</p>
+                        <li>SAS OVH – http://www.ovh.com</li>
+                        <li>2 rue Kellermann</li>
+                        <li>BP 80157</li>
+                        <li>59100 Roubaix</li>
+                    </ul>
+                    <ul>
+                        <p>Responsabilités :</p>
+                        <li>...</li>
+                    </ul>
+                    <ul>
+                        <p>Propriété intellectuelle :</p>
+                        <li>...</li>
+                    </ul>
+                    <ul>
+                        <p>Numéro CNIL :</p>
+                        <li>...</li>
+                    </ul>
+                    <ul>
+                        <p>Règles de confidentialité :</p>
+                        <li>...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../vendor/components/jquery/jquery.js"></script>
+    <script src="../vendor/twitter/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+
+
+  </body>
+
 </html>
