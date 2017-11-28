@@ -2,7 +2,7 @@
 
 namespace Tea\Controllers;
 
-use Tea\Model\Repository\UserManager;
+//use Tea\Model\Repository\UserManager;
 
 /**
  * Class DefaultController
@@ -15,26 +15,24 @@ class DefaultController extends Controller
 	 */
 	public function indexAction(){
 
-
-		return $this->twig->render('user/home.html.twig'
-		);
+		return $this->twig->render('user/home.html.twig');
 	}
 
 	/**
 	 * @return string
 	 */
-//	public function showOneAction(){
-//		$id = $_GET['id'];
-//
-//		if (is_numeric($id)){
-//			$userManager = new UserManager();
-//			$user = $userManager->getOne($id);
-//
-//			return $this->twig->render('user/showOne.html.twig', array(
-//				'user' => $user
-//			));
-//		}
-//	}
+	public function showOneAction(){
+		$id = $_GET['id'];
+
+		if (is_numeric($id)){
+			$userManager = new UserManager();
+			$user = $userManager->getOne($id);
+
+			return $this->twig->render('user/showOne.html.twig', array(
+				'user' => $user
+			));
+		}
+	}
 
     public function homeAction(){
         return $this->twig->render('user/home.html.twig');

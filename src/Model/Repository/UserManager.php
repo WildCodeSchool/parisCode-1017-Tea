@@ -3,7 +3,7 @@
 namespace Tea\Model\Repository;
 
 use PDO;
-use MyApp\Model\Entity\User;
+use Tea\Model\Entity\User;
 
 /**
  * Class UserManager

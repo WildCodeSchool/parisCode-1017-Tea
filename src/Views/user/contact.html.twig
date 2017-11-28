@@ -18,9 +18,9 @@
 
         <!-- Text input-->
         <div class="form-group">
-          <label class="col-lg-12 control-label" for="fn">*Nom :</label>
+          <label class="col-lg-12 control-label" for="fn">* Nom :</label>
           <div class="col-lg-12">
-            <input id="fn" name="fn" type="text" placeholder="Nom" type="text" required="" class="form-control input-md" value="{% if post.fn is defined %}{{ post.fn }}{% endif %}">
+            <input id="fn" name="fn" type="text" placeholder="Nom" type="text" class="form-control input-md" value="{% if post.fn is defined %}{{ post.fn }}{% endif %}">
 
               {% if errors.fn is defined %}
                 <p class="errors">{{ errors.fn }}</p>
@@ -30,9 +30,9 @@
 
         <!-- Text input-->
         <div class="form-group">
-          <label class="col-lg-12 control-label" for="ln">*Prénom :</label>
+          <label class="col-lg-12 control-label" for="ln">* Prénom :</label>
           <div class="col-lg-12">
-            <input id="ln" name="ln" type="text" placeholder="Prenom" type="text" required="" class="form-control input-md" value="{% if post.ln is defined %}{{ post.ln }}{% endif %}">
+            <input id="ln" name="ln" type="text" placeholder="Prenom" type="text" class="form-control input-md" value="{% if post.ln is defined %}{{ post.ln }}{% endif %}">
               {% if errors.ln is defined %}
                 <p class="errors">{{ errors.ln }}</p>
               {% endif %}
@@ -41,7 +41,7 @@
 
         <!-- Text input-->
         <div class="form-group">
-          <label class="col-lg-12 control-label" for="phone">*Téléphone :</label>
+          <label class="col-lg-12 control-label" for="phone">* Téléphone :</label>
           <div class="col-lg-12">
             <input id="phone" name="phone" type="text" type="tel" minlength=10 maxlength=10 placeholder="Telephone" class="form-control input-md" value="{% if post.phone is defined %}{{ phone.fn }}{% endif %}">
               {% if errors.phone is defined %}
@@ -52,9 +52,9 @@
 
         <!-- Text input-->
         <div class="form-group">
-          <label class="col-lg-12 control-label" for="email">*Email :</label>
+          <label class="col-lg-12 control-label" for="email">* Email :</label>
           <div class="col-lg-12">
-            <input id="email" name="email" type="text" placeholder="Email" type="email" required="" class="form-control input-md" value="{% if post.email is defined %}{{ post.email }}{% endif %}">
+            <input id="email" name="email" type="text" placeholder="Email" type="email"  class="form-control input-md" value="{% if post.email is defined %}{{ post.email }}{% endif %}">
               {% if errors.email is defined %}
                 <p class="errors">{{ errors.email }}</p>
               {% endif %}
@@ -63,7 +63,7 @@
 
         <!-- Text input-->
         <div class="form-group">
-          <label class="col-lg-12 control-label" for="message">*Message :</label>
+          <label class="col-lg-12 control-label" for="message">* Message :</label>
           <div class="col-lg-12">
             <textarea name="message" rows=10 cols=420 required=""> {% if post.message is defined %}{{ post.message }}{% endif %} </textarea>
               {% if errors.message is defined %}
