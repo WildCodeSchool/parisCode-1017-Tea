@@ -1,13 +1,7 @@
 <?php
 
 namespace Tea\Controllers;
-
-use Tea\Model\ModelManager;
-use Tea\Services\GoogleServices;
-use GuzzleHttp\Client;
-use Swift_SmtpTransport;
-use Swift_Mailer;
-use Swift_Message;
+use Tea\Model\Repository\UserManager;
 
 /**
  * Class AdminController
@@ -17,43 +11,42 @@ class AdminController extends Controller
 {
     /**
      * function 'loginAdminAction'
-     * Get SQLfunction 'getAllCitations' then go to 'admin/loginAdmin.html.twig' page
+     * Get SQLfunction 'getAllCitations' then go to 'admin/adminLogin.html.twig' page
      * @return string
      */
-    public function loginAdminAction(){
-        return $this->twig->render('admin/loginAdmin.html.twig');
+    public function adminLoginAction(){
+        return $this->twig->render('admin/adminLogin.html.twig');
     }
 
     /**
      * function 'homeAdminAction'
-     * Get SQLfunction 'getAllCitations' then go to 'admin/homeAdmin.html.twig' page
+     * Get SQLfunction 'getAllCitations' then go to 'admin/adminHome.html.twig' page
      * @return string
      */
-    public function homeAdminAction(){
-        return $this->twig->render('admin/homeAdmin.html.twig');
+    public function adminHomeAction(){
+        return $this->twig->render('admin/adminHome.html.twig');
     }
-
 
     /**
      * function 'tablesAdminAction'
-     * Get SQLfunction 'getAllCitations' then go to 'admin/tablesAdmin.html.twig.twig' page
+     * Get SQLfunction 'getAllCitations' then go to 'admin/adminTables.html.twig.twig' page
      * @return string
      */
-    public function tablesAdminAction(){
-        $manager = new ModelManager();
-        $all = $manager->getallCitations();
-        return $this->twig->render('/admin/tablesAdmin.html.twig', array(
-            'alls' => $all
+    public function adminTablesAction(){
+        $manager = new UserManager();
+        $users = $manager->getAll();
+        return $this->twig->render('admin/adminTables.html.twig', array(
+            'users' => $users
         ));
     }
 
     /**
      * function 'formsAdminAction'
-     * Get SQLfunction 'getAllCitations' then go to 'admin/formsAdmin.html.twig.twig' page
+     * Get SQLfunction 'getAllCitations' then go to 'admin/adminForms.html.twig.twig' page
      * @return string
      */
-    public function formsAdminAction(){
-        return $this->twig->render('/admin/formsAdmin.html.twig');
+    public function adminFormsAction(){
+        return $this->twig->render('admin/adminForms.html.twig');
     }
 
 }

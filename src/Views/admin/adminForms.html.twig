@@ -1,4 +1,4 @@
-{% extends 'admin/layoutAdmin.html.twig' %}
+{% extends 'admin/adminLayout.html.twig' %}
 
 {% block body %}
 
@@ -7,10 +7,13 @@
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="" class="text-dark">Dashboard</a>
+                    <i class="fa fa-fw fa-dashboard"></i>
+                    <a href="index.php?section=admin&page=home" class="text-dark">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Admin</li>
-                <li class="breadcrumb-item active">Forms</li>
+                <li class="breadcrumb-item active">
+                    <a href="index.php?section=admin&page=forms" class="text-dark">Forms</a>
+                </li>
+                <li class="breadcrumb-item active">Form name</li>
             </ol>
 
         <div class="row">

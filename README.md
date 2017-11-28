@@ -1,4 +1,9 @@
-Write your Readme
+Required
 
-Install composer: https://getcomposer.org/download/
-Clone project and run *composer install* to install all project depedency
+1. Composer 
+    Install composer: https://getcomposer.org/download/
+    Clone project and run *composer install* to install all project dependency
+    
+2. Add app/config.php to connect to database
+
+3. 

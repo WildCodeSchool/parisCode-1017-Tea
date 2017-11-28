@@ -1,0 +1,96 @@
+{% extends 'admin/adminLayout.html.twig' %}
+
+{% block body %}
+
+    <div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <i class="fa fa-fw fa-dashboard"></i>
+                <a href="index.php?section=admin&page=home" class="text-dark">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <a href="index.php?section=admin&page=tables" class="text-dark">Tables</a>
+            </li>
+            <li class="breadcrumb-item active">Table name</li>
+        </ol>
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col mt-1">
+                        <i class="fa fa-table "></i> Users
+                    </div>
+                    <div class="col text-right">
+                        <a class="btn btn-success btn-custom" href="index.php?section=admin&page=forms"><i class="fa fa-plus-circle"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>More</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>User ID</th>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>More</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+
+                        {% for user in users %}
+                            <tr>
+                                <td>{{ user.idusers }}</td>
+                                <td>{{ user.firstname }}</td>
+                                <td>{{ user.lastname }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.phone }}</td>
+                                <td>
+                                    <a class="btn btn-info" href="index.php?section=admin&page=tables&table=users&action=add">
+                                        <i class="fa fa-search-plus"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-warning"
+                                       href="index.php?section=admin&page=tables&table=users&action=update&idusers={{ user.idusers }}">
+                                        <i class="fa fa-inverse fa-pencil-square-o"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger"
+                                       href="index.php?section=admin&page=tables&table=users&action=delete&idusers={{ user.idusers }}">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+
+{% endblock body %}

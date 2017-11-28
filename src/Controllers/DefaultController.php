@@ -20,22 +20,6 @@ class DefaultController extends Controller
 		);
 	}
 
-	/**
-	 * @return string
-	 */
-	public function showOneAction(){
-		$id = $_GET['id'];
-
-		if (is_numeric($id)){
-			$userManager = new UserManager();
-			$user = $userManager->getOne($id);
-
-			return $this->twig->render('user/showOne.html.twig', array(
-				'user' => $user
-			));
-		}
-	}
-
     public function homeAction(){
         return $this->twig->render('user/home.html.twig');
 
@@ -109,13 +93,7 @@ class DefaultController extends Controller
         return $this->twig->render('user/success_contact.html.twig');
     }
 
-
-
-
-
-
-
-    }
+}
 
 
 
