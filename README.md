@@ -6,4 +6,8 @@ Required
     
 2. Add app/config.php to connect to database
 
-3. 
+Users = all
+Categories = Samia
+Products = Jenny
+Images = Diana
+Contents = Helene

@@ -14,7 +14,7 @@ $userController = new UserController();
 /**
  * USER
  */
-    if (empty($_GET)){
+    if (empty($_GET) && empty($_POST)){
         $defaultController = new DefaultController();
         echo $defaultController->indexAction();
     } elseif($_GET['section']=='home'){
