@@ -33,11 +33,7 @@ class AdminController extends Controller
      * @return string
      */
     public function adminTablesAction(){
-        $manager = new UserManager();
-        $users = $manager->getAll();
-        return $this->twig->render('admin/adminTables.html.twig', array(
-            'users' => $users
-        ));
+        return $this->twig->render('admin/adminTables.html.twig');
     }
 
     /**

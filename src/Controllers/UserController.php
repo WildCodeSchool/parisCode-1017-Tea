@@ -8,12 +8,21 @@
 
 namespace Tea\Controllers;
 
-
 use Tea\Model\Repository\UserManager;
 
 class UserController extends Controller
 {
+    public function getAction(){
+        $manager = new UserManager();
+        $users = $manager->getAll();
+        return $this->twig->render('admin/tables/adminTablesUser.html.twig', array(
+            'users' => $users
+        ));
+    }
+
     public function addAction (){
+
+        return $this->twig->render('admin/forms/adminFormsUser.html.twig');
 
         $firstname = 'plop';
         $lastname = 'plopi';
@@ -35,12 +44,21 @@ class UserController extends Controller
         $manager = new UserManager();
         $manager->add($firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles);
 
-        header('Location: index.php?section=admin&page=tables');
+        header('Location: index.php?section=admin&page=tables&table=users&action=get');
     }
 
     public function updateAction (){
 
-        $idusers = 5;
+        $idusers = $_GET['idusers'];
+
+        $manager = new UserManager();
+        $users = $manager->getOne($idusers);
+        return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
+            'users' => $users,
+            'post' => $_POST
+        ));
+
+        $idusers = 3;
         $firstname = 'yo';
         $lastname = 'diana';
         $address = 'jenny';
@@ -61,16 +79,17 @@ class UserController extends Controller
         $manager = new UserManager();
         $manager->update($idusers, $firstname, $lastname, $address, $email, $phone, $login, $password);
 
-        header('Location: index.php?section=admin&page=tables');
+        header('Location: index.php?section=admin&page=tables&table=users&action=get');
     }
 
     public function deleteAction (){
-//        $idusers = $_GET['idusers'];
-        $idusers = 8;
+
+        $idusers = $_GET['idusers'];
+
         $manager = new UserManager();
         $manager->delete($idusers);
 
-        header('Location: index.php?section=admin&page=tables');
+        header('Location: index.php?section=admin&page=tables&table=users&action=get');
     }
 
 }

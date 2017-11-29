@@ -50,7 +50,9 @@ $userController = new UserController();
             /**
              * TABLE USERS
              */
-            elseif (($_GET['table'] === 'users') && ($_GET['action'] === 'add')) {
+            elseif (($_GET['table'] === 'users') && ($_GET['action'] === 'get')) {
+                echo $userController->getAction();
+            } elseif (($_GET['table'] === 'users') && ($_GET['action'] === 'add')) {
                 echo $userController->addAction();
             } elseif (($_GET['table'] === 'users') && ($_GET['action'] === 'update') && isset($_GET['idusers'])) {
                 echo $userController->updateAction();
@@ -60,7 +62,9 @@ $userController = new UserController();
             /**
              * TABLE PRODUCTS
              */
-            elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'add')) {
+            elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'get')) {
+                echo $userController->getAction();
+            } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'add')) {
                 echo $userController->addAction();
             } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'update') && isset($_GET['idproducts'])) {
                 echo $userController->updateAction();
@@ -70,7 +74,9 @@ $userController = new UserController();
             /**
              * TABLE CATEGORIES
              */
-            elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'add')) {
+            elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'get')) {
+                echo $userController->getAction();
+            } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'add')) {
                 echo $userController->addAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'update') && isset($_GET['idcategories'])) {
                 echo $userController->updateAction();
@@ -80,7 +86,9 @@ $userController = new UserController();
             /**
              * TABLE IMAGES
              */
-            elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'add')) {
+            elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'get')) {
+                echo $userController->getAction();
+            } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'add')) {
                 echo $userController->addAction();
             } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'update') && isset($_GET['idimages'])) {
                 echo $userController->updateAction();
@@ -90,7 +98,9 @@ $userController = new UserController();
             /**
              * TABLE CONTENTS
              */
-            elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'add')) {
+            elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'get')) {
+                echo $userController->getAction();
+            } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'add')) {
                 echo $userController->addAction();
             } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'update') && isset($_GET['idcontents'])) {
                 echo $userController->updateAction();
