@@ -2,7 +2,7 @@
 
 namespace Tea\Controllers;
 
-use Tea\Model\Repository\UserManager;
+//use Tea\Model\Repository\UserManager;
 
 /**
  * Class DefaultController
@@ -15,9 +15,7 @@ class DefaultController extends Controller
 	 */
 	public function indexAction(){
 
-
-		return $this->twig->render('user/home.html.twig'
-		);
+		return $this->twig->render('user/home.html.twig');
 	}
 
     public function homeAction(){
