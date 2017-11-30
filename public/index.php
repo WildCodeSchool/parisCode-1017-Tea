@@ -8,9 +8,13 @@ use Tea\Controllers\DefaultController;
 use Tea\Controllers\AdminController;
 use Tea\Controllers\UserController;
 use \Tea\Controllers\CategoryController;
+use Tea\Controllers\ContentController;
+use Tea\Controllers\RoleController;
 
 $adminController = new AdminController();
 $userController = new UserController();
+$contentController = new ContentController();
+$roleController = new RoleController();
 $categoryController = new CategoryController();
 
 /**
@@ -101,13 +105,13 @@ $categoryController = new CategoryController();
              * TABLE CONTENTS
              */
             elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $contentController->getAction();
             } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $contentController->addAction();
             } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'update') && isset($_GET['idcontents'])) {
-                echo $userController->updateAction();
+                echo $contentController->updateAction();
             } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'delete') && isset($_GET['idcontents'])) {
-                echo $userController->deleteAction();
+                echo $contentController->deleteAction();
             }
         }
 
@@ -162,10 +166,10 @@ $categoryController = new CategoryController();
          * FORM CONTENTS
          */
         elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $contentController->addAction();
         } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'update') && isset($_GET['idcontents'])) {
-            echo $userController->updateAction();
+            echo $contentController->updateAction();
         } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'delete') && isset($_GET['idcontents'])) {
-            echo $userController->deleteAction();
+            echo $contentController->deleteAction();
         }
     }
