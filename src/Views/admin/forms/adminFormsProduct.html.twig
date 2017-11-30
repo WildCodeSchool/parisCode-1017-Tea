@@ -13,12 +13,12 @@
                 <li class="breadcrumb-item active">
                     <a class="text-dark">Forms</a>
                 </li>
-                <li class="breadcrumb-item active">Users</li>
+                <li class="breadcrumb-item active">Products</li>
             </ol>
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Users</h1>
+                    <h1 class="page-header">Products</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -34,71 +34,61 @@
                             {% endif %}
                         </div>
                         <div class="panel-body">
-                            {% if users.idusers is defined %}
-                            <form role="form" action="index.php?section=admin&page=tables&table=users&action=update&idusers={{ users.idusers }}" method="post">
+                            {% if products.idproducts is defined %}
+                            <form role="form" action="index.php?section=admin&page=tables&table=products&action=update&idproducts={{ products.idproducts }}" enctype="multipart/form-data" method="post">
                             {% else %}
-                            <form role="form" action="index.php?section=admin&page=tables&table=users&action=add" method="post">
+                            <form role="form" action="index.php?section=admin&page=tables&table=products&action=add" enctype="multipart/form-data" method="post">
                              {% endif %}
                                 <div class="row">
+
                                     <div class="col-lg-6">
+
                                         <div class="form-group">
-                                            <label for="disabledSelect">Idusers</label>
-                                            <input class="form-control" id="disabledInput" type="text" placeholder="" value="{{ users.idusers }}" disabled>
+                                            <label for="disabledSelect">Idproducts</label>
+                                            <input class="form-control" id="disabledInput" type="text" placeholder="" value="{{ products.idproducts }}" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <label>Firstname</label>
-                                            <input class="form-control" placeholder="Enter firstname" name="firstname" value="{{ users.firstname }}">
+                                            <label>Name</label>
+                                            <input class="form-control" placeholder="Enter name of the product" name="name" value="{{ products.name }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Lastname</label>
-                                            <input class="form-control" placeholder="Enter lastname" name="lastname" value="{{ users.lastname }}">
+                                            <label>Description</label>
+                                            <input class="form-control" type="text" placeholder="Enter value here" name="description" value="{{ products.description }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Address</label>
-                                            <input class="form-control" placeholder="Enter address" name="address" value="{{ users.address }}">
+                                            <label>Quantity</label>
+                                            <input class="form-control" placeholder="Enter value here" name="quantity" value="{{ products.quantity }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Email</label>
-                                            <input class="form-control" placeholder="Enter email" name="email" value="{{ users.email }}">
+                                            <label>Price</label>
+                                            <input class="form-control" placeholder="Price" name="price" value="{{ products.price }}">
+                                        </div>
+                                        {#<div class="form-group">#}
+                                            {#<label for="images">Images</label>#}
+                                            {#<input type="file" name="images[]" multiple="multiple" id="images" value="{{ products.images_idimages }}">#}
+                                        {#</div>#}
+                                        <div class="form-group">
+                                            <label>Categorie</label>
+                                            <input class="form-control" placeholder="Categorie" name="categories_idcategories" value="{{ products.categories_idcategories }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Phone</label>
-                                            <input class="form-control" placeholder="Enter phone" name="phone" value="{{ users.phone }}">
+                                            <label>Images</label>
+                                            <input class="form-control" placeholder="Images" name="images_idimages" value="{{ products.images_idimages }}">
                                         </div>
+
                                     </div>
-                                    <!-- /.col-lg-6 (nested) -->
-                                    <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label>Login</label>
-                                                <input class="form-control" placeholder="Enter login" name="login" value="{{ users.login }}">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input class="form-control" placeholder="Enter password" name="password" value="{{ users.password }}">
-                                            </div>
-                                        <div class="form-group">
-                                            <label>Role</label>
-                                            <input class="form-control" placeholder="Enter role" name="roles_idroles" value="{{ users.roles_idroles }}">
-                                        </div>
-                                    </div>
-                                    <!-- /.col-lg-6 (nested) -->
-                                </div>
+                                 </div>
+
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
                                 </div>
-                                <!-- /.row (nested) -->
-                        <!-- /.panel-body -->
+                            </form>
+                        </div>
                     </div>
-                    <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
 
+        </div>
     </div>
-    </div>
-    <!-- /#wrapper -->
 
 {% endblock body %}

@@ -3,78 +3,79 @@
 namespace Tea\Model\Repository;
 
 use PDO;
-use Tea\Model\Entity\User;
+use Tea\Model\Entity\Product;
 
 /**
- * Class UserManager
+ * Class ProductManager
  * @package Tea\Repository
  */
-class UserManager extends EntityManager
+class ProductManager extends EntityManager
 {
 	/**
-	 * Get all user
+	 * Get all product
 	 * @return array
 	 */
 	public function getAll(){
-		$statement = $this->db->query('SELECT * FROM users');
-		return $statement->fetchAll(PDO::FETCH_CLASS, User::class);
+		$statement = $this->db->query('SELECT * FROM products');
+		return $statement->fetchAll(PDO::FETCH_CLASS, Product::class);
 	}
 
 	/**
-	 * Get one user
+	 * Get one product
 	 * @param $id int
 	 * @return mixed
 	 */
-	public function getOne($idusers){
-		$statement = $this->db->prepare("SELECT * FROM users WHERE idusers = :idusers");
+//SELECT * FROM products WHERE idproducts = :idproducts
+//        SELECT products.idproducts, categories.categoriesname, images.imagesalt
+//        FROM products
+//        INNER JOIN categories, images ON products.id_categories=categories.name, products.id_images=alt;
+
+	public function getOne($idproducts){
+		$statement = $this->db->prepare("SELECT products.idproducts, products.name, products.description, products.quantity, products.price, images.alt, categories.name FROM products INNER JOIN images ON products.images_idimages=images.alt INNER JOIN categories ON products.categories_idcategories=categories.name;");
 		$statement->execute([
-			':idusers' => $idusers
+			':idproducts' => $idproducts
 		]);
 		return $statement->fetch();
 	}
 
     /**
-     * Add one user
+     * Add one product
      */
-    public function add($firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles){
-        $statement = $this->db->prepare("INSERT INTO users (firstname, lastname, address, email, phone, login, password, roles_idroles) VALUES (:firstname, :lastname, :address, :email, :phone, :login, :password, :roles_idroles)");
+    public function add($name, $description, $quantity, $price, $images_idimages, $categories_idcategories){
+        $statement = $this->db->prepare("INSERT INTO products (name, description, quantity, price, images_idimages, categories_idcategories) VALUES (:name, :description, :quantity, :price, :images_idimages, :categories_idcategories)");
         $statement->execute([
-            ':firstname' => $firstname,
-            ':lastname' => $lastname,
-            ':address' => $address,
-            ':email' => $email,
-            ':phone' => $phone,
-            ':login' => $login,
-            ':password' => $password,
-            ':roles_idroles' => $roles_idroles
+            ':name' => $name,
+            ':description' => $description,
+            ':quantity' => $quantity,
+            ':price' => $price,
+            ':images_idimages' => $images_idimages,
+            ':categories_idcategories' => $categories_idcategories
         ]);
     }
 
 	/**
-	 * Update one user
+	 * Update one product
 	 */
-	public function update($idusers, $firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles){
-        $statement = $this->db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, address = :address, email = :email, phone = :phone, login = :login, password = :password, roles_idroles = :roles_idroles WHERE idusers = :idusers");
+	public function update($idproducts, $name, $description, $quantity, $price, $images_idimages, $categories_idcategories){
+        $statement = $this->db->prepare("UPDATE products SET name = :name, description = :description, quantity = :quantity, price = :price, images_idimages = :images_idimages, categories_idcategories = :categories_idcategories WHERE idproducts = :idproducts");
         $statement->execute([
-            ':idusers' => $idusers,
-            ':firstname' => $firstname,
-            ':lastname' => $lastname,
-            ':address' => $address,
-            ':email' => $email,
-            ':phone' => $phone,
-            ':login' => $login,
-            ':password' => $password,
-            ':roles_idroles' => $roles_idroles
+            ':idproducts' => $idproducts,
+            ':name' => $name,
+            ':description' => $description,
+            ':quantity' => $quantity,
+            ':price' => $price,
+            ':images_idimages' => $images_idimages,
+            ':categories_idcategories' => $categories_idcategories
         ]);
 	}
 
 	/**
-	 * Delete one user
+	 * Delete one product
 	 */
-	public function delete($idusers){
-        $statement = $this->db->prepare("DELETE FROM users WHERE idusers = :idusers");
+	public function delete($idproducts){
+        $statement = $this->db->prepare("DELETE FROM products WHERE idproducts = :idproducts");
         $statement->execute([
-            ':idusers' => $idusers
+            ':idproducts' => $idproducts
         ]);
 	}
 

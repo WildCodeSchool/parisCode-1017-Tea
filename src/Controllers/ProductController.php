@@ -1,96 +1,100 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: LN-T
- * Date: 28/11/2017
- * Time: 16:22
- */
-
 namespace Tea\Controllers;
 
-use Tea\Model\Repository\UserManager;
+use Tea\Model\Repository\ProductManager;
+use Tea\Model\Repository\CategoryManager;
+use Tea\Model\Repository\ImageManager;
 
-class UserController extends Controller
+class ProductController extends Controller
 {
     public function getAction(){
-        $manager = new UserManager();
-        $users = $manager->getAll();
-        return $this->twig->render('admin/tables/adminTablesUser.html.twig', array(
-            'users' => $users
-        ));
+        $manager = new ProductManager();
+        $products = $manager->getAll();
+        return $this->twig->render('admin/tables/adminTablesProduct.html.twig', array('products' => $products));
     }
 
     public function addAction (){
+        $manager = new CategoryManager();
+        $categories = $manager->getAll();
+        $manager = new ImageManager();
+        $images = $manager->getAll();
 
         if (empty($_POST)) {
-            return $this->twig->render('admin/forms/adminFormsUser.html.twig');
+            return $this->twig->render('admin/forms/adminFormsProduct.html.twig', array (
+                    'categories' => $categories,
+                    'images' => $images
+                ));
         } else {
             if (
-                empty($_POST['firstname']) ||
-                empty($_POST['lastname']) ||
-                empty($_POST['address']) ||
-                empty($_POST['email']) ||
-                empty($_POST['phone']) ||
-                empty($_POST['login']) ||
-                empty($_POST['password']) ||
-                empty($_POST['roles_idroles'])
+                empty($_POST['name']) ||
+                empty($_POST['description']) ||
+                empty($_POST['quantity']) ||
+                empty($_POST['price']) ||
+                empty($_POST['images_idimages']) ||
+                empty($_POST['categories_idcategories'])
             ) {
-                $error = "🔴 Please complete all required fields 🔴";
-                return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
+                $error = " 💩 Please complete all required fields ";
+                return $this->twig->render('admin/forms/adminFormsProduct.html.twig', array(
                     'errors' => $error,
-                    'users' => $_POST
+                    'products' => $_POST,
+                    'categories' => $categories,
+                    'images' => $images
                 ));
             } else {
-                $firstname = htmlspecialchars($_POST['firstname']);
-                $lastname = htmlspecialchars($_POST['lastname']);
-                $address = htmlspecialchars($_POST['address']);
-                $email = htmlspecialchars($_POST['email']);
-                $phone = htmlspecialchars($_POST['phone']);
-                $login = htmlspecialchars($_POST['login']);
-                $password = htmlspecialchars($_POST['password']);
-                $roles_idroles = htmlspecialchars($_POST['roles_idroles']);
+                $name = htmlspecialchars($_POST['name']);
+                $description = htmlspecialchars($_POST['description']);
+                $quantity = htmlspecialchars($_POST['quantity']);
+                $price = htmlspecialchars($_POST['price']);
+                $images_idimages = htmlspecialchars($_POST['images_idimages']);
+                $categories_idcategories = htmlspecialchars($_POST['categories_idcategories']);
 
-                // Appel du modele ==> execution de la requete d'enregistrement en base de donné (addCitation())
 
-                $manager = new UserManager();
+                // Appel du modele ==> execution de la requete d'enregistrement en base de donnée (addProducts())
+
+                $manager = new ProductManager();
                 $manager1 = $manager->getAll();
 
-                $manager->add($firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles);
+                $manager->add($name, $description, $quantity, $price, $images_idimages, $categories_idcategories);
 
                 // Redirection vers le Controllers frontal index.php
-                header('Location: index.php?section=admin&page=tables&table=users&action=get');
+                header('Location: index.php?section=admin&page=tables&table=products&action=get');
             }
         }
     }
 
     public function updateAction (){
 
-        $idusers = $_GET['idusers'];
+        $idproducts = $_GET['idproducts'];
+        $manager = new CategoryManager();
+        $categories = $manager->getAll();
+        $manager = new ImageManager();
+        $images = $manager->getAll();
 
-        if ((is_numeric($idusers))  ) {
+        if ((is_numeric($idproducts))  ) {
             if (!empty($_POST)){
-                $firstname = htmlspecialchars($_POST['firstname']);
-                $lastname = htmlspecialchars($_POST['lastname']);
-                $address = htmlspecialchars($_POST['address']);
-                $email = htmlspecialchars($_POST['email']);
-                $phone = htmlspecialchars($_POST['phone']);
-                $login = htmlspecialchars($_POST['login']);
-                $password = htmlspecialchars($_POST['password']);
-                $roles_idroles = htmlspecialchars($_POST['roles_idroles']);
-                // On les ajoute à la base de donnée grace à la fonction définit dans notre modèle (updateCitation())
+                $name = htmlspecialchars($_POST['name']);
+                $description = htmlspecialchars($_POST['description']);
+                $quantity = htmlspecialchars($_POST['quantity']);
+                $price = htmlspecialchars($_POST['price']);
+                $images_idimages = htmlspecialchars($_POST['images_idimages']);
+                $categories_idcategories = htmlspecialchars($_POST['categories_idcategories']);
 
-                $manager = new UserManager();
+                // On les ajoute à la base de donnée grace à la fonction définit dans notre modèle (updateProducts())
+
+                $manager = new ProductManager();
                 $manager1 = $manager->getAll();
-                $manager->update($idusers, $firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles);
+                $manager->update($idproducts, $name, $description, $quantity, $price, $images_idimages, $categories_idcategories);
 
                 // On redirige vers la page d'accueil
-                header('Location: index.php?section=admin&page=tables&table=users&action=get');
+                header('Location: index.php?section=admin&page=tables&table=products&action=get');
             } else {
-                $manager = new UserManager();
-                $users = $manager->getOne($idusers);
-                return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
-                    'users' => $users,
-                    'post' => $_POST
+                $manager = new ProductManager();
+                $products = $manager->getOne($idproducts);
+                return $this->twig->render('admin/forms/adminFormsProduct.html.twig', array(
+                    'products' => $products,
+                    'post' => $_POST,
+                    'categories' => $categories,
+                    'images' => $images
                 ));
             }
         } else {
@@ -100,12 +104,12 @@ class UserController extends Controller
 
     public function deleteAction (){
 
-        $idusers = $_GET['idusers'];
+        $idproducts = $_GET['idproducts'];
 
-        $manager = new UserManager();
-        $manager->delete($idusers);
+        $manager = new ProductManager();
+        $manager->delete($idproducts);
 
-        header('Location: index.php?section=admin&page=tables&table=users&action=get');
+        header('Location: index.php?section=admin&page=tables&table=products&action=get');
     }
 
 }

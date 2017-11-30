@@ -7,9 +7,11 @@ require_once '../app/config.php';
 use Tea\Controllers\DefaultController;
 use Tea\Controllers\AdminController;
 use Tea\Controllers\UserController;
+use Tea\Controllers\ProductController;
 
 $adminController = new AdminController();
 $userController = new UserController();
+$productController = new ProductController();
 
 /**
  * USER
@@ -63,13 +65,13 @@ $userController = new UserController();
              * TABLE PRODUCTS
              */
             elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $productController->getAction();
             } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $productController->addAction();
             } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'update') && isset($_GET['idproducts'])) {
-                echo $userController->updateAction();
+                echo $productController->updateAction();
             } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'delete') && isset($_GET['idproducts'])) {
-                echo $userController->deleteAction();
+                echo $productController->deleteAction();
             }
             /**
              * TABLE CATEGORIES
@@ -130,11 +132,11 @@ $userController = new UserController();
          * FORM PRODUCTS
          */
         elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $productController->addAction();
         } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'update') && isset($_GET['idproducts'])) {
-            echo $userController->updateAction();
+            echo $productController->updateAction();
         } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'delete') && isset($_GET['idproducts'])) {
-            echo $userController->deleteAction();
+            echo $productController->deleteAction();
         }
         /**
          * FORM CATEGORIES
