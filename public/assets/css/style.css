@@ -1,0 +1,806 @@
+/***********************************************\
+==================================================
+1. General
+2. Header __ Navbar //
+3. page Home (SLIDER - CONCEPT - MIX- INFOS)
+4. page Concept
+5. page shop
+6. page Contact
+6.1 page Success Contact
+7. page produit
+    (7.1 page resume_order)
+    (7.2 page success commande)
+8. Footer // 
+9. Buttons
+10.Page Registration Admin
+==================================================
+\************************************************/
+
+/************************************************\
+==================================================
+1. GENERAL
+==================================================
+\************************************************/
+body {
+    /*margin-top: 0px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 100px;*/
+}
+
+
+img {
+  max-height:100%;
+  max-width:100%;
+}
+
+a {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    background: none !important;
+}
+
+p{
+    font-family: 'Raleway';
+}
+h1, h2, h3, h4, h5 {
+    font-family:'Satisfy';
+    text-align:center;
+}
+
+h1 {
+    font-family: 'Satisfy' !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    font-size: 100px;
+    color:black;
+    text-shadow: 3px 3px 9px white;
+    padding-top: 75px;
+
+}
+h1:first-letter {
+    color : #ca0000;
+}
+
+h2 {
+    font-size: 3em!important;
+    text-align:center;
+    text-shadow: 3px 3px 9px grey;
+}
+
+h3 {
+    font-size: 2em!important;
+    color: black;
+    text-shadow: 3px 3px 9px grey;
+}
+
+h4 {
+    font-size: 1.2em!important;
+    color: #fff;
+    text-shadow: 3px 3px 9px grey;
+}
+
+h4:first-letter {
+    color : #ca0000;
+}
+
+h5{
+    font-size: 20px;
+}
+
+/************************************************\
+==================================================
+2. INCLUDE HEADER/NAVBAR
+==================================================
+\************************************************/
+#menu {
+  background:#8bc8aa;
+  margin-bottom:0;
+  border:none;
+  font-size: 2em !important;
+  margin-top: 0 !important;
+}
+.navbar-navi {
+  display: flex !important;
+}
+.navbar-brand {
+  padding-top:8px !important;
+  padding-bottom:0 !important;
+  margin-left:0 !important;
+}
+.navbar-inverse .navbar-nav>li>a {
+  -webkit-transition:all 0.4s;
+  -moz-transition:all 0.4s;
+  -o-transition:all 0.4s;
+  transition:all 0.4s;
+}
+
+.navbar-header {
+    margin-top: 0 !important;
+    position: absolute;
+}
+.anav {
+    font-family: 'Satisfy';
+    text-shadow: 3px 3px 9px grey;
+    border-radius: 5% !important;
+}
+
+/*.anav:hover {*/
+    /*background: #ca0000 !important;*/
+    /*border-radius: 5% !important;*/
+    /*color: #fff !important;*/
+    /*transition: all 0.3s ease-in 0s;*/
+/*}*/
+
+.anav:hover{animation:pulsation_bouton .8s ease-out 1 forwards}
+
+@keyframes pulsation_bouton {
+    from{box-shadow:0 0 0 -3px hsl(0, 0%, 100%),0 0 0 0 hsl(44,66%,57%)}
+    to{box-shadow:0 0 0 3px hsl(0,0%,100%),0 0 0 7px hsla(0,0%,100%,0)}
+}
+
+
+
+#navbar {
+    margin-top: 0px;
+}
+
+
+
+/************************************************\
+@media-queries NAVBAR/HEADER
+\************************************************/
+@media (min-width:768px) {
+    .navbar-navi {
+        display: flex !important;
+        width: 100%;
+        text-align: center !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+
+    }
+
+    .navbar-nav > li {
+        display: inline-block !important;
+        float: none;
+    }
+}
+@media (max-width:768px) {
+    header a {
+        text-decoration: none !important;
+        color: #ca0000 !important;
+        font-family: 'Satisfy'!important;
+        font-weight:bold;
+        font-size: 15px;
+    }
+    .navbar-navi {
+        padding-top: 20px;
+        margin-left: 30px;
+
+    }
+}
+
+
+/************************************************\
+==================================================
+3. PAGE HOME - SLIDER - CONCEPT - MIX- INFOS
+==================================================
+\************************************************/
+
+/********************HEADER**********************/
+
+.business-header {
+    margin-top:76px;
+    height: 50vh;
+    min-height: 500px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-Teas-for-Your-Health-RM-1440x810.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@media (max-width:768px) {
+    .business-header {
+        margin-top:0px;
+        height: 50vh;
+        min-height: 300px;
+        background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-Teas-for-Your-Health-RM-1440x810.jpg') center center no-repeat scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+}
+
+/********************CONCEPT*********************/
+
+.titleconcept{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.titleconcept h2 {
+    margin-top: 0px;
+}
+
+.img-fluid {
+    border-radius: 2%;
+    box-shadow: 8px 8px 12px #aaa;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/********************MIX*************************/
+
+.top10 {
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.titletop h2{
+    margin-top: 0px;
+}
+
+.card {
+    height: 80%;
+    border-radius: 2% !important;
+    box-shadow: 8px 8px 12px #aaa;
+    margin-top:0px;
+}
+
+.card-img-top {
+    border-radius: 2% !important;
+}
+
+.card-text {
+    padding: 5px 5px;
+}
+
+.btn-shop {
+    background-color: #ca0000;
+    border-color:#ca0000;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-shop:hover {
+    background-color: #333!important;
+    border-color:#333 !important;
+    transition: all 0.3s ease-in 0s;
+}
+
+/******************PARALLAXE*************************/
+
+#slide1 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-and-Worst-Drinks-for-Type-2-Diabetes-07-1440x810.jpg') center 0 no-repeat fixed;
+}
+
+/************************************************\
+==================================================
+4. PAGE CONCEPT
+==================================================
+css Diana
+
+.imgconc {
+    width: 630px;
+    height: 350px;
+}
+\************************************************/
+
+
+.business-header-concept{
+    margin-top:px;
+    height: 50vh;
+    min-height: 500px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Can-Drinking-Tea-Prevent-Type-2-Diabetes-1440x810.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@media (max-width:768px) {
+    .business-header-concept {
+        height: 50vh;
+        min-height: 300px;
+        background: url('https://images.agoramedia.com/everydayhealth/gcms/Can-Drinking-Tea-Prevent-Type-2-Diabetes-1440x810.jpg') center center no-repeat scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+}
+
+.imgconc {
+    width: 630px;
+    height: 350px;
+}
+
+.conceptpage {
+  border: 1px !important;
+  padding: 30px 15px !important;
+  margin-top: 15px;
+  margin-bottom: 15px;
+ /* width: 1233px;*/
+
+}
+
+.conceptpage h2 {
+  text-align: center !important;
+}
+
+.conceptpage p {
+  text-align: center;
+}
+
+.btn-concept-page {
+    background-color: #ca0000;
+    border-color:#ca0000;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-concept-page:hover{
+    background-color: #333!important;
+    border-color:#333 !important;
+    transition: all 0.3s ease-in 0s;
+}
+
+/******************PARALLAXE*************************/
+
+#slide2 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/The-8-Best-Natural-Ingredients-for-Your-Skin-08-1440x810.jpg') center 0 no-repeat fixed;
+}
+
+#slide3 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-and-Worst-Drinks-for-Crohns-Disease-09-1440x810.jpg') center 0 no-repeat fixed;
+}
+
+#slide4 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-and-Worst-Drinks-for-Type-2-Diabetes-07-1440x810.jpg') center 0 no-repeat fixed;
+}
+/************************************************\
+==================================================
+5. PAGE SHOP
+==================================================
+CSS DIANA
+.imgshop {
+    width: 700px;
+    height: 350px;
+}
+\************************************************/
+.business-header-shop {
+    margin-top:px;
+    height: 50vh;
+    min-height: 500px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/cs-psoriatic-arthritis-ease-inflammation-tea-1440x810.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@media (max-width:768px) {
+    .business-header-shop {
+        height: 50vh;
+        min-height: 300px;
+        background: url('https://images.agoramedia.com/everydayhealth/gcms/cs-psoriatic-arthritis-ease-inflammation-tea-1440x810.jpg') center center no-repeat scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+}
+
+.btn-panier {
+    background-color: #8bc8aa;
+    border-color:#8bc8aa;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-panier:hover {
+    background-color: #333!important;
+    border-color:#333 !important;
+    transition: all 0.3s ease-in 0s;
+}
+
+.btn-produitplus {
+    background-color: #ca0000;
+    border-color:#ca0000;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-produitplus:hover {
+    background-color: #333!important;
+    border-color:#333 !important;
+    transition: all 0.3s ease-in 0s;
+}
+
+/******************PARALLAXE*************************/
+
+#slide5 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/The-8-Best-Natural-Ingredients-for-Your-Skin-08-1440x810.jpg') center 0 no-repeat fixed;
+}
+
+#slide6 {
+    width:auto;
+    height:400px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Best-and-Worst-Drinks-for-Crohns-Disease-09-1440x810.jpg') center 0 no-repeat fixed;
+}
+
+/************************************************\
+==================================================
+6. PAGE CONTACT
+==================================================
+\************************************************/
+
+.business-header-contact {
+    margin-top:px;
+    height: 50vh;
+    min-height: 500px;
+    background: url('https://images.agoramedia.com/everydayhealth/gcms/Eat-to-Beat-Inflammation-02-1440x810.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@media (max-width:768px) {
+    .business-header-contact {
+        height: 50vh;
+        min-height: 300px;
+        background: url('https://images.agoramedia.com/everydayhealth/gcms/Eat-to-Beat-Inflammation-02-1440x810.jpg') center center no-repeat scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+}
+
+form {
+    /* Pour le centrer dans la page */
+    margin: 0 auto;
+    width: 700px;
+    /* Pour voir les limites du formulaire */
+    padding: 1em;
+    border: 1px solid #333;
+    border-radius: 1em;
+    background-color: #fff;
+    box-shadow: 8px 8px 12px #aaa;
+}
+div{
+    margin-top: 2em;
+}
+label {
+    /* Afin de s'assurer que toutes les étiquettes aient la même dimension et soient alignées correctement */
+    display: inline-block;
+    width: 100px;
+    text-align: left !important;
+}
+input, textarea {
+    /* Afin de s'assurer que tous les champs textuels utilisent la même police
+    Par défaut, textarea utilise une police à espacement constant */
+    font: 1em sans-serif;
+    /* Pour donner la même dimension à tous les champs textuels */
+    width: 678px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Pour harmoniser l'apparence des bordures des champs textuels */
+    border: 1px solid #999;
+}
+input:focus, textarea:focus {
+    /* Afin de réhausser les éléments actifs */
+    border-color: #000;
+}
+textarea {
+    /* Pour aligner correctement les champs multilignes et leurs étiquettes */
+    vertical-align: top;
+    /* Pour donner assez d'espace pour entrer du texte */
+    height: 10em;
+    /* Pour permettre aux utilisateurs de redimensionner un champ textuel horizontalement
+    Cela ne marche pas avec tous les navigateurs  */
+    resize: vertical;
+}
+
+
+.btn-envoi {
+    background-color: #8bc8aa;
+    border-color:#8bc8aa;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.btn-envoi:hover {
+    background-color: #333!important;
+    border-color:#333 !important;
+    transition: all 0.3s ease-in 0s;
+    color: #fff;
+}
+
+.errors {
+    color: #ca0000;
+    font-size: 1.1em;
+}
+
+/********************INFOS***********************/
+
+
+.infos {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+.titlecontact h2{
+    margin-top:30px;
+    margin-bottom:5px;
+}
+
+.infos h3{
+    padding-bottom: 20px;
+    padding-top:15px;
+}
+
+.address p {
+    font-family: 'Raleway';
+    font-size: 12px;
+    text-align: center;
+}
+
+.map {
+    border-radius: 2% !important;
+    box-shadow: 8px 8px 12px #aaa;
+}
+
+
+
+
+/************************************************\
+==================================================
+6.1 PAGE SUCCESS FORMULAIRE
+==================================================
+\************************************************/
+
+/************************************************\
+==================================================
+7. PAGE PRODUIT
+==================================================
+\************************************************/
+
+.gold{
+    color: #FFBF00;
+}
+
+/*********************************************
+                    PRODUCTS
+*********************************************/
+
+.product{
+    border: 1px solid #dddddd;
+    height: 321px;
+}
+
+.product>img{
+    max-width: 230px;
+}
+
+.product-rating{
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.product-title{
+    font-size: 20px;
+}
+
+.product-desc{
+    font-size: 14px;
+}
+
+.product-price{
+    font-size: 22px;
+}
+
+.product-stock{
+    color: #74DF00;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.product-info{
+        margin-top: 50px;
+}
+
+/*********************************************
+                    VIEW
+*********************************************/
+
+.content-wrapper {
+    max-width: 1140px;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.container-fluid{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.view-wrapper {
+    float: right;
+    max-width: 70%;
+    margin-top: 25px;
+}
+
+.container {
+    padding-left: 0px;
+    padding-right: 0px;
+    max-width: 100%;
+}
+
+/*********************************************
+                ITEM 
+*********************************************/
+
+.service1-items {
+    padding: 0px 0 0px 0;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    height: 321px;
+    width: 130px;
+}
+
+.service1-item {
+    height: 107px;
+    width: 120px;
+    display: block;
+    float: left;
+    position: relative;
+    padding-right: 20px;
+    border-right: 1px solid #DDD;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+}
+
+.service1-item > img {
+    max-height: 110px;
+    max-width: 110px;
+    opacity: 0.6;
+    transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+}
+
+.service1-item > img:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.service-image-left {
+    padding-right: 50px;
+}
+
+.service-image-right {
+    padding-left: 50px;
+}
+
+.service-image-left > center > img,.service-image-right > center > img{
+    max-height: 155px;
+}
+
+/************************************************\
+==================================================
+7.1 PAGE COMMANDE
+==================================================
+\************************************************/
+
+
+/************************************************\
+==================================================
+7.2. PAGE SUCCESS COMMANDE
+==================================================
+\************************************************/
+
+/************************************************\
+==================================================
+9. FOOTER//
+==================================================
+\************************************************/
+footer {
+  margin-top: 30px;
+  background-color: #8bc8aa!important;
+}
+
+.social:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.social {
+    -webkit-transform: scale(0.8);
+    /* Browser Variations: */
+
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+}
+
+.fa-3x {
+    color: white;
+}
+/*
+    Multicoloured Hover Variations
+*/
+
+#social-fb:hover {
+    color: #3B5998;
+}
+#social-tw:hover {
+    color: #4099FF;
+}
+#social-gp:hover {
+    color: #d34836;
+}
+#social-em:hover {
+    color: #f39c12;
+}
+
+.containerFooter {
+    display: block;
+    text-align: center;
+}
+
+.mentionslegales>ul>p {
+    text-decoration: underline;
+    display: block;
+    text-align: left;
+}
+
+.mentionslegales>ul>li {
+    list-style-type: none;
+    display: block;
+    text-align: left;
+}
+
+
+
+/************************************************\
+==================================================
+10. BUTTONS
+==================================================
+\************************************************/
+
+

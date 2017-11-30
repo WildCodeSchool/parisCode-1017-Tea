@@ -1,3 +1,6 @@
-#PHPStorm config
 .idea
+.DS_Store
+Icon
+
 vendor
+app/config.php

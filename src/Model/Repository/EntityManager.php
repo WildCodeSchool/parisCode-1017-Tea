@@ -1,13 +1,13 @@
 <?php
 
-namespace MyApp\Model\Repository;
+namespace Tea\Model\Repository;
 
 use PDO;
 use PDOException;
 
 /**
  * Class EntityManager
- * @package MyApp\Repository
+ * @package Tea\Repository
  */
 class EntityManager
 {

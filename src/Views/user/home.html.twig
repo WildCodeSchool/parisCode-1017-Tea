@@ -1,16 +1,97 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <div>
-        {{ dump(allUsers) }}
-        {% for user in allUsers %}
-        <ul>
-            <li>{{ user.name }}</li>
-            <li>{{ user.firstname }}</li>
-            <li>
-                <a href="index.php?id={{ user.id }}">Voir</a>
-            </li>
-        </ul>
-        {% endfor %}
+
+
+        <header class="business-header">
+            <div class="container">
+
+            </div>
+        </header>
+
+    <div class="container">
+        <section class="concept">
+            <div class="col-lg-12 titleconcept" align="center">
+                <h2>Un concept</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6" align="center">
+                    <img class="img-fluid rounded mb-3 mb-md-0 imgconc" src="../public/assets/image/tea-food-green-ingredient-162853.jpeg" alt="">
+                </div>
+                <div class="col-md-6">
+                    <h3>Des thés pour tous les goûts</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at tincidunt elit. Quisque malesuada vel orci at hendrerit. In gravida efficitur malesuada. Maecenas pellentesque sollicitudin eleifend. Nam sed odio et felis iaculis mattis. Duis non fermentum nisl. Phasellus eleifend tempus nisi a luctus. Mauris vel est vulputate, mollis dolor at, interdum eros. Praesent non ex ac nunc ornare maximus. Sed vitae elit vel massa dictum efficitur. Suspendisse lectus sapien, scelerisque viverra erat nec, semper mattis nisl. Fusce convallis eros sem, sit amet placerat ligula placerat eget. Suspendisse potenti. Donec rhoncus pretium felis, in elementum ligula pharetra nec. Pellentesque pretium commodo metus.
+                    </p>
+                    <div align="center"><a class="btn btn-concept-page" href="#">Voir plus</a></div>
+                </div>
+            </div>
+            </section>
+
+        <div id="slide1">
+
+        </div>
+
+        <section class="top10">
+
+            <div class="col-lg-12 titletop" align="center">
+            <h2>Top des ventes</h2>
+            </div>
+
+
+
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card" align="center">
+                        <img class="card-img-top" src="https://www.ecooe.com/ecooe-life/wp-content/uploads/2017/07/green-tea-300x200.jpg" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+                        </div>
+                        <div class="card-footer" align="center">
+                            <a href="index.php?section=shop" class="btn btn-shop">Shop</a>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card" align="center">
+                    <img class="card-img-top" src="https://www.mommypotamus.com/wp-content/uploads/2015/10/sweet-dreams-tea-300x200.jpg" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+                    </div>
+                    <div class="card-footer" align="center">
+                        <a href="index.php?section=shop" class="btn btn-shop">Shop</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card" align="center">
+                    <img class="card-img-top" src="https://www.strongandfizzy.com/wp-content/uploads/how-to-make-your-own-tea-300x200.jpg" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+                    </div>
+                    <div class="card-footer" align="center">
+                        <a href="index.php?section=shop" class="btn btn-shop">Shop</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card" align="center">
+                    <img class="card-img-top" src="https://www.cheatsheet.com/wp-content/uploads/2015/09/Lemon-Tea-300x200.jpg?x67376" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+                    </div>
+                    <div class="card-footer" align="center">
+                        <a href="index.php?section=shop" class="btn btn-shop">Shop</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
+
 {% endblock %}
