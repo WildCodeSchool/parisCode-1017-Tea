@@ -7,6 +7,7 @@ require_once '../app/config.php';
 use Tea\Controllers\DefaultController;
 use Tea\Controllers\AdminController;
 use Tea\Controllers\UserController;
+use \Tea\Controllers\CategoryController;
 use Tea\Controllers\ContentController;
 use Tea\Controllers\RoleController;
 
@@ -14,6 +15,7 @@ $adminController = new AdminController();
 $userController = new UserController();
 $contentController = new ContentController();
 $roleController = new RoleController();
+$categoryController = new CategoryController();
 
 /**
  * USER
@@ -79,13 +81,13 @@ $roleController = new RoleController();
              * TABLE CATEGORIES
              */
             elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $categoryController->getAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $categoryController->addAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'update') && isset($_GET['idcategories'])) {
-                echo $userController->updateAction();
+                echo $categoryController->updateAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'delete') && isset($_GET['idcategories'])) {
-                echo $userController->deleteAction();
+                echo $categoryController->deleteAction();
             }
             /**
              * TABLE IMAGES
@@ -144,11 +146,11 @@ $roleController = new RoleController();
          * FORM CATEGORIES
          */
         elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $categoryController->addAction();
         } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'update') && isset($_GET['idcategories'])) {
-            echo $userController->updateAction();
+            echo $categoryController->updateAction();
         } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'delete') && isset($_GET['idcategories'])) {
-            echo $userController->deleteAction();
+            echo $categoryController->deleteAction();
         }
         /**
          * FORM IMAGES

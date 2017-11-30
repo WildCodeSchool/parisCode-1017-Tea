@@ -13,17 +13,17 @@
             <li class="breadcrumb-item active">
                 <a class="text-dark">Tables</a>
             </li>
-            <li class="breadcrumb-item active">Users</li>
+            <li class="breadcrumb-item active">Categories</li>
         </ol>
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
                 <div class="row">
                     <div class="col mt-1">
-                        <i class="fa fa-table "></i> Users
+                        <i class="fa fa-table "></i> Categories
                     </div>
                     <div class="col text-right">
-                        <a class="btn btn-success btn-custom" href="http://localhost/wcs/project/Tea/public/index.php?section=admin&page=forms&table=users&action=add"><i class="fa fa-plus-circle"></i></a>
+                        <a class="btn btn-success btn-custom" href="index.php?section=admin&page=forms&table=categories&action=add"><i class="fa fa-plus-circle"></i></a>
                     </div>
                 </div>
             </div>
@@ -32,11 +32,10 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Idusers</th>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th>Idcategories</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>ImagesId</th>
                             {#<th>More</th>#}
                             <th>Update</th>
                             <th>Delete</th>
@@ -44,11 +43,10 @@
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>Idusers</th>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th>Idcategories</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>ImagesId</th>
                             {#<th>More</th>#}
                             <th>Update</th>
                             <th>Delete</th>
@@ -56,13 +54,12 @@
                         </tfoot>
                         <tbody>
 
-                        {% for user in users %}
+                        {% for category in categories %}
                             <tr>
-                                <td>{{ user.idusers }}</td>
-                                <td>{{ user.firstname }}</td>
-                                <td>{{ user.lastname }}</td>
-                                <td>{{ user.email }}</td>
-                                <td>{{ user.phone }}</td>
+                                <td>{{ category.idcategories }}</td>
+                                <td>{{ category.name }}</td>
+                                <td>{{ category.description }}</td>
+                                <td>{{ category.imagesIdimages }}</td>
                                 {#<td>#}
                                     {#<a class="btn btn-info" href="index.php?section=admin&page=tables&table=users&action=add">#}
                                         {#<i class="fa fa-search-plus"></i>#}
@@ -70,13 +67,13 @@
                                 {#</td>#}
                                 <td>
                                     <a class="btn btn-warning"
-                                       href="index.php?section=admin&page=tables&table=users&action=update&idusers={{ user.idusers }}">
+                                       href="index.php?section=admin&page=tables&table=categories&action=update&idcategories={{ category.idcategories }}">
                                         <i class="fa fa-inverse fa-pencil-square-o"></i>
                                     </a>
                                 </td>
                                 <td>
                                     <a class="btn btn-danger"
-                                       href="index.php?section=admin&page=tables&table=users&action=delete&idusers={{ user.idusers }}">
+                                       href="index.php?section=admin&page=tables&table=categories&action=delete&idcategories={{ category.idcategories }}">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>

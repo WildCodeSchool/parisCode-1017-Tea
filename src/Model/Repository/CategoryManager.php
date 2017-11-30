@@ -3,78 +3,69 @@
 namespace Tea\Model\Repository;
 
 use PDO;
-use Tea\Model\Entity\User;
+use Tea\Model\Entity\Category;
 
 /**
- * Class UserManager
+ * Class CategoryManager
  * @package Tea\Repository
  */
-class UserManager extends EntityManager
+class CategoryManager extends EntityManager
 {
 	/**
-	 * Get all user
+	 * Get all categories
 	 * @return array
 	 */
 	public function getAll(){
-		$statement = $this->db->query('SELECT * FROM users');
-		return $statement->fetchAll(PDO::FETCH_CLASS, User::class);
+		$statement = $this->db->query('SELECT * FROM categories');
+		return $statement->fetchAll(PDO::FETCH_CLASS, Category::class);
 	}
 
+
 	/**
-	 * Get one user
-	 * @param $id int
+	 * Get one category
+	 * @param id int
 	 * @return mixed
 	 */
-	public function getOne($idusers){
-		$statement = $this->db->prepare("SELECT * FROM users WHERE idusers = :idusers");
+	public function getOne($idcategories){
+		$statement = $this->db->prepare("SELECT * FROM categories WHERE idcategories = :idcategories");
 		$statement->execute([
-			':idusers' => $idusers
+			':idcategories' => $idcategories
 		]);
 		return $statement->fetch();
 	}
 
     /**
-     * Add one user
+     * Add one category
      */
-    public function add($firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles){
-        $statement = $this->db->prepare("INSERT INTO users (firstname, lastname, address, email, phone, login, password, roles_idroles) VALUES (:firstname, :lastname, :address, :email, :phone, :login, :password, :roles_idroles)");
+    public function add($name, $description, $images_idimages){
+        $statement = $this->db->prepare("INSERT INTO categories (name, description, images_idimages) VALUES (:name, :description, :images_idimages)");
         $statement->execute([
-            ':firstname' => $firstname,
-            ':lastname' => $lastname,
-            ':address' => $address,
-            ':email' => $email,
-            ':phone' => $phone,
-            ':login' => $login,
-            ':password' => $password,
-            ':roles_idroles' => $roles_idroles
+            ':name' => $name,
+            ':description' => $description,
+            ':images_idimages' => $images_idimages
         ]);
     }
 
 	/**
-	 * Update one user
+	 * Update one category
 	 */
-	public function update($idusers, $firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles){
-        $statement = $this->db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, address = :address, email = :email, phone = :phone, login = :login, password = :password, roles_idroles = :roles_idroles WHERE idusers = :idusers");
+    public function update($idcategories, $name, $description, $images_idimages){
+        $statement = $this->db->prepare("UPDATE categories SET name = :name, description = :description, images_idimages = :images_idimages WHERE idcategories = :idcategories");
         $statement->execute([
-            ':idusers' => $idusers,
-            ':firstname' => $firstname,
-            ':lastname' => $lastname,
-            ':address' => $address,
-            ':email' => $email,
-            ':phone' => $phone,
-            ':login' => $login,
-            ':password' => $password,
-            ':roles_idroles' => $roles_idroles
+            ':idcategories' => $idcategories,
+            ':name' => $name,
+            ':description' => $description,
+            ':images_idimages' => $images_idimages
         ]);
-	}
+    }
 
 	/**
-	 * Delete one user
+	 * Delete one category
 	 */
-	public function delete($idusers){
-        $statement = $this->db->prepare("DELETE FROM users WHERE idusers = :idusers");
+	public function delete($idcategories){
+        $statement = $this->db->prepare("DELETE FROM categories WHERE idcategories = :idcategories");
         $statement->execute([
-            ':idusers' => $idusers
+            ':idcategories' => $idcategories
         ]);
 	}
 
