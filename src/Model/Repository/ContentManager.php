@@ -3,78 +3,66 @@
 namespace Tea\Model\Repository;
 
 use PDO;
-use Tea\Model\Entity\User;
+use Tea\Model\Entity\Content;
 
 /**
- * Class UserManager
+ * Class ContentManager
  * @package Tea\Repository
  */
-class UserManager extends EntityManager
+class ContentManager extends EntityManager
 {
 	/**
-	 * Get all user
+	 * Get all content
 	 * @return array
 	 */
 	public function getAll(){
-		$statement = $this->db->query('SELECT * FROM users');
-		return $statement->fetchAll(PDO::FETCH_CLASS, User::class);
+		$statement = $this->db->query('SELECT * FROM contents');
+		return $statement->fetchAll(PDO::FETCH_CLASS, Content::class);
 	}
 
 	/**
-	 * Get one user
+	 * Get one content
 	 * @param $id int
 	 * @return mixed
 	 */
-	public function getOne($idusers){
-		$statement = $this->db->prepare("SELECT * FROM users WHERE idusers = :idusers");
+	public function getOne($idcontents){
+		$statement = $this->db->prepare("SELECT * FROM contents WHERE idcontents = :idcontents");
 		$statement->execute([
-			':idusers' => $idusers
+			':idcontents' => $idcontents
 		]);
 		return $statement->fetch();
 	}
 
     /**
-     * Add one user
+     * Add one content
      */
-    public function add($firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles){
-        $statement = $this->db->prepare("INSERT INTO users (firstname, lastname, address, email, phone, login, password, roles_idroles) VALUES (:firstname, :lastname, :address, :email, :phone, :login, :password, :roles_idroles)");
+    public function add($title, $description){
+        $statement = $this->db->prepare("INSERT INTO contents (title, description) VALUES (:title, :description)");
         $statement->execute([
-            ':firstname' => $firstname,
-            ':lastname' => $lastname,
-            ':address' => $address,
-            ':email' => $email,
-            ':phone' => $phone,
-            ':login' => $login,
-            ':password' => $password,
-            ':roles_idroles' => $roles_idroles
+            ':title' => $title,
+            ':description' => $description
         ]);
     }
 
 	/**
-	 * Update one user
+	 * Update one content
 	 */
-	public function update($idusers, $firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles){
-        $statement = $this->db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, address = :address, email = :email, phone = :phone, login = :login, password = :password, roles_idroles = :roles_idroles WHERE idusers = :idusers");
+	public function update($idcontents, $title, $description){
+        $statement = $this->db->prepare("UPDATE contents SET title = :title, description = :description WHERE idcontents = :idcontents");
         $statement->execute([
-            ':idusers' => $idusers,
-            ':firstname' => $firstname,
-            ':lastname' => $lastname,
-            ':address' => $address,
-            ':email' => $email,
-            ':phone' => $phone,
-            ':login' => $login,
-            ':password' => $password,
-            ':roles_idroles' => $roles_idroles
+            ':idcontents' => $idcontents,
+            ':title' => $title,
+            ':description' => $description
         ]);
 	}
 
 	/**
-	 * Delete one user
+	 * Delete one content
 	 */
-	public function delete($idusers){
-        $statement = $this->db->prepare("DELETE FROM users WHERE idusers = :idusers");
+	public function delete($idcontents){
+        $statement = $this->db->prepare("DELETE FROM contents WHERE idcontents = :idcontents");
         $statement->execute([
-            ':idusers' => $idusers
+            ':idcontents' => $idcontents
         ]);
 	}
 

@@ -23,7 +23,7 @@
                         <i class="fa fa-table "></i> Users
                     </div>
                     <div class="col text-right">
-                        <a class="btn btn-success btn-custom" href="http://localhost/wcs/project/Tea/public/index.php?section=admin&page=forms&table=users&action=add"><i class="fa fa-plus-circle"></i></a>
+                        <a class="btn btn-success btn-custom" href="index.php?section=admin&page=forms&table=users&action=add"><i class="fa fa-plus-circle"></i></a>
                     </div>
                 </div>
             </div>
@@ -37,6 +37,7 @@
                             <th>Last name</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Role</th>
                             {#<th>More</th>#}
                             <th>Update</th>
                             <th>Delete</th>
@@ -49,13 +50,13 @@
                             <th>Last name</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Role</th>
                             {#<th>More</th>#}
                             <th>Update</th>
                             <th>Delete</th>
                         </tr>
                         </tfoot>
                         <tbody>
-
                         {% for user in users %}
                             <tr>
                                 <td>{{ user.idusers }}</td>
@@ -63,6 +64,7 @@
                                 <td>{{ user.lastname }}</td>
                                 <td>{{ user.email }}</td>
                                 <td>{{ user.phone }}</td>
+                                <td>{{ user.type }}</td>
                                 {#<td>#}
                                     {#<a class="btn btn-info" href="index.php?section=admin&page=tables&table=users&action=add">#}
                                         {#<i class="fa fa-search-plus"></i>#}
