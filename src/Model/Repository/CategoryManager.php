@@ -37,39 +37,27 @@ class CategoryManager extends EntityManager
     /**
      * Add one category
      */
-    public function add($name, $description, $image){
-        $insertImg = $this->db->prepare("INSERT INTO images (url) VALUES (:url)");
-        $insertImg->execute([
-            ':url'=> $image
-        ]);
-        $idImage = $this->db->lastInsertId();
-
-        $statement = $this->db->prepare("INSERT INTO categories (name, description, images_idimages) VALUES (:name, :description, :image)");
+    public function add($name, $description, $images_idimages){
+        $statement = $this->db->prepare("INSERT INTO categories (name, description, images_idimages) VALUES (:name, :description, :images_idimages)");
         $statement->execute([
             ':name' => $name,
             ':description' => $description,
-            ':image' => $idImage
+            ':images_idimages' => $images_idimages
         ]);
     }
 
 	/**
 	 * Update one category
 	 */
-	public function update($idcategories, $name, $description, $image){
-
+    public function update($idcategories, $name, $description, $images_idimages){
         $statement = $this->db->prepare("UPDATE categories SET name = :name, description = :description, images_idimages = :images_idimages WHERE idcategories = :idcategories");
         $statement->execute([
             ':idcategories' => $idcategories,
             ':name' => $name,
             ':description' => $description,
-            ':image' => $image
+            ':images_idimages' => $images_idimages
         ]);
-
-        $insertImg = $this->db->prepare("UPDATE images SET url = :url WHERE idcategories = :idcategories");
-        $insertImg->execute([
-            ':url'=> $image
-        ]);
-	}
+    }
 
 	/**
 	 * Delete one category
