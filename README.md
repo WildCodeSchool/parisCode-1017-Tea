@@ -5,9 +5,13 @@ Required
     Clone project and run *composer install* to install all project dependency
     
 2. Add app/config.php to connect to database
-
-Users = all
-Categories = Samia
-Products = Jenny
-Images = Diana
-Contents = Helene
+    
+    Users = all
+    Categories = Samia
+    Products = Jenny
+    Images = Diana
+    Contents = Helene
+    
+    changement User : requete select en join avec roles.type
+    changement User : twig avec roles.type 
+    changement User : boutons radio ok, solution plus simple pour eviter doublon ou liste longue ?
