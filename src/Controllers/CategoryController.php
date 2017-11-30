@@ -8,88 +8,72 @@
 
 namespace Tea\Controllers;
 
-use Tea\Model\Repository\UserManager;
+use Tea\Model\Repository\CategoryManager;
 
-class UserController extends Controller
+class CategoryController extends Controller
 {
     public function getAction(){
-        $manager = new UserManager();
-        $users = $manager->getAll();
-        return $this->twig->render('admin/tables/adminTablesUser.html.twig', array(
-            'users' => $users
+        $manager = new CategoryManager();
+        $categories = $manager->getAll();
+        return $this->twig->render('admin/tables/adminTablesCategory.html.twig', array(
+            'categories' => $categories
         ));
     }
 
     public function addAction (){
 
         if (empty($_POST)) {
-            return $this->twig->render('admin/forms/adminFormsUser.html.twig');
+            return $this->twig->render('admin/forms/adminFormsCategory.html.twig');
         } else {
             if (
-                empty($_POST['firstname']) ||
-                empty($_POST['lastname']) ||
-                empty($_POST['address']) ||
-                empty($_POST['email']) ||
-                empty($_POST['phone']) ||
-                empty($_POST['login']) ||
-                empty($_POST['password']) ||
-                empty($_POST['roles_idroles'])
-            ) {
+                empty($_POST['name']) ||
+                empty($_POST['description']) ||
+                empty($_POST['image']))
+            {
                 $error = "🔴 Please complete all required fields 🔴";
-                return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
+                return $this->twig->render('admin/forms/adminFormsCategory.html.twig', array(
                     'errors' => $error,
-                    'users' => $_POST
+                    'categories' => $_POST
                 ));
             } else {
-                $firstname = htmlspecialchars($_POST['firstname']);
-                $lastname = htmlspecialchars($_POST['lastname']);
-                $address = htmlspecialchars($_POST['address']);
-                $email = htmlspecialchars($_POST['email']);
-                $phone = htmlspecialchars($_POST['phone']);
-                $login = htmlspecialchars($_POST['login']);
-                $password = htmlspecialchars($_POST['password']);
-                $roles_idroles = htmlspecialchars($_POST['roles_idroles']);
+                $name = htmlspecialchars($_POST['name']);
+                $description = htmlspecialchars($_POST['description']);
+                $image = htmlspecialchars($_POST['image']);
 
                 // Appel du modele ==> execution de la requete d'enregistrement en base de donné (addCitation())
 
-                $manager = new UserManager();
-                $manager1 = $manager->getAll();
+                $manager = new CategoryManager();
 
-                $manager->add($firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles);
+                $manager->add($name, $description, $image);
 
                 // Redirection vers le Controllers frontal index.php
-                header('Location: index.php?section=admin&page=tables&table=users&action=get');
+                header('Location: index.php?section=admin&page=tables&table=categories&action=get');
             }
         }
     }
 
     public function updateAction (){
 
-        $idusers = $_GET['idusers'];
+        $idcategories = $_GET['idcategories'];
 
-        if ((is_numeric($idusers))  ) {
+        if ((is_numeric($idcategories))  ) {
             if (!empty($_POST)){
-                $firstname = htmlspecialchars($_POST['firstname']);
-                $lastname = htmlspecialchars($_POST['lastname']);
-                $address = htmlspecialchars($_POST['address']);
-                $email = htmlspecialchars($_POST['email']);
-                $phone = htmlspecialchars($_POST['phone']);
-                $login = htmlspecialchars($_POST['login']);
-                $password = htmlspecialchars($_POST['password']);
-                $roles_idroles = htmlspecialchars($_POST['roles_idroles']);
+                $name = htmlspecialchars($_POST['name']);
+                $description = htmlspecialchars($_POST['description']);
+                $image = htmlspecialchars($_POST['image']);
+
                 // On les ajoute à la base de donnée grace à la fonction définit dans notre modèle (updateCitation())
 
-                $manager = new UserManager();
-                $manager1 = $manager->getAll();
-                $manager->update($idusers, $firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles);
+                $manager = new CategoryManager();
+                $manager->update($idcategories, $name, $description, $image);
 
                 // On redirige vers la page d'accueil
-                header('Location: index.php?section=admin&page=tables&table=users&action=get');
+                header('Location: index.php?section=admin&page=tables&table=categories&action=get');
             } else {
-                $manager = new UserManager();
-                $users = $manager->getOne($idusers);
-                return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
-                    'users' => $users,
+                $manager = new CategoryManager();
+                $categories = $manager->getOne($idcategories);
+                return $this->twig->render('admin/forms/adminFormsCategory.html.twig', array(
+                    'categories' => $categories,
                     'post' => $_POST
                 ));
             }
@@ -100,12 +84,12 @@ class UserController extends Controller
 
     public function deleteAction (){
 
-        $idusers = $_GET['idusers'];
+        $idcategories = $_GET['idcategories'];
 
-        $manager = new UserManager();
-        $manager->delete($idusers);
+        $manager = new CategoryManager();
+        $manager->delete($idcategories);
 
-        header('Location: index.php?section=admin&page=tables&table=users&action=get');
+        header('Location: index.php?section=admin&page=tables&table=categories&action=get');
     }
 
 }

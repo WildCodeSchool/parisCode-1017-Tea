@@ -7,9 +7,11 @@ require_once '../app/config.php';
 use Tea\Controllers\DefaultController;
 use Tea\Controllers\AdminController;
 use Tea\Controllers\UserController;
+use \Tea\Controllers\CategoryController;
 
 $adminController = new AdminController();
 $userController = new UserController();
+$categoryController = new CategoryController();
 
 /**
  * USER
@@ -75,13 +77,13 @@ $userController = new UserController();
              * TABLE CATEGORIES
              */
             elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $categoryController->getAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $categoryController->addAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'update') && isset($_GET['idcategories'])) {
-                echo $userController->updateAction();
+                echo $categoryController->updateAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'delete') && isset($_GET['idcategories'])) {
-                echo $userController->deleteAction();
+                echo $categoryController->deleteAction();
             }
             /**
              * TABLE IMAGES
@@ -140,11 +142,11 @@ $userController = new UserController();
          * FORM CATEGORIES
          */
         elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $categoryController->addAction();
         } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'update') && isset($_GET['idcategories'])) {
-            echo $userController->updateAction();
+            echo $categoryController->updateAction();
         } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'delete') && isset($_GET['idcategories'])) {
-            echo $userController->deleteAction();
+            echo $categoryController->deleteAction();
         }
         /**
          * FORM IMAGES
