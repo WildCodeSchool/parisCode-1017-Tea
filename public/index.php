@@ -7,9 +7,11 @@ require_once '../app/config.php';
 use Tea\Controllers\DefaultController;
 use Tea\Controllers\AdminController;
 use Tea\Controllers\UserController;
+use Tea\Controllers\ImageController;
 
 $adminController = new AdminController();
 $userController = new UserController();
+$imageController = new ImageController();
 
 /**
  * USER
@@ -87,13 +89,13 @@ $userController = new UserController();
              * TABLE IMAGES
              */
             elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $imageController->getAction();
             } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $imageController->addAction();
             } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'update') && isset($_GET['idimages'])) {
-                echo $userController->updateAction();
+                echo $imageController->updateAction();
             } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'delete') && isset($_GET['idimages'])) {
-                echo $userController->deleteAction();
+                echo $imageController->deleteAction();
             }
             /**
              * TABLE CONTENTS
@@ -150,11 +152,11 @@ $userController = new UserController();
          * FORM IMAGES
          */
         elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $imageController->addAction();
         } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'update') && isset($_GET['idimages'])) {
-            echo $userController->updateAction();
+            echo $imageController->updateAction();
         } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'delete') && isset($_GET['idimages'])) {
-            echo $userController->deleteAction();
+            echo $imageController->deleteAction();
         }
         /**
          * FORM CONTENTS
