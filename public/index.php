@@ -7,6 +7,7 @@ require_once '../app/config.php';
 use Tea\Controllers\DefaultController;
 use Tea\Controllers\AdminController;
 use Tea\Controllers\UserController;
+use Tea\Controllers\ImageController;
 use \Tea\Controllers\CategoryController;
 use Tea\Controllers\ContentController;
 use Tea\Controllers\RoleController;
@@ -16,6 +17,8 @@ $userController = new UserController();
 $contentController = new ContentController();
 $roleController = new RoleController();
 $categoryController = new CategoryController();
+$imageController = new ImageController();
+
 
 /**
  * USER
@@ -93,13 +96,13 @@ $categoryController = new CategoryController();
              * TABLE IMAGES
              */
             elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $imageController->getAction();
             } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $imageController->addAction();
             } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'update') && isset($_GET['idimages'])) {
-                echo $userController->updateAction();
+                echo $imageController->updateAction();
             } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'delete') && isset($_GET['idimages'])) {
-                echo $userController->deleteAction();
+                echo $imageController->deleteAction();
             }
             /**
              * TABLE CONTENTS
@@ -156,11 +159,11 @@ $categoryController = new CategoryController();
          * FORM IMAGES
          */
         elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $imageController->addAction();
         } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'update') && isset($_GET['idimages'])) {
-            echo $userController->updateAction();
+            echo $imageController->updateAction();
         } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'delete') && isset($_GET['idimages'])) {
-            echo $userController->deleteAction();
+            echo $imageController->deleteAction();
         }
         /**
          * FORM CONTENTS

@@ -8,88 +8,120 @@
 
 namespace Tea\Controllers;
 
-use Tea\Model\Repository\UserManager;
+use Tea\Model\Repository\ImageManager;
+use Tea\Services\UploadedFile;
+use Tea\Services\Uploads;
 
-class UserController extends Controller
+class ImageController extends Controller
 {
     public function getAction(){
-        $manager = new UserManager();
-        $users = $manager->getAll();
-        return $this->twig->render('admin/tables/adminTablesUser.html.twig', array(
-            'users' => $users
+
+        $manager = new ImageManager();
+        $images = $manager->getAll();
+        return $this->twig->render('admin/tables/adminTablesImage.html.twig', array(
+            'images' => $images
         ));
     }
 
     public function addAction (){
 
         if (empty($_POST)) {
-            return $this->twig->render('admin/forms/adminFormsUser.html.twig');
+            return $this->twig->render('admin/forms/adminFormsImage.html.twig');
         } else {
             if (
-                empty($_POST['firstname']) ||
-                empty($_POST['lastname']) ||
-                empty($_POST['address']) ||
-                empty($_POST['email']) ||
-                empty($_POST['phone']) ||
-                empty($_POST['login']) ||
-                empty($_POST['password']) ||
-                empty($_POST['roles_idroles'])
+                empty($_POST['url']) ||
+                empty($_POST['alt'])
+
             ) {
                 $error = "🔴 Please complete all required fields 🔴";
-                return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
+                return $this->twig->render('admin/forms/adminFormsImage.html.twig', array(
                     'errors' => $error,
-                    'users' => $_POST
+                    'images' => $_POST
                 ));
             } else {
-                $firstname = htmlspecialchars($_POST['firstname']);
-                $lastname = htmlspecialchars($_POST['lastname']);
-                $address = htmlspecialchars($_POST['address']);
-                $email = htmlspecialchars($_POST['email']);
-                $phone = htmlspecialchars($_POST['phone']);
-                $login = htmlspecialchars($_POST['login']);
-                $password = htmlspecialchars($_POST['password']);
-                $roles_idroles = htmlspecialchars($_POST['roles_idroles']);
+                $url = htmlspecialchars($_POST['url']);
+                $alt = htmlspecialchars($_POST['alt']);
 
                 // Appel du modele ==> execution de la requete d'enregistrement en base de donné (addCitation())
 
-                $manager = new UserManager();
+                $manager = new ImageManager();
                 $manager1 = $manager->getAll();
 
-                $manager->add($firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles);
+                $manager->add($url, $alt);
 
                 // Redirection vers le Controllers frontal index.php
-                header('Location: index.php?section=admin&page=tables&table=users&action=get');
+                header('Location: index.php?section=admin&page=tables&table=images&action=get');
             }
+        }
+    }
+
+    public function newAction(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            // Récupérer du tableau d'image envoyé par le formulaire
+            $files = $_FILES['images'];
+
+            $upload = new Uploads();
+            $cardManager = new CardManager();
+
+            // Parcourir le tableau d'image
+            foreach ($files['name'] as $position => $file_name) {
+
+                // Pour chaque image, vérifier s'il n'y a pas d'erreur lié à php ($_FILES['files']['error']
+                $error = $files['error'][$position];
+                if ($error != 0) {
+                    // S'il il y a une erreur php, stocker le message d'erreur dans une variable
+                    $error[$file_name] = "erreur PHP";
+
+                    // Sinon on upload
+                } else {
+
+                    // Récupération et stockage du name, tmp_name, size du fichier
+                    $size = $files['size'][$position];
+                    $tmp_name = $files['tmp_name'][$position];
+
+                    // Instanciation d'une objet UploadedFile
+                    $uploadedFile = new UploadedFile($file_name, $tmp_name, $size);
+
+                    // Upload du fichier via la méthode défini dans le service
+                    $result = $upload->upload($uploadedFile);
+
+                    // Traitement du resultat, si pas d'erreur, on enregitre en BDD, sinon, on ajout un message en session
+                    if ($result == null){
+                        $cardManager->addImage($uploadedFile->getFileName());
+                    }
+                }
+            }
+
+            // On redirige vers la page d'acceuil
+            header("Location: index.php");
+        }
+        else{
+            return $this->twig->render('card/new.html.twig');
         }
     }
 
     public function updateAction (){
 
-        $idusers = $_GET['idusers'];
+        $idimages = $_GET['idimages'];
 
-        if ((is_numeric($idusers))  ) {
+        if ((is_numeric($idimages))  ) {
             if (!empty($_POST)){
-                $firstname = htmlspecialchars($_POST['firstname']);
-                $lastname = htmlspecialchars($_POST['lastname']);
-                $address = htmlspecialchars($_POST['address']);
-                $email = htmlspecialchars($_POST['email']);
-                $phone = htmlspecialchars($_POST['phone']);
-                $login = htmlspecialchars($_POST['login']);
-                $password = htmlspecialchars($_POST['password']);
-                $roles_idroles = htmlspecialchars($_POST['roles_idroles']);
-                // On les ajoute à la base de donnée grace à la fonction définit dans notre modèle (updateCitation())
+                $url = htmlspecialchars($_POST['url']);
+                $alt = htmlspecialchars($_POST['alt']);
+                // On les ajoute à la base de donnée grace à la fonction définit dans notre modèle (updateImage())
 
-                $manager = new UserManager();
+                $manager = new ImageManager();
                 $manager1 = $manager->getAll();
-                $manager->update($idusers, $firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles);
+                $manager->update($idimages, $url, $alt);
 
                 // On redirige vers la page d'accueil
-                header('Location: index.php?section=admin&page=tables&table=users&action=get');
+                header('Location: index.php?section=admin&page=tables&table=images&action=get');
             } else {
-                $manager = new UserManager();
-                $users = $manager->getOne($idusers);
-                return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
-                    'users' => $users,
+                $manager = new ImageManager();
+                $images = $manager->getOne($idimages);
+                return $this->twig->render('admin/forms/adminFormsImage.html.twig', array(
+                    'images' => $images,
                     'post' => $_POST
                 ));
             }
@@ -100,12 +132,12 @@ class UserController extends Controller
 
     public function deleteAction (){
 
-        $idusers = $_GET['idusers'];
+        $idimages = $_GET['idimages'];
 
-        $manager = new UserManager();
-        $manager->delete($idusers);
+        $manager = new ImageManager();
+        $manager->delete($idimages);
 
-        header('Location: index.php?section=admin&page=tables&table=users&action=get');
+        header('Location: index.php?section=admin&page=tables&table=images&action=get');
     }
 
 }
