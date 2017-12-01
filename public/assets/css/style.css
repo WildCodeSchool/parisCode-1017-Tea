@@ -24,9 +24,11 @@
 body {
     /*margin-top: 0px;
     margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 100px;*/
+    margin-right: 50px;*/
+    /*margin-bottom: 100px;*/
+
 }
+
 
 
 img {
@@ -759,9 +761,9 @@ textarea {
 ==================================================
 \************************************************/
 footer {
-  margin-top: 30px;
-  background-color: #8bc8aa!important;
-    height: 100px;
+    margin-top: 30px;
+    background-color: #8bc8aa!important;
+    width: 100%;
 }
 
 .social:hover {
