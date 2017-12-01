@@ -7,6 +7,7 @@ require_once '../app/config.php';
 use Tea\Controllers\DefaultController;
 use Tea\Controllers\AdminController;
 use Tea\Controllers\UserController;
+use Tea\Controllers\ProductController;
 use Tea\Controllers\ImageController;
 use \Tea\Controllers\CategoryController;
 use Tea\Controllers\ContentController;
@@ -14,10 +15,12 @@ use Tea\Controllers\RoleController;
 
 $adminController = new AdminController();
 $userController = new UserController();
+$productController = new ProductController();
 $contentController = new ContentController();
 $roleController = new RoleController();
 $categoryController = new CategoryController();
 $imageController = new ImageController();
+
 
 
 /**
@@ -38,6 +41,9 @@ $imageController = new ImageController();
     } elseif($_GET['section']=='contact'){
         $defaultController = new DefaultController();
         echo $defaultController->contactAction();
+    } elseif($_GET['section']=='product'){
+        $defaultController = new DefaultController();
+        echo $defaultController->productAction();
     }
 
 /**
@@ -72,13 +78,13 @@ $imageController = new ImageController();
              * TABLE PRODUCTS
              */
             elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $productController->getAction();
             } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $productController->addAction();
             } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'update') && isset($_GET['idproducts'])) {
-                echo $userController->updateAction();
+                echo $productController->updateAction();
             } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'delete') && isset($_GET['idproducts'])) {
-                echo $userController->deleteAction();
+                echo $productController->deleteAction();
             }
             /**
              * TABLE CATEGORIES
@@ -139,11 +145,11 @@ $imageController = new ImageController();
          * FORM PRODUCTS
          */
         elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $productController->addAction();
         } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'update') && isset($_GET['idproducts'])) {
-            echo $userController->updateAction();
+            echo $productController->updateAction();
         } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'delete') && isset($_GET['idproducts'])) {
-            echo $userController->deleteAction();
+            echo $productController->deleteAction();
         }
         /**
          * FORM CATEGORIES
