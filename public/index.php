@@ -31,6 +31,9 @@ $productController = new ProductController();
     } elseif($_GET['section']=='contact'){
         $defaultController = new DefaultController();
         echo $defaultController->contactAction();
+    } elseif($_GET['section']=='product'){
+        $defaultController = new DefaultController();
+        echo $defaultController->productAction();
     }
 
 /**
