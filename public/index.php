@@ -8,10 +8,17 @@ use Tea\Controllers\DefaultController;
 use Tea\Controllers\AdminController;
 use Tea\Controllers\UserController;
 use Tea\Controllers\ProductController;
+use \Tea\Controllers\CategoryController;
+use Tea\Controllers\ContentController;
+use Tea\Controllers\RoleController;
 
 $adminController = new AdminController();
 $userController = new UserController();
 $productController = new ProductController();
+$contentController = new ContentController();
+$roleController = new RoleController();
+$categoryController = new CategoryController();
+
 
 /**
  * USER
@@ -80,13 +87,13 @@ $productController = new ProductController();
              * TABLE CATEGORIES
              */
             elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $categoryController->getAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $categoryController->addAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'update') && isset($_GET['idcategories'])) {
-                echo $userController->updateAction();
+                echo $categoryController->updateAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'delete') && isset($_GET['idcategories'])) {
-                echo $userController->deleteAction();
+                echo $categoryController->deleteAction();
             }
             /**
              * TABLE IMAGES
@@ -104,13 +111,13 @@ $productController = new ProductController();
              * TABLE CONTENTS
              */
             elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $contentController->getAction();
             } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $contentController->addAction();
             } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'update') && isset($_GET['idcontents'])) {
-                echo $userController->updateAction();
+                echo $contentController->updateAction();
             } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'delete') && isset($_GET['idcontents'])) {
-                echo $userController->deleteAction();
+                echo $contentController->deleteAction();
             }
         }
 
@@ -145,11 +152,11 @@ $productController = new ProductController();
          * FORM CATEGORIES
          */
         elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $categoryController->addAction();
         } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'update') && isset($_GET['idcategories'])) {
-            echo $userController->updateAction();
+            echo $categoryController->updateAction();
         } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'delete') && isset($_GET['idcategories'])) {
-            echo $userController->deleteAction();
+            echo $categoryController->deleteAction();
         }
         /**
          * FORM IMAGES
@@ -165,10 +172,10 @@ $productController = new ProductController();
          * FORM CONTENTS
          */
         elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $contentController->addAction();
         } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'update') && isset($_GET['idcontents'])) {
-            echo $userController->updateAction();
+            echo $contentController->updateAction();
         } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'delete') && isset($_GET['idcontents'])) {
-            echo $userController->deleteAction();
+            echo $contentController->deleteAction();
         }
     }

@@ -15,10 +15,10 @@ class UserManager extends EntityManager
 	 * Get all user
 	 * @return array
 	 */
-	public function getAll(){
-		$statement = $this->db->query('SELECT * FROM users');
-		return $statement->fetchAll(PDO::FETCH_CLASS, User::class);
-	}
+    public function getAll(){
+        $statement = $this->db->query('SELECT users.idusers, users.firstname, users.lastname, users.address, users.email, users.phone, users.login, users.password, users.roles_idroles, roles.type FROM users INNER JOIN roles ON users.roles_idroles = roles.idroles');
+        return $statement->fetchAll(PDO::FETCH_CLASS, User::class);
+    }
 
 	/**
 	 * Get one user
@@ -26,7 +26,7 @@ class UserManager extends EntityManager
 	 * @return mixed
 	 */
 	public function getOne($idusers){
-		$statement = $this->db->prepare("SELECT * FROM users WHERE idusers = :idusers");
+		$statement = $this->db->prepare("SELECT users.idusers, users.firstname, users.lastname, users.address, users.email, users.phone, users.login, users.password, users.roles_idroles, roles.type FROM users INNER JOIN roles ON users.roles_idroles = roles.idroles WHERE idusers = :idusers");
 		$statement->execute([
 			':idusers' => $idusers
 		]);
