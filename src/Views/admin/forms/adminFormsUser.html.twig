@@ -34,11 +34,16 @@
                             {% endif %}
                         </div>
                         <div class="panel-body">
-                            {% if users.idusers is defined %}
-                            <form role="form" action="index.php?section=admin&page=tables&table=users&action=update&idusers={{ users.idusers }}" method="post">
-                            {% else %}
-                            <form role="form" action="index.php?section=admin&page=tables&table=users&action=add" method="post">
-                             {% endif %}
+                            {#{% if users.idusers is defined %}#}
+                            {#<form role="form" action="index.php?section=admin&page=tables&table=users&action=update&idusers={{ users.idusers }}" method="post">#}
+                            {#{% else %}#}
+                            {#<form role="form" action="index.php?section=admin&page=tables&table=users&action=add" method="post">#}
+
+
+                                <form role="form" action="index.php?section=admin&page=tables&table=users&action={{ users.idusers is defined ? 'update&idusers=' ~ users.idusers : 'add' }}"
+                                      method="post">
+
+                             {#{% endif %}#}
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -76,9 +81,22 @@
                                                 <label>Password</label>
                                                 <input class="form-control" placeholder="Enter password" name="password" value="{{ users.password }}">
                                             </div>
+                                        {#<div class="form-group">#}
+                                            {#<label>Role</label>#}
+                                            {#<input class="form-control" placeholder="Enter role" name="roles_idroles" value="{{ users.roles_idroles }}">#}
+                                        {#</div>#}
                                         <div class="form-group">
                                             <label>Role</label>
-                                            <input class="form-control" placeholder="Enter role" name="roles_idroles" value="{{ users.roles_idroles }}">
+                                            <select class="form-control" name="roles_idroles">
+                                                {% if users.type is defined %}
+                                                    <option value="{{ users.roles_idroles }}">{{ users.type }} (actual)</option>
+                                                {% endif %}
+                                                {% for role in roles  %}
+                                                    {% if users.type != role.type %}
+                                                        <option value="{{ role.idroles }}">{{ role.type }}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
                                         </div>
                                     </div>
                                     <!-- /.col-lg-6 (nested) -->

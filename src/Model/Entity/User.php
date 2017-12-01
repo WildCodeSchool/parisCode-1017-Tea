@@ -44,6 +44,16 @@ class User
     private $login;
 
     /**
+     * @var string
+     */
+    private $password;
+
+    /**
+     * @var string
+     */
+    private $roles_idroles;
+
+    /**
      * @return string
      */
     public function getIdusers()
@@ -178,15 +188,5 @@ class User
     {
         $this->roles_idroles = $roles_idroles;
     }
-
-    /**
-     * @var string
-     */
-    private $password;
-
-    /**
-     * @var string
-     */
-    private $roles_idroles;
 
 }
