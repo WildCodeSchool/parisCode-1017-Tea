@@ -35,9 +35,9 @@
                         </div>
                         <div class="panel-body">
                             {% if products.idproducts is defined %}
-                            <form role="form" action="index.php?section=admin&page=tables&table=products&action=update&idproducts={{ products.idproducts }}" enctype="multipart/form-data" method="post">
+                            <form role="form" action="index.php?section=admin&page=tables&table=products&action=update&idproducts={{ products.idproducts }}" method="post">
                             {% else %}
-                            <form role="form" action="index.php?section=admin&page=tables&table=products&action=add" enctype="multipart/form-data" method="post">
+                            <form role="form" action="index.php?section=admin&page=tables&table=products&action=add" method="post">
                              {% endif %}
                                 <div class="row">
 

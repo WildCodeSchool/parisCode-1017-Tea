@@ -31,7 +31,7 @@ class ProductManager extends EntityManager
 //        INNER JOIN categories, images ON products.id_categories=categories.name, products.id_images=alt;
 
 	public function getOne($idproducts){
-		$statement = $this->db->prepare("SELECT products.idproducts, products.name, products.description, products.quantity, products.price, images.alt, categories.name FROM products INNER JOIN images ON products.images_idimages=images.alt INNER JOIN categories ON products.categories_idcategories=categories.name;");
+		$statement = $this->db->prepare("SELECT * FROM products WHERE idproducts = :idproducts;");
 		$statement->execute([
 			':idproducts' => $idproducts
 		]);

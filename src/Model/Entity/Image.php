@@ -26,7 +26,7 @@ class Image
     /**
      * @return int
      */
-    public function getIdImage()
+    public function getIdimages()
     {
         return $this->idimages;
     }
@@ -62,8 +62,5 @@ class Image
     {
         $this->alt = $alt;
     }
-
-
-
 
 }

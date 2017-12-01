@@ -23,7 +23,7 @@
                         <i class="fa fa-table "></i> Products
                     </div>
                     <div class="col text-right">
-                        <a class="btn btn-success btn-custom" href="http://localhost/wcs/project/Tea/public/index.php?section=admin&page=forms&table=products&action=add"><i class="fa fa-plus-circle"></i></a>
+                        <a class="btn btn-success btn-custom" href="index.php?section=admin&page=forms&table=products&action=add"><i class="fa fa-plus-circle"></i></a>
                     </div>
                 </div>
             </div>
@@ -38,8 +38,8 @@
                             <th>Description</th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th>Image</th>
-                            <th>Category</th>
+                            <th>Image ID</th>
+                            <th>Category ID</th>
                             {#<th>More</th>#}
                             <th>Update</th>
                             <th>Delete</th>
@@ -52,15 +52,14 @@
                             <th>Description</th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th>Image</th>
-                            <th>Category</th>
+                            <th>Image ID</th>
+                            <th>Category ID</th>
                             {#<th>More</th>#}
                             <th>Update</th>
                             <th>Delete</th>
                         </tr>
                         </tfoot>
                         <tbody>
-
                         {% for product in products %}
                             <tr>
                                 <td>{{ product.idproducts }}</td>
@@ -68,9 +67,8 @@
                                 <td>{{ product.description }}</td>
                                 <td>{{ product.quantity }}</td>
                                 <td>{{ product.price }}</td>
-                                <td>{{ product.alt }}</td>
-                                <td>{{ product.name }}</td>
-
+                                <td>{{ product.images_idimages }}</td>
+                                <td>{{ product.categories_idcategories }}</td>
                                 <td>
                                     <a class="btn btn-warning"
                                        href="index.php?section=admin&page=tables&table=products&action=update&idproducts={{ product.idproducts }}">

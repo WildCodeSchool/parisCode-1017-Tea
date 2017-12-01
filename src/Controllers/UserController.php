@@ -43,8 +43,8 @@ class UserController extends Controller
             ) {
                 $error = "🔴 Please complete all required fields 🔴";
                 return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
-                    'roles' => $roles,
                     'errors' => $error,
+                    'roles' => $roles,
                     'users' => $_POST
                 ));
             } else {

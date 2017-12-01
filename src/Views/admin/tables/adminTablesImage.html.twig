@@ -51,10 +51,10 @@
                         </tr>
                         </tfoot>
                         <tbody>
-                        {{ dump(tarte) }}
+
                         {% for image in images %}
                             <tr>
-                                <td>{{ idimages }}</td>
+                                <td>{{ image.idimages }}</td>
                                 <td>{{ image.url }}</td>
                                 <td>{{ image.alt }}</td>
                                 {#<td>#}

@@ -12,6 +12,6 @@ Required
     Images = Diana
     Contents = Helene
     
-    changement User : requete select en join avec roles.type
-    changement User : twig avec roles.type 
-    changement User : boutons radio ok, solution plus simple pour eviter doublon ou liste longue ?
+
+listes deroulantes avec inner join
+

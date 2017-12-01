@@ -10,7 +10,10 @@ class ProductController extends Controller
     public function getAction(){
         $manager = new ProductManager();
         $products = $manager->getAll();
-        return $this->twig->render('admin/tables/adminTablesProduct.html.twig', array('products' => $products));
+        return $this->twig->render('admin/tables/adminTablesProduct.html.twig', array(
+            'products' => $products
+
+        ));
     }
 
     public function addAction (){
@@ -21,8 +24,8 @@ class ProductController extends Controller
 
         if (empty($_POST)) {
             return $this->twig->render('admin/forms/adminFormsProduct.html.twig', array (
-                    'categories' => $categories,
-                    'images' => $images
+                'categories' => $categories,
+                'images' => $images
                 ));
         } else {
             if (
@@ -36,9 +39,9 @@ class ProductController extends Controller
                 $error = " 💩 Please complete all required fields ";
                 return $this->twig->render('admin/forms/adminFormsProduct.html.twig', array(
                     'errors' => $error,
-                    'products' => $_POST,
                     'categories' => $categories,
-                    'images' => $images
+                    'images' => $images,
+                    'products' => $_POST
                 ));
             } else {
                 $name = htmlspecialchars($_POST['name']);
@@ -65,10 +68,13 @@ class ProductController extends Controller
     public function updateAction (){
 
         $idproducts = $_GET['idproducts'];
+
         $manager = new CategoryManager();
         $categories = $manager->getAll();
+
         $manager = new ImageManager();
         $images = $manager->getAll();
+
 
         if ((is_numeric($idproducts))  ) {
             if (!empty($_POST)){

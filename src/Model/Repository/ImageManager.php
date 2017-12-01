@@ -36,7 +36,7 @@ class ImageManager extends EntityManager
     /**
      * Add one image
      */
-    public function addImage($url, $alt, $image){
+    public function add($url, $alt){
         $statement = $this->db->prepare("INSERT INTO images (url, alt) VALUES (:url, :alt)");
         $statement->execute([
             ':url' => $url,
