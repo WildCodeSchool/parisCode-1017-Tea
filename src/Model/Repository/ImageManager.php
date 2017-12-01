@@ -12,7 +12,7 @@ use Tea\Model\Entity\Image;
 class ImageManager extends EntityManager
 {
 	/**
-	 * Get all images
+	 * Get all image
 	 * @return array
 	 */
 	public function getAll(){
@@ -36,7 +36,7 @@ class ImageManager extends EntityManager
     /**
      * Add one image
      */
-    public function add($url, $alt){
+    public function addImage($url, $alt, $image){
         $statement = $this->db->prepare("INSERT INTO images (url, alt) VALUES (:url, :alt)");
         $statement->execute([
             ':url' => $url,
