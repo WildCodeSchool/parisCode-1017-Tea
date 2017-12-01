@@ -3,7 +3,7 @@
 namespace Tea\Model\Entity;
 
 /**
- * Class User
+ * Class Image
  * @package Tea\Model\Entity
  */
 class Image

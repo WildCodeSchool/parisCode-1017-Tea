@@ -22,7 +22,7 @@ class UserManager extends EntityManager
 
 	/**
 	 * Get one user
-	 * @param $id int
+	 * @param id int
 	 * @return mixed
 	 */
 	public function getOne($idusers){

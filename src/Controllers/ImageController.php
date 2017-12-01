@@ -19,87 +19,65 @@ class ImageController extends Controller
         $manager = new ImageManager();
         $images = $manager->getAll();
         return $this->twig->render('admin/tables/adminTablesImage.html.twig', array(
-            'images' => $images
+            'images' => $images,
         ));
     }
 
-    public function addAction (){
+    public function addAction ()
+    {
 
         if (empty($_POST)) {
             return $this->twig->render('admin/forms/adminFormsImage.html.twig');
-        } else {
-            if (
-                empty($_POST['url']) ||
-                empty($_POST['alt'])
-
-            ) {
-                $error = "🔴 Please complete all required fields 🔴";
-                return $this->twig->render('admin/forms/adminFormsImage.html.twig', array(
-                    'errors' => $error,
-                    'images' => $_POST
-                ));
-            } else {
-                $url = htmlspecialchars($_POST['url']);
-                $alt = htmlspecialchars($_POST['alt']);
-
-                // Appel du modele ==> execution de la requete d'enregistrement en base de donné (addCitation())
-
-                $manager = new ImageManager();
-                $manager1 = $manager->getAll();
-
-                $manager->add($url, $alt);
-
-                // Redirection vers le Controllers frontal index.php
-                header('Location: index.php?section=admin&page=tables&table=images&action=get');
-            }
         }
-    }
 
-    public function newAction(){
-        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if (empty($_POST['url']) || empty($_POST['alt'])) {
+            $error = "🔴 Please complete all required fields 🔴";
+            return $this->twig->render('admin/forms/adminFormsImage.html.twig', array(
+                'errors' => $error,
+                'images' => $_POST
+            ));
+        }
 
-            // Récupérer du tableau d'image envoyé par le formulaire
-            $files = $_FILES['images'];
+        else {
+                // Récupérer du tableau d'image envoyé par le formulaire
+                $files = $_FILES['images'];
 
-            $upload = new Uploads();
-            $cardManager = new CardManager();
+                $upload = new Uploads();
+                $manager = new ImageManager();
 
-            // Parcourir le tableau d'image
-            foreach ($files['name'] as $position => $file_name) {
+                // Parcourir le tableau d'image
+                foreach ($files['name'] as $position => $file_name) {
 
-                // Pour chaque image, vérifier s'il n'y a pas d'erreur lié à php ($_FILES['files']['error']
-                $error = $files['error'][$position];
-                if ($error != 0) {
-                    // S'il il y a une erreur php, stocker le message d'erreur dans une variable
-                    $error[$file_name] = "erreur PHP";
+                    // Pour chaque image, vérifier s'il n'y a pas d'erreur lié à php ($_FILES['files']['error']
+                    $error = $files['error'][$position];
+                    if ($error != 0) {
+                        // S'il il y a une erreur php, stocker le message d'erreur dans une variable
+                        $error[$file_name] = "upload error";
 
-                    // Sinon on upload
-                } else {
+                        // Sinon on upload
+                    } else {
 
-                    // Récupération et stockage du name, tmp_name, size du fichier
-                    $size = $files['size'][$position];
-                    $tmp_name = $files['tmp_name'][$position];
+                        // Récupération et stockage du name, tmp_name, size du fichier
+                        $size = $files['size'][$position];
+                        $tmp_name = $files['tmp_name'][$position];
 
-                    // Instanciation d'une objet UploadedFile
-                    $uploadedFile = new UploadedFile($file_name, $tmp_name, $size);
+                        // Instanciation d'une objet UploadedFile
+                        $uploadedFile = new UploadedFile($file_name, $tmp_name, $size);
 
-                    // Upload du fichier via la méthode défini dans le service
-                    $result = $upload->upload($uploadedFile);
+                        // Upload du fichier via la méthode défini dans le service
+                        $result = $upload->upload($uploadedFile);
 
-                    // Traitement du resultat, si pas d'erreur, on enregitre en BDD, sinon, on ajout un message en session
-                    if ($result == null){
-                        $cardManager->addImage($uploadedFile->getFileName());
+                        // Traitement du resultat, si pas d'erreur, on enregitre en BDD, sinon, on ajout un message en session
+                        if ($result == null) {
+                            $manager->addImage($uploadedFile->getFileName());
+                        }
                     }
                 }
-            }
-
-            // On redirige vers la page d'acceuil
-            header("Location: index.php");
-        }
-        else{
-            return $this->twig->render('card/new.html.twig');
+                // On redirige vers la page d'accueil
+                header("Location: index.php?section=admin&page=tables&table=images&action=get");
         }
     }
+
 
     public function updateAction (){
 
@@ -109,10 +87,10 @@ class ImageController extends Controller
             if (!empty($_POST)){
                 $url = htmlspecialchars($_POST['url']);
                 $alt = htmlspecialchars($_POST['alt']);
-                // On les ajoute à la base de donnée grace à la fonction définit dans notre modèle (updateImage())
+                // On les ajoute à la base de données grace à la fonction définit dans notre modèle (updateImage())
 
                 $manager = new ImageManager();
-                $manager1 = $manager->getAll();
+
                 $manager->update($idimages, $url, $alt);
 
                 // On redirige vers la page d'accueil

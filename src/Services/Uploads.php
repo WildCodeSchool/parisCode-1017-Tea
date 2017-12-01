@@ -6,7 +6,7 @@
  * Time: 23:48
  */
 
-namespace MyApp\Services;
+namespace Tea\Services;
 
 class Uploads
 {
