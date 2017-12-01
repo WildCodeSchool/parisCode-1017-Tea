@@ -1,7 +1,6 @@
 <?php
 
 namespace Tea\Controllers;
-use Tea\Model\Repository\UserManager;
 
 /**
  * Class AdminController

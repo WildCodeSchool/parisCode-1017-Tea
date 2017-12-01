@@ -9,6 +9,7 @@
 namespace Tea\Controllers;
 
 use Tea\Model\Repository\UserManager;
+use Tea\Model\Repository\RoleManager;
 
 class UserController extends Controller
 {
@@ -22,8 +23,13 @@ class UserController extends Controller
 
     public function addAction (){
 
+        $manager = new RoleManager();
+        $roles = $manager->getAll();
+
         if (empty($_POST)) {
-            return $this->twig->render('admin/forms/adminFormsUser.html.twig');
+            return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
+                'roles' => $roles
+            ));
         } else {
             if (
                 empty($_POST['firstname']) ||
@@ -37,6 +43,7 @@ class UserController extends Controller
             ) {
                 $error = "🔴 Please complete all required fields 🔴";
                 return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
+                    'roles' => $roles,
                     'errors' => $error,
                     'users' => $_POST
                 ));
@@ -65,6 +72,9 @@ class UserController extends Controller
 
     public function updateAction (){
 
+        $manager = new RoleManager();
+        $roles = $manager->getAll();
+
         $idusers = $_GET['idusers'];
 
         if ((is_numeric($idusers))  ) {
@@ -89,6 +99,7 @@ class UserController extends Controller
                 $manager = new UserManager();
                 $users = $manager->getOne($idusers);
                 return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
+                    'roles' => $roles,
                     'users' => $users,
                     'post' => $_POST
                 ));
