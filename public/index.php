@@ -7,9 +7,21 @@ require_once '../app/config.php';
 use Tea\Controllers\DefaultController;
 use Tea\Controllers\AdminController;
 use Tea\Controllers\UserController;
+use Tea\Controllers\ProductController;
+use Tea\Controllers\ImageController;
+use \Tea\Controllers\CategoryController;
+use Tea\Controllers\ContentController;
+use Tea\Controllers\RoleController;
 
 $adminController = new AdminController();
 $userController = new UserController();
+$productController = new ProductController();
+$contentController = new ContentController();
+$roleController = new RoleController();
+$categoryController = new CategoryController();
+$imageController = new ImageController();
+
+
 
 /**
  * USER
@@ -29,6 +41,9 @@ $userController = new UserController();
     } elseif($_GET['section']=='contact'){
         $defaultController = new DefaultController();
         echo $defaultController->contactAction();
+    } elseif($_GET['section']=='product'){
+        $defaultController = new DefaultController();
+        echo $defaultController->productAction();
     }
 
 /**
@@ -63,49 +78,49 @@ $userController = new UserController();
              * TABLE PRODUCTS
              */
             elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $productController->getAction();
             } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $productController->addAction();
             } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'update') && isset($_GET['idproducts'])) {
-                echo $userController->updateAction();
+                echo $productController->updateAction();
             } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'delete') && isset($_GET['idproducts'])) {
-                echo $userController->deleteAction();
+                echo $productController->deleteAction();
             }
             /**
              * TABLE CATEGORIES
              */
             elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $categoryController->getAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $categoryController->addAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'update') && isset($_GET['idcategories'])) {
-                echo $userController->updateAction();
+                echo $categoryController->updateAction();
             } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'delete') && isset($_GET['idcategories'])) {
-                echo $userController->deleteAction();
+                echo $categoryController->deleteAction();
             }
             /**
              * TABLE IMAGES
              */
             elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $imageController->getAction();
             } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $imageController->addAction();
             } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'update') && isset($_GET['idimages'])) {
-                echo $userController->updateAction();
+                echo $imageController->updateAction();
             } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'delete') && isset($_GET['idimages'])) {
-                echo $userController->deleteAction();
+                echo $imageController->deleteAction();
             }
             /**
              * TABLE CONTENTS
              */
             elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'get')) {
-                echo $userController->getAction();
+                echo $contentController->getAction();
             } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'add')) {
-                echo $userController->addAction();
+                echo $contentController->addAction();
             } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'update') && isset($_GET['idcontents'])) {
-                echo $userController->updateAction();
+                echo $contentController->updateAction();
             } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'delete') && isset($_GET['idcontents'])) {
-                echo $userController->deleteAction();
+                echo $contentController->deleteAction();
             }
         }
 
@@ -130,40 +145,40 @@ $userController = new UserController();
          * FORM PRODUCTS
          */
         elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $productController->addAction();
         } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'update') && isset($_GET['idproducts'])) {
-            echo $userController->updateAction();
+            echo $productController->updateAction();
         } elseif (($_GET['table'] === 'products') && ($_GET['action'] === 'delete') && isset($_GET['idproducts'])) {
-            echo $userController->deleteAction();
+            echo $productController->deleteAction();
         }
         /**
          * FORM CATEGORIES
          */
         elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $categoryController->addAction();
         } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'update') && isset($_GET['idcategories'])) {
-            echo $userController->updateAction();
+            echo $categoryController->updateAction();
         } elseif (($_GET['table'] === 'categories') && ($_GET['action'] === 'delete') && isset($_GET['idcategories'])) {
-            echo $userController->deleteAction();
+            echo $categoryController->deleteAction();
         }
         /**
          * FORM IMAGES
          */
         elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $imageController->addAction();
         } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'update') && isset($_GET['idimages'])) {
-            echo $userController->updateAction();
+            echo $imageController->updateAction();
         } elseif (($_GET['table'] === 'images') && ($_GET['action'] === 'delete') && isset($_GET['idimages'])) {
-            echo $userController->deleteAction();
+            echo $imageController->deleteAction();
         }
         /**
          * FORM CONTENTS
          */
         elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'add')) {
-            echo $userController->addAction();
+            echo $contentController->addAction();
         } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'update') && isset($_GET['idcontents'])) {
-            echo $userController->updateAction();
+            echo $contentController->updateAction();
         } elseif (($_GET['table'] === 'contents') && ($_GET['action'] === 'delete') && isset($_GET['idcontents'])) {
-            echo $userController->deleteAction();
+            echo $contentController->deleteAction();
         }
     }

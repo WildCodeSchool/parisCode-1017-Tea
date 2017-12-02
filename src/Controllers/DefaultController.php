@@ -67,6 +67,10 @@ class DefaultController extends Controller
         return $this->twig->render('user/contact.html.twig');
     }
 
+    public function productAction(){
+        return $this->twig->render('user/product.html.twig');
+
+    }
 
     public function sendEmail($infoForm)
     {
@@ -86,10 +90,12 @@ class DefaultController extends Controller
 
         // Send the message
 
-        $mailer->send($message);
+//        $mailer->send($message);
 
         return $this->twig->render('user/success_contact.html.twig');
     }
+
+
 
 }
 

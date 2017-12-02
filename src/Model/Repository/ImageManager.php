@@ -3,78 +3,66 @@
 namespace Tea\Model\Repository;
 
 use PDO;
-use Tea\Model\Entity\User;
+use Tea\Model\Entity\Image;
 
 /**
- * Class UserManager
+ * Class ImageManager
  * @package Tea\Repository
  */
-class UserManager extends EntityManager
+class ImageManager extends EntityManager
 {
 	/**
-	 * Get all user
+	 * Get all image
 	 * @return array
 	 */
 	public function getAll(){
-		$statement = $this->db->query('SELECT * FROM users');
-		return $statement->fetchAll(PDO::FETCH_CLASS, User::class);
+		$statement = $this->db->query('SELECT * FROM images');
+		return $statement->fetchAll(PDO::FETCH_CLASS, Image::class);
 	}
 
 	/**
-	 * Get one user
-	 * @param $id int
+	 * Get one image
+	 * @param id int
 	 * @return mixed
 	 */
-	public function getOne($idusers){
-		$statement = $this->db->prepare("SELECT * FROM users WHERE idusers = :idusers");
+	public function getOne($idimages){
+		$statement = $this->db->prepare("SELECT * FROM images WHERE idimages = :idimages");
 		$statement->execute([
-			':idusers' => $idusers
+			':idimages' => $idimages
 		]);
 		return $statement->fetch();
 	}
 
     /**
-     * Add one user
+     * Add one image
      */
-    public function add($firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles){
-        $statement = $this->db->prepare("INSERT INTO users (firstname, lastname, address, email, phone, login, password, roles_idroles) VALUES (:firstname, :lastname, :address, :email, :phone, :login, :password, :roles_idroles)");
+    public function add($url, $alt){
+        $statement = $this->db->prepare("INSERT INTO images (url, alt) VALUES (:url, :alt)");
         $statement->execute([
-            ':firstname' => $firstname,
-            ':lastname' => $lastname,
-            ':address' => $address,
-            ':email' => $email,
-            ':phone' => $phone,
-            ':login' => $login,
-            ':password' => $password,
-            ':roles_idroles' => $roles_idroles
+            ':url' => $url,
+            ':alt' => $alt,
         ]);
     }
 
 	/**
-	 * Update one user
+	 * Update one image
 	 */
-	public function update($idusers, $firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles){
-        $statement = $this->db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, address = :address, email = :email, phone = :phone, login = :login, password = :password, roles_idroles = :roles_idroles WHERE idusers = :idusers");
+	public function update($idimages, $url, $alt){
+        $statement = $this->db->prepare("UPDATE images SET url = :url, alt = :alt WHERE idimages = :idimages");
         $statement->execute([
-            ':idusers' => $idusers,
-            ':firstname' => $firstname,
-            ':lastname' => $lastname,
-            ':address' => $address,
-            ':email' => $email,
-            ':phone' => $phone,
-            ':login' => $login,
-            ':password' => $password,
-            ':roles_idroles' => $roles_idroles
+            ':idimages' => $idimages,
+            ':url' => $url,
+            ':alt' => $alt,
         ]);
 	}
 
 	/**
-	 * Delete one user
+	 * Delete one image
 	 */
-	public function delete($idusers){
-        $statement = $this->db->prepare("DELETE FROM users WHERE idusers = :idusers");
+	public function delete($idimages){
+        $statement = $this->db->prepare("DELETE FROM images WHERE idimages = :idimages");
         $statement->execute([
-            ':idusers' => $idusers
+            ':idimages' => $idimages
         ]);
 	}
 

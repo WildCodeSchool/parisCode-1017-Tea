@@ -1,7 +1,6 @@
 <?php
 
 namespace Tea\Controllers;
-use Tea\Model\Repository\UserManager;
 
 /**
  * Class AdminController
@@ -43,6 +42,24 @@ class AdminController extends Controller
      */
     public function adminFormsAction(){
         return $this->twig->render('admin/adminForms.html.twig');
+    }
+
+    /**
+     * function 'formsAdminAction'
+     * Get SQLfunction 'getAllCitations' then go to 'admin/adminForms.html.twig.twig' page
+     * @return string
+     */
+    public function adminFormsProductAction(){
+        return $this->twig->render('admin/forms/adminFormsProduct.html.twig');
+    }
+
+    /**
+     * function 'formsAdminAction'
+     * Get SQLfunction 'getAllCitations' then go to 'admin/adminForms.html.twig.twig' page
+     * @return string
+     */
+    public function adminTablesProductAction(){
+        return $this->twig->render('admin/tables/adminTablesProduct.html.twig');
     }
 
 }

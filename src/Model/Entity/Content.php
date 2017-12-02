@@ -3,190 +3,64 @@
 namespace Tea\Model\Entity;
 
 /**
- * Class User
+ * Class Content
  * @package Tea\Model\Entity
  */
-class User
+class Content
 {
 	/**
 	 * @var string
 	 */
-	private $idusers;
+	private $idcontents;
 
     /**
      * @var string
      */
-    private $firstname;
+    private $title;
 
     /**
      * @var string
      */
-    private $lastname;
-
-    /**
-     * @var string
-     */
-    private $address;
-
-	/**
-	 * @var string
-	 */
-	private $email;
-
-    /**
-     * @var string
-     */
-    private $phone;
-
-    /**
-     * @var string
-     */
-    private $login;
+    private $description;
 
     /**
      * @return string
      */
-    public function getIdusers()
+    public function getIdcontents()
     {
-        return $this->idusers;
+        return $this->idcontents;
     }
 
     /**
      * @return string
      */
-    public function getFirstname()
+    public function getTitle()
     {
-        return $this->firstname;
+        return $this->title;
     }
 
     /**
-     * @param string $firstname
+     * @param string $title
      */
-    public function setFirstname($firstname)
+    public function setTitle($title)
     {
-        $this->firstname = $firstname;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * @param string $lastname
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
+        $this->title = $title;
     }
 
     /**
      * @return string
      */
-    public function getAddress()
+    public function getDescription()
     {
-        return $this->address;
+        return $this->description;
     }
 
     /**
-     * @param string $address
+     * @param string $description
      */
-    public function setAddress($address)
+    public function setDescription($description)
     {
-        $this->address = $address;
+        $this->description = $description;
     }
-
-    /**
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * @param string $phone
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLogin()
-    {
-        return $this->login;
-    }
-
-    /**
-     * @param string $login
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string $password
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRolesIdroles()
-    {
-        return $this->roles_idroles;
-    }
-
-    /**
-     * @param string $roles_idroles
-     */
-    public function setRolesIdroles($roles_idroles)
-    {
-        $this->roles_idroles = $roles_idroles;
-    }
-
-    /**
-     * @var string
-     */
-    private $password;
-
-    /**
-     * @var string
-     */
-    private $roles_idroles;
 
 }
