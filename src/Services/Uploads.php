@@ -14,7 +14,9 @@ class Uploads
 	 * Uploads directory
 	 * @var string
 	 */
-	const DIR_PATH = "uploads/";
+	const DIR_PATH = "../upload/";
+
+
 
 	/**
 	 *
@@ -25,7 +27,7 @@ class Uploads
 	 */
 	public function checkError(UploadedFile $file){
 		$errors = [];
-		$allowed = array ('jpg', 'png', 'gif');
+		$allowed = array ('jpg', 'png', 'gif', 'jpeg');
 
 		if ($file->getSize() > 1047829){
 			return $errors = 'Trop lourd';
@@ -49,8 +51,9 @@ class Uploads
 		$error = $this->checkError($file);
 
 		if ($error == null){
-			$result = move_uploaded_file($file->getTmpName(), self::DIR_PATH . $file->getFileName());
+            $result = move_uploaded_file($file->getTmpName(), self::DIR_PATH . $file->getFileName());
 		}
-		return $error;
+		//return $error;
+        echo "erreur dans l'upload du fichier";
 	}
 }
