@@ -20,9 +20,6 @@
     <link href="../public/assets/css/admin/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="../public/assets/css/admin/stylesheet.css">
 
-    <!-- Custom add ln-t CSS -->
-    <link href="../public/assets/css/admin/metisMenu.min.css" rel="stylesheet">
-    <link href="../public/assets/css/admin/sb-admin-2.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -44,69 +41,90 @@
         <span class="navbar-toggler-icon inverse"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-        <a class="navbar-brand logo-font" href="index.php"><img src="../public/assets/img/logo.png" height="15%" width="15%">Volup'T</a>
-        <ul class="navbar-nav navbar-sidenav bg-light id=" exampleAccordion
-        ">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link">
-                <i class="fa fa-fw fa-dashboard"></i>
-                <span class="nav-link-text"> Dashboard</span>
-            </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="index.php?section=formsAdmin">
-                <i class="fa fa-fw fa-file-text-o"></i>
-                <span class="nav-link-text"> Forms</span>
-            </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
-            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-                <i class="fa fa-fw fa-table"></i>
-                <span class="nav-link-text">Admin</span>
-            </a>
-            <ul class="sidenav-second-level collapse" id="collapseMulti">
-                <li class="nav-item">
-                    <a class="" href="index.php?section=tablesAdmin">
-                        <i class="fa fa-users"></i> Customers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="" href="index.php?section=tablesAdmin">
-                        <i class="fa fa-tag"></i> Products</a>
-                </li>
-                </li>
-                {#<li class="nav-item">#}
-                {#<a class="nav-link text-dark" href="index.php?section=tablesAdmin">#}
-                {#<i class="fa fa-shopping-basket"></i> Orders</a>#}
-                {#</li>#}
-                {#<li class="nav-item">#}
-                {#<a class="nav-link text-dark" href="index.php?section=tablesAdmin">#}
-                {#<i class="fa fa-calendar"></i> Pick-ups</a>#}
-                {#</li>#}
-                <li>
-                    <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2"><i class="fa fa-sitemap"></i> Shop settings</a>
-                    <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                        <li>
-                            <a href="#">First page</a>
-                        </li>
-                        <li>
-                            <a href="#">Second page</a>
-                        </li>
-                        <li>
-                            <a href="#">Third page</a>
-                        </li>
-                        <li>
-                            <a href="#">Fourth page</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Shop">
-            <a class="nav-link" href="index.php">
-                <i class="fa fa-fw fa-link"></i>
-                <span class="nav-link-text"> Shop</span>
-            </a>
-        </li>
+        <a class="navbar-brand" href="index.php?section=admin&page=home"><img src="" alt="" height="15%" width="15%">Admin</a>
+        <ul class="navbar-nav navbar-sidenav bg-light" id="exampleAccordion">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti1" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text"> Tables</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMulti1">
+                    <li class="nav-item">
+                        <a class="" href="index.php?section=admin&page=tables&table=users&action=get">
+                            <i class="fa fa-users"></i> Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="" href="index.php?section=admin&page=tables&table=products&action=get">
+                            <i class="fa fa-tag"></i> Products</a>
+                    </li>
+                    {#<li class="nav-item">#}
+                    {#<a class="nav-link text-dark" href="index.php?section=admin&page=tables">#}
+                    {#<i class="fa fa-shopping-basket"></i> Orders</a>#}
+                    {#</li>#}
+                    {#<li class="nav-item">#}
+                    {#<a class="nav-link text-dark" href="index.php?section=admin&page=tables">#}
+                    {#<i class="fa fa-calendar"></i> Pick-ups</a>#}
+                    {#</li>#}
+                    <li>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2"><i class="fa fa-sitemap"></i> Shop settings</a>
+                        <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                            <li>
+                                <a href="index.php?section=admin&page=tables&table=categories&action=get">Categories</a>
+                            </li>
+                            <li>
+                                <a href="index.php?section=admin&page=tables&table=images&action=get">Images</a>
+                            </li>
+                            <li>
+                                <a href="index.php?section=admin&page=tables&table=contents&action=get">Contents</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Forms">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti3" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-file-text-o"></i>
+                    <span class="nav-link-text"> Forms</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMulti3">
+                    <li class="nav-item">
+                        <a class="" href="index.php?section=admin&page=forms&table=users&action=add">
+                            <i class="fa fa-users"></i> Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="" href="index.php?section=admin&page=forms&table=products&action=add">
+                            <i class="fa fa-tag"></i> Products</a>
+                    </li>
+                    {#<li class="nav-item">#}
+                    {#<a class="nav-link text-dark" href="index.php?section=admin&page=tables">#}
+                    {#<i class="fa fa-shopping-basket"></i> Orders</a>#}
+                    {#</li>#}
+                    {#<li class="nav-item">#}
+                    {#<a class="nav-link text-dark" href="index.php?section=admin&page=tables">#}
+                    {#<i class="fa fa-calendar"></i> Pick-ups</a>#}
+                    {#</li>#}
+                    <li>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti4"><i class="fa fa-sitemap"></i> Shop settings</a>
+                        <ul class="sidenav-third-level collapse" id="collapseMulti4">
+                            <li>
+                                <a href="index.php?section=admin&page=forms&table=categories&action=add">Categories</a>
+                            </li>
+                            <li>
+                                <a href="index.php?section=admin&page=forms&table=images&action=add">Images</a>
+                            </li>
+                            <li>
+                                <a href="index.php?section=admin&page=forms&table=contents&action=add">Contents</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Shop">
+                <a class="nav-link" href="index.php" target="_blank">
+                    <i class="fa fa-fw fa-link"></i>
+                    <span class="nav-link-text"> Go back to the site</span>
+                </a>
+            </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
@@ -227,7 +245,7 @@
 <footer class="sticky-footer bg-light">
     <div class="container">
         <div class="text-center">
-            <small>Made with <3+8 by LN-T</small>
+            <small>Made with <3 by LN-T</small>
         </div>
     </div>
 </footer>
@@ -268,10 +286,6 @@
 <script src="../public/assets/js/admin/sb-admin.min.js"></script>
 <!-- Custom scripts for this page-->
 <script src="../public/assets/js/admin/sb-admin-datatables.min.js"></script>
-<!-- Add LN-T -->
-<script src="../public/assets/js/admin/metisMenu.min.js"></script>
-<script src="../public/assets/js/admin/sb-admin-2.min.js"></script>
-
 
 </body>
 

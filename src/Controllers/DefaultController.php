@@ -2,7 +2,7 @@
 
 namespace Tea\Controllers;
 
-use Tea\Model\Repository\UserManager;
+//use Tea\Model\Repository\UserManager;
 
 /**
  * Class DefaultController
@@ -15,25 +15,7 @@ class DefaultController extends Controller
 	 */
 	public function indexAction(){
 
-
-		return $this->twig->render('user/home.html.twig'
-		);
-	}
-
-	/**
-	 * @return string
-	 */
-	public function showOneAction(){
-		$id = $_GET['id'];
-
-		if (is_numeric($id)){
-			$userManager = new UserManager();
-			$user = $userManager->getOne($id);
-
-			return $this->twig->render('user/showOne.html.twig', array(
-				'user' => $user
-			));
-		}
+		return $this->twig->render('user/home.html.twig');
 	}
 
     public function homeAction(){
@@ -85,6 +67,10 @@ class DefaultController extends Controller
         return $this->twig->render('user/contact.html.twig');
     }
 
+    public function productAction(){
+        return $this->twig->render('user/product.html.twig');
+
+    }
 
     public function sendEmail($infoForm)
     {
@@ -104,18 +90,14 @@ class DefaultController extends Controller
 
         // Send the message
 
-        $mailer->send($message);
+//        $mailer->send($message);
 
         return $this->twig->render('user/success_contact.html.twig');
     }
 
 
 
-
-
-
-
-    }
+}
 
 
 

@@ -1,0 +1,96 @@
+{% extends 'admin/adminLayout.html.twig' %}
+
+{% block body %}
+
+    <div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <i class="fa fa-fw fa-dashboard"></i>
+                <a href="index.php?section=admin&page=home" class="text-dark">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <a class="text-dark">Tables</a>
+            </li>
+            <li class="breadcrumb-item active">Products</li>
+        </ol>
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col mt-1">
+                        <i class="fa fa-table "></i> Products
+                    </div>
+                    <div class="col text-right">
+                        <a class="btn btn-success btn-custom" href="index.php?section=admin&page=forms&table=products&action=add"><i class="fa fa-plus-circle"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Idproducts</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Image ID</th>
+                            <th>Category ID</th>
+                            {#<th>More</th>#}
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Idproducts</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Image ID</th>
+                            <th>Category ID</th>
+                            {#<th>More</th>#}
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <td>{{ product.idproducts }}</td>
+                                <td>{{ product.name }}</td>
+                                <td>{{ product.description }}</td>
+                                <td>{{ product.quantity }}</td>
+                                <td>{{ product.price }}</td>
+                                <td>{{ product.images_idimages }}</td>
+                                <td>{{ product.categories_idcategories }}</td>
+                                <td>
+                                    <a class="btn btn-warning"
+                                       href="index.php?section=admin&page=tables&table=products&action=update&idproducts={{ product.idproducts }}">
+                                        <i class="fa fa-inverse fa-pencil-square-o"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger"
+                                       href="index.php?section=admin&page=tables&table=products&action=delete&idproducts={{ product.idproducts }}">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock body %}

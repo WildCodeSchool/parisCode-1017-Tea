@@ -1,4 +1,4 @@
-{% extends 'admin/layoutAdmin.html.twig' %}
+{% extends 'admin/adminLayout.html.twig' %}
 
   {% block body %}
 
@@ -7,7 +7,8 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                  <a class="text-dark" href="">Dashboard</a>
+                  <i class="fa fa-fw fa-dashboard"></i>
+                  <a class="text-dark">Dashboard</a>
               </li>
               <li class="breadcrumb-item active">My Dashboard</li>
           </ol>
@@ -80,7 +81,6 @@
           {#</div>#}
 
       </div>
-      <!-- /.container-fluid-->
-      <!-- /.content-wrapper-->
+
 
   {% endblock body %}

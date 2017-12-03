@@ -1,0 +1,90 @@
+{% extends 'admin/adminLayout.html.twig' %}
+
+{% block body %}
+
+    <div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <i class="fa fa-fw fa-dashboard"></i>
+                <a href="index.php?section=admin&page=home" class="text-dark">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <a class="text-dark">Tables</a>
+            </li>
+            <li class="breadcrumb-item active">Contents</li>
+        </ol>
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col mt-1">
+                        <i class="fa fa-table "></i> Contents
+                    </div>
+                    <div class="col text-right">
+                        <a class="btn btn-success btn-custom" href="http://localhost/wcs/project/Tea/public/index.php?section=admin&page=forms&table=contents&action=add"><i class="fa fa-plus-circle"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Idcontents</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            {#<th>More</th>#}
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Idcontents</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            {#<th>More</th>#}
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+
+                        {% for content in contents %}
+                            <tr>
+                                <td>{{ content.idcontents }}</td>
+                                <td>{{ content.title }}</td>
+                                <td>{{ content.description }}</td>
+                                {#<td>#}
+                                    {#<a class="btn btn-info" href="index.php?section=admin&page=tables&table=contents&action=add">#}
+                                        {#<i class="fa fa-search-plus"></i>#}
+                                    {#</a>#}
+                                {#</td>#}
+                                <td>
+                                    <a class="btn btn-warning"
+                                       href="index.php?section=admin&page=tables&table=contents&action=update&idcontents={{ content.idcontents }}">
+                                        <i class="fa fa-inverse fa-pencil-square-o"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger"
+                                       href="index.php?section=admin&page=tables&table=contents&action=delete&idcontents={{ content.idcontents }}">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+
+{% endblock body %}

@@ -1,0 +1,84 @@
+{% extends 'admin/adminLayout.html.twig' %}
+
+{% block body %}
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <i class="fa fa-fw fa-dashboard"></i>
+                    <a href="index.php?section=admin&page=home" class="text-dark">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a class="text-dark">Forms</a>
+                </li>
+                <li class="breadcrumb-item active">Categories</li>
+            </ol>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Categories</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row mb-3">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            {% if errors is defined %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ errors }}</strong>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="panel-body">
+                            {% if categories.idcategories is defined %}
+                            <form role="form" action="index.php?section=admin&page=tables&table=categories&action=update&idcategories={{ categories.idcategories }}" method="post">
+                            {% else %}
+                            <form role="form" action="index.php?section=admin&page=tables&table=categories&action=add" method="post">
+                             {% endif %}
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="disabledSelect">Idcategories</label>
+                                            <input class="form-control" id="disabledInput" type="text" placeholder="" value="{{ categories.idcategories }}" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input class="form-control" placeholder="Enter name" name="name" value="{{ categories.name }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <input class="form-control" placeholder="Enter description" name="description" value="{{ categories.description }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Images_idimages</label>
+                                            <input class="form-control" placeholder="Enter url" name="images_idimages" value="{{ categories.imagesIdimages }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                </div>
+
+
+
+
+                                <!-- /.row (nested) -->
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    </div>
+    <!-- /#wrapper -->
+
+{% endblock body %}

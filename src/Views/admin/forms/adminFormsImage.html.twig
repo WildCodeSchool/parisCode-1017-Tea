@@ -1,0 +1,84 @@
+{% extends 'admin/adminLayout.html.twig' %}
+
+{% block body %}
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <i class="fa fa-fw fa-dashboard"></i>
+                    <a href="index.php?section=admin&page=home" class="text-dark">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a class="text-dark">Forms</a>
+                </li>
+                <li class="breadcrumb-item active">Images</li>
+            </ol>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Images</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row mb-3">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            {% if errors is defined %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ errors }}</strong>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="panel-body">
+                            {% if images.idimages is defined %}
+                            <form role="form" action="index.php?section=admin&page=forms&table=images&action=update&idimages={{ images.idimages }}" method="post" enctype="multipart/form-data">
+                            {% else %}
+                            <form role="form" action="index.php?section=admin&page=forms&table=images&action=add" method="post" enctype="multipart/form-data">
+                             {% endif %}
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="disabledSelect">Idimage</label>
+                                            <input class="form-control" id="disabledInput" type="text" placeholder="" value="{{ images.idimages }}" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Url</label>
+                                            <input class="form-control" placeholder="Enter url" name="url" value="{{ images.url }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Alt</label>
+                                            <input class="form-control" placeholder="Enter alt" name="alt" value="{{ images.alt }}">
+                                        </div>
+                                        {#<div>#}
+                                            {#<div class="form-group">#}
+                                            {#<label for="image">Images</label>#}
+                                            {#<input name="images[]" id="image" type="file" multiple required>#}
+                                        {#</div>#}
+                                    </div>
+
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </form>
+                                <!-- /.row (nested) -->
+                            </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    </div>
+    <!-- /#wrapper -->
+
+{% endblock body %}
