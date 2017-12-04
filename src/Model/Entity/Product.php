@@ -34,6 +34,27 @@ class Product
     private $price;
 
     /**
+     * @var string
+     */
+    private $images_idimages;
+
+    /**
+     * @return mixed
+     */
+    public function getImagesIdimages()
+    {
+        return $this->images_idimages;
+    }
+
+    /**
+     * @param mixed $images_idimages
+     */
+    public function setImagesIdimages($images_idimages)
+    {
+        $this->images_idimages = $images_idimages;
+    }
+
+    /**
      * @return string
      */
     public function getIdproducts(): string
