@@ -5,23 +5,24 @@ require_once '../vendor/autoload.php';
 require_once '../app/config.php';
 
 use Tea\Controllers\DefaultController;
+
 use Tea\Controllers\AdminController;
-use Tea\Controllers\UserController;
-use Tea\Controllers\ProductController;
-use Tea\Controllers\ImageController;
-use \Tea\Controllers\CategoryController;
+use Tea\Controllers\CategoryController;
 use Tea\Controllers\ContentController;
+use Tea\Controllers\ContactController;
+use Tea\Controllers\ImageController;
+use Tea\Controllers\ProductController;
 use Tea\Controllers\RoleController;
+use Tea\Controllers\UserController;
 
 $adminController = new AdminController();
-$userController = new UserController();
-$productController = new ProductController();
-$contentController = new ContentController();
-$roleController = new RoleController();
 $categoryController = new CategoryController();
+$contactController = new ContactController();
+$contentController = new ContentController();
 $imageController = new ImageController();
-
-
+$productController = new ProductController();
+$roleController = new RoleController();
+$userController = new UserController();
 
 /**
  * USER
@@ -39,8 +40,8 @@ $imageController = new ImageController();
         $defaultController = new DefaultController();
         echo $defaultController->shopAction();
     } elseif($_GET['section']=='contact'){
-        $defaultController = new DefaultController();
-        echo $defaultController->contactAction();
+        $captchaController = new ContactController();
+        echo $contactController->contactAction();
     } elseif($_GET['section']=='product'){
         $defaultController = new DefaultController();
         echo $defaultController->productAction();

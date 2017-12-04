@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <link rel="icon" type="image/png" href="https://s-media-cache-ak0.pinimg.com/originals/0e/54/6b/0e546b2fe8980de9a753d517a5323508.png" />
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Sacramento|Raleway" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+
+        <link href="../public/assets/css/style.css" rel="stylesheet">
+
+    </head>
+    <body>
+
+        <h4 class="logo">Volup't</h4>
+
+        <h1>Réception et traitement de votre demande</h1>
+
+        <p>Bonjour {{ email.firstname }},</p>
+
+        <p>Nous avons bien reçu votre message :</p>
+        <blockquote>{{ email.message }}</blockquote>
+
+        <p>Une personne de notre équipe reviendra d'ici peu vers vous pour répondre à votre demande.</p>
+
+        <p>A très bientôt.</p>
+
+        <p>L’équipe VolupT</p>
+        <p>contact.volupt@gmail.com</p>
+
+        <footer>Copyright © 2017, VolupT, Tous droits réservés. </footer>
+
+    </body>
+</html>
