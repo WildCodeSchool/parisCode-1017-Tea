@@ -16,7 +16,7 @@ class ProductManager extends EntityManager
 	 * @return array
 	 */
 	public function getAll(){
-		$statement = $this->db->query('SELECT * FROM products');
+		$statement = $this->db->query('SELECT * FROM products INNER JOIN images ON images_idimages = images.idimages');
 		return $statement->fetchAll(PDO::FETCH_CLASS, Product::class);
 	}
 

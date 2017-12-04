@@ -3,6 +3,8 @@
 namespace Tea\Controllers;
 
 //use Tea\Model\Repository\UserManager;
+use Tea\Model\Repository\ImageManager;
+use Tea\Model\Repository\ProductManager;
 
 /**
  * Class DefaultController
@@ -27,10 +29,21 @@ class DefaultController extends Controller
 
     }
 
-    public function shopAction(){
-        return $this->twig->render('user/shop.html.twig');
+    /**
+     * Render product page shop
+     */
 
+    public function shopAction(){
+            $imageManager = new ImageManager();
+            $images = $imageManager->getAll();
+            $productManager = new ProductManager();
+            $products = $productManager->getAll();
+        return $this->twig->render('user/shop.html.twig', array(
+                'products' => $products,
+                'images' => $images
+            ));
     }
+
 
     public function contactAction(){
         if ($_POST) {
@@ -61,21 +74,20 @@ class DefaultController extends Controller
             else {
                 return $this->sendEmail($_POST);
             }
-
         }
-
         return $this->twig->render('user/contact.html.twig');
     }
+
 
     public function productAction(){
         return $this->twig->render('user/product.html.twig');
 
     }
 
-    public function sendEmail($infoForm)
-    {
+
+    public function sendEmail($infoForm) {
         // Create the Transport
-        $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+        $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465,  'ssl'))
             ->setUsername('contact.volupt@gmail.com')
             ->setPassword('jecode4wcs');
 

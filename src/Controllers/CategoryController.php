@@ -55,12 +55,12 @@ class CategoryController extends Controller
 
         $idcategories = $_GET['idcategories'];
 
-        if ((is_numeric($idcategories))  ) {
+        if ((is_numeric($idcategories))) {
             if (!empty($_POST)){
                 $name = htmlspecialchars($_POST['name']);
                 $description = htmlspecialchars($_POST['description']);
                 $images_idimages = htmlspecialchars($_POST['images_idimages']);
-                // On les ajoute à la base de donnée grace à la fonction définit dans notre modèle (updateCitation())
+                // On les ajoute à la base de donnée grace à la fonction définit dans notre modèle (updateAction())
 
                 $manager = new CategoryManager();
                 $manager->update($idcategories, $name, $description, $images_idimages);
