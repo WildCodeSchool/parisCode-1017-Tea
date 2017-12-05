@@ -78,7 +78,7 @@ class CategoryController extends Controller
                 $desccat = htmlspecialchars($_POST['desccat']);
                 $idimages = htmlspecialchars($_POST['idimages']);
                 // On les ajoute à la base de donnée grace à la fonction définit dans notre modèle (updateCitation())
-
+        
                 $manager = new CategoryManager();
                 $manager->update($idcategories, $category, $desccat, $idimages);
 
