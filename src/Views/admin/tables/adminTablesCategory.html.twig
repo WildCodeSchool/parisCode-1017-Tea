@@ -32,10 +32,10 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Idcategories</th>
-                            <th>Name</th>
+                            <th>#</th>
+                            <th>Category</th>
                             <th>Description</th>
-                            <th>ImagesId</th>
+                            <th>Image</th>
                             {#<th>More</th>#}
                             <th>Update</th>
                             <th>Delete</th>
@@ -43,23 +43,22 @@
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>Idcategories</th>
-                            <th>Name</th>
+                            <th>#</th>
+                            <th>Category</th>
                             <th>Description</th>
-                            <th>ImagesId</th>
+                            <th>Image</th>
                             {#<th>More</th>#}
                             <th>Update</th>
                             <th>Delete</th>
                         </tr>
                         </tfoot>
                         <tbody>
-
                         {% for category in categories %}
                             <tr>
                                 <td>{{ category.idcategories }}</td>
-                                <td>{{ category.name }}</td>
-                                <td>{{ category.description }}</td>
-                                <td>{{ category.imagesIdimages }}</td>
+                                <td>{{ category.category }}</td>
+                                <td>{{ category.desccat }}</td>
+                                <td><img src="{{ category.url }}" height="100px" width="150px"></td>
                                 {#<td>#}
                                     {#<a class="btn btn-info" href="index.php?section=admin&page=tables&table=users&action=add">#}
                                         {#<i class="fa fa-search-plus"></i>#}

@@ -7,66 +7,82 @@ use Tea\Model\Entity\Category;
 
 /**
  * Class CategoryManager
+ *
  * @package Tea\Repository
  */
 class CategoryManager extends EntityManager
 {
-	/**
-	 * Get all categories
-	 * @return array
-	 */
-	public function getAll(){
-		$statement = $this->db->query('SELECT * FROM categories');
-		return $statement->fetchAll(PDO::FETCH_CLASS, Category::class);
-	}
+    /**
+     * Get all categories
+     *
+     * @return array
+     */
+    public function getAll()
+    {
+        $statement = $this->db->query("SELECT categories.idcategories, categories.category, categories.desccat, categories.idimages, images.url, images.alt FROM categories JOIN images ON categories.idimages = images.idimages");
+        return $statement->fetchAll(PDO::FETCH_CLASS, Category::class);
+    }
 
 
-	/**
-	 * Get one category
-	 * @param id int
-	 * @return mixed
-	 */
-	public function getOne($idcategories){
-		$statement = $this->db->prepare("SELECT * FROM categories WHERE idcategories = :idcategories");
-		$statement->execute([
-			':idcategories' => $idcategories
-		]);
-		return $statement->fetch();
-	}
+    /**
+     * Get one category
+     *
+     * @param  id int
+     * @return mixed
+     */
+    public function getOne($idcategories)
+    {
+        $statement = $this->db->prepare("SELECT categories.idcategories, categories.category, categories.desccat, categories.idimages, images.url, images.alt FROM categories JOIN images ON categories.idimages = images.idimages WHERE idcategories = :idcategories");
+        $statement->execute(
+            [
+            ':idcategories' => $idcategories
+            ]
+        );
+        return $statement->fetch();
+    }
 
     /**
      * Add one category
      */
-    public function add($name, $description, $images_idimages){
-        $statement = $this->db->prepare("INSERT INTO categories (name, description, images_idimages) VALUES (:name, :description, :images_idimages)");
-        $statement->execute([
-            ':name' => $name,
-            ':description' => $description,
-            ':images_idimages' => $images_idimages
-        ]);
+    public function add($category, $desccat, $idimages)
+    {
+        $statement = $this->db->prepare("INSERT INTO categories (category, desccat, idimages) VALUES (:category, :desccat, :idimages)");
+        $statement->execute(
+            [
+            ':category' => $category,
+            ':desccat' => $desccat,
+            ':idimages' => $idimages
+            ]
+        );
     }
 
-	/**
-	 * Update one category
-	 */
-    public function update($idcategories, $name, $description, $images_idimages){
-        $statement = $this->db->prepare("UPDATE categories SET name = :name, description = :description, images_idimages = :images_idimages WHERE idcategories = :idcategories");
-        $statement->execute([
+    /**
+     * Update one category
+     */
+    public function update($idcategories, $category, $desccat, $idimages)
+    {
+        $statement = $this->db->prepare("UPDATE categories SET category = :category, desccat = :desccat, idimages = :idimages WHERE idcategories = :idcategories");
+        $statement->execute(
+            [
             ':idcategories' => $idcategories,
-            ':name' => $name,
-            ':description' => $description,
-            ':images_idimages' => $images_idimages
-        ]);
+            ':category' => $category,
+            ':desccat' => $desccat,
+            ':idimages' => $idimages
+            ]
+        );
     }
 
-	/**
-	 * Delete one category
-	 */
-	public function delete($idcategories){
+    /**
+     * Delete one category
+     */
+    public function delete($idcategories)
+    {
         $statement = $this->db->prepare("DELETE FROM categories WHERE idcategories = :idcategories");
-        $statement->execute([
+        $statement->execute(
+            [
             ':idcategories' => $idcategories
-        ]);
-	}
+            ]
+        );
+    }
 
 }

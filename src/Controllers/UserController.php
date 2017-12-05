@@ -13,40 +13,47 @@ use Tea\Model\Repository\RoleManager;
 
 class UserController extends Controller
 {
-    public function getAction(){
+    public function getAction()
+    {
         $manager = new UserManager();
         $users = $manager->getAll();
-        return $this->twig->render('admin/tables/adminTablesUser.html.twig', array(
+        return $this->twig->render(
+            'admin/tables/adminTablesUser.html.twig', array(
             'users' => $users
-        ));
+            )
+        );
     }
 
-    public function addAction (){
+    public function addAction()
+    {
 
         $manager = new RoleManager();
         $roles = $manager->getAll();
 
         if (empty($_POST)) {
-            return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
+            return $this->twig->render(
+                'admin/forms/adminFormsUser.html.twig', array(
                 'roles' => $roles
-            ));
+                )
+            );
         } else {
-            if (
-                empty($_POST['firstname']) ||
-                empty($_POST['lastname']) ||
-                empty($_POST['address']) ||
-                empty($_POST['email']) ||
-                empty($_POST['phone']) ||
-                empty($_POST['login']) ||
-                empty($_POST['password']) ||
-                empty($_POST['roles_idroles'])
+            if (empty($_POST['firstname']) 
+                || empty($_POST['lastname']) 
+                || empty($_POST['address']) 
+                || empty($_POST['email']) 
+                || empty($_POST['phone']) 
+                || empty($_POST['login']) 
+                || empty($_POST['password']) 
+                || empty($_POST['idroles'])
             ) {
                 $error = "🔴 Please complete all required fields 🔴";
-                return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
+                return $this->twig->render(
+                    'admin/forms/adminFormsUser.html.twig', array(
                     'errors' => $error,
                     'roles' => $roles,
                     'users' => $_POST
-                ));
+                    )
+                );
             } else {
                 $firstname = htmlspecialchars($_POST['firstname']);
                 $lastname = htmlspecialchars($_POST['lastname']);
@@ -55,14 +62,14 @@ class UserController extends Controller
                 $phone = htmlspecialchars($_POST['phone']);
                 $login = htmlspecialchars($_POST['login']);
                 $password = htmlspecialchars($_POST['password']);
-                $roles_idroles = htmlspecialchars($_POST['roles_idroles']);
+                $idroles = htmlspecialchars($_POST['idroles']);
 
                 // Appel du modele ==> execution de la requete d'enregistrement en base de donné (addCitation())
 
                 $manager = new UserManager();
                 $manager1 = $manager->getAll();
 
-                $manager->add($firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles);
+                $manager->add($firstname, $lastname, $address, $email, $phone, $login, $password, $idroles);
 
                 // Redirection vers le Controllers frontal index.php
                 header('Location: index.php?section=admin&page=tables&table=users&action=get');
@@ -70,7 +77,8 @@ class UserController extends Controller
         }
     }
 
-    public function updateAction (){
+    public function updateAction()
+    {
 
         $manager = new RoleManager();
         $roles = $manager->getAll();
@@ -78,7 +86,7 @@ class UserController extends Controller
         $idusers = $_GET['idusers'];
 
         if ((is_numeric($idusers))  ) {
-            if (!empty($_POST)){
+            if (!empty($_POST)) {
                 $firstname = htmlspecialchars($_POST['firstname']);
                 $lastname = htmlspecialchars($_POST['lastname']);
                 $address = htmlspecialchars($_POST['address']);
@@ -86,30 +94,33 @@ class UserController extends Controller
                 $phone = htmlspecialchars($_POST['phone']);
                 $login = htmlspecialchars($_POST['login']);
                 $password = htmlspecialchars($_POST['password']);
-                $roles_idroles = htmlspecialchars($_POST['roles_idroles']);
+                $idroles = htmlspecialchars($_POST['idroles']);
                 // On les ajoute à la base de donnée grace à la fonction définit dans notre modèle (updateCitation())
 
                 $manager = new UserManager();
                 $manager1 = $manager->getAll();
-                $manager->update($idusers, $firstname, $lastname, $address, $email, $phone, $login, $password, $roles_idroles);
+                $manager->update($idusers, $firstname, $lastname, $address, $email, $phone, $login, $password, $idroles);
 
                 // On redirige vers la page d'accueil
                 header('Location: index.php?section=admin&page=tables&table=users&action=get');
             } else {
                 $manager = new UserManager();
                 $users = $manager->getOne($idusers);
-                return $this->twig->render('admin/forms/adminFormsUser.html.twig', array(
+                return $this->twig->render(
+                    'admin/forms/adminFormsUser.html.twig', array(
                     'roles' => $roles,
                     'users' => $users,
                     'post' => $_POST
-                ));
+                    )
+                );
             }
         } else {
             return $this->twig->render('404.html.twig');
         }
     }
 
-    public function deleteAction (){
+    public function deleteAction()
+    {
 
         $idusers = $_GET['idusers'];
 

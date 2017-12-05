@@ -4,6 +4,7 @@ namespace Tea\Model\Entity;
 
 /**
  * Class Category
+ *
  * @package Tea\Model\Entity
  */
 class Category
@@ -16,17 +17,17 @@ class Category
     /**
      * @var string
      */
-    private $name;
+    private $category;
 
     /**
      * @var string
      */
-    private $description;
+    private $desccat;
 
     /**
      * @var string
      */
-    private $images_idimages;
+    private $idimages;
 
     /**
      * @return string
@@ -39,44 +40,49 @@ class Category
     /**
      * @return string
      */
-    public function getName()
+    public function getCategory()
     {
-        return $this->name;
+        return $this->category;
     }
 
     /**
-     * @param string $name
+     * @param string $category
      */
-    public function setName($name)
+    public function setCategory($category)
     {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
+        $this->category = $category;
     }
 
     /**
      * @return string
      */
-    public function getImagesIdimages()
+    public function getDesccat()
     {
-        return $this->images_idimages;
+        return $this->desccat;
+    }
+
+    /**
+     * @param string $desccat
+     */
+    public function setDesccat($desccat)
+    {
+        $this->desccat = $desccat;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdimages()
+    {
+        return $this->idimages;
+    }
+
+    /**
+     * @param string $idimages
+     */
+    public function setIdimages($idimages)
+    {
+        $this->idimages = $idimages;
     }
 
 }
-
-
-

@@ -32,8 +32,8 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Idimages</th>
-                            <th>Url</th>
+                            <th>#</th>
+                            <th>Image</th>
                             <th>Alt</th>
                             {#<th>More</th>#}
                             <th>Update</th>
@@ -42,8 +42,8 @@
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>Idimages</th>
-                            <th>Url</th>
+                            <th>#</th>
+                            <th>Image</th>
                             <th>Alt</th>
                             {#<th>More</th>#}
                             <th>Update</th>
@@ -51,11 +51,10 @@
                         </tr>
                         </tfoot>
                         <tbody>
-
                         {% for image in images %}
                             <tr>
                                 <td>{{ image.idimages }}</td>
-                                <td>{{ image.url }}</td>
+                                <td><img src="{{ image.url }}" height="100px" width="150px"></td>
                                 <td>{{ image.alt }}</td>
                                 {#<td>#}
                                     {#<a class="btn btn-info" href="index.php?section=admin&page=tables&table=users&action=add">#}

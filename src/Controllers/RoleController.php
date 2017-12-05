@@ -12,7 +12,8 @@ use Tea\Model\Repository\RoleManager;
 
 class RoleController extends Controller
 {
-    public function getAction(){
+    public function getAction()
+    {
         $manager = new RoleManager();
         $roles = $manager->getAll();
     }

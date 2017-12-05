@@ -7,76 +7,87 @@ use Tea\Model\Entity\Product;
 
 /**
  * Class ProductManager
+ *
  * @package Tea\Repository
  */
 class ProductManager extends EntityManager
 {
-	/**
-	 * Get all product
-	 * @return array
-	 */
-	public function getAll(){
-		$statement = $this->db->query('SELECT * FROM products');
-		return $statement->fetchAll(PDO::FETCH_CLASS, Product::class);
-	}
+    /**
+     * Get all product
+     *
+     * @return array
+     */
+    public function getAll()
+    {
+        $statement = $this->db->query("SELECT products.idproducts, products.product, products.descpro, products.quantity, products.price, products.idimages, products.idcategories, images.alt, images.url, categories.category FROM products JOIN images ON products.idimages = images.idimages JOIN categories ON products.idcategories = categories.idcategories");
+        return $statement->fetchAll(PDO::FETCH_CLASS, Product::class);
+    }
 
-	/**
-	 * Get one product
-	 * @param $id int
-	 * @return mixed
-	 */
-//SELECT * FROM products WHERE idproducts = :idproducts
-//        SELECT products.idproducts, categories.categoriesname, images.imagesalt
-//        FROM products
-//        INNER JOIN categories, images ON products.id_categories=categories.name, products.id_images=alt;
-
-	public function getOne($idproducts){
-		$statement = $this->db->prepare("SELECT * FROM products WHERE idproducts = :idproducts;");
-		$statement->execute([
-			':idproducts' => $idproducts
-		]);
-		return $statement->fetch();
-	}
+    /**
+     * Get one product
+     *
+     * @param  $id int
+     * @return mixed
+     */
+    public function getOne($idproducts)
+    {
+        $statement = $this->db->prepare("SELECT products.idproducts, products.product, products.descpro, products.quantity, products.price, products.idimages, products.idcategories, images.alt, images.url, categories.category FROM products JOIN images ON products.idimages = images.idimages JOIN categories ON products.idcategories = categories.idcategories WHERE idproducts = :idproducts;");
+        $statement->execute(
+            [
+            ':idproducts' => $idproducts
+            ]
+        );
+        return $statement->fetch();
+    }
 
     /**
      * Add one product
      */
-    public function add($name, $description, $quantity, $price, $images_idimages, $categories_idcategories){
-        $statement = $this->db->prepare("INSERT INTO products (name, description, quantity, price, images_idimages, categories_idcategories) VALUES (:name, :description, :quantity, :price, :images_idimages, :categories_idcategories)");
-        $statement->execute([
-            ':name' => $name,
-            ':description' => $description,
+    public function add($product, $descpro, $quantity, $price, $idimages, $idcategories)
+    {
+        $statement = $this->db->prepare("INSERT INTO products (product, descpro, quantity, price, idimages, idcategories) VALUES (:product, :descpro, :quantity, :price, :idimages, :idcategories)");
+        $statement->execute(
+            [
+            ':product' => $product,
+            ':descpro' => $descpro,
             ':quantity' => $quantity,
             ':price' => $price,
-            ':images_idimages' => $images_idimages,
-            ':categories_idcategories' => $categories_idcategories
-        ]);
+            ':idimages' => $idimages,
+            ':idcategories' => $idcategories
+            ]
+        );
     }
 
-	/**
-	 * Update one product
-	 */
-	public function update($idproducts, $name, $description, $quantity, $price, $images_idimages, $categories_idcategories){
-        $statement = $this->db->prepare("UPDATE products SET name = :name, description = :description, quantity = :quantity, price = :price, images_idimages = :images_idimages, categories_idcategories = :categories_idcategories WHERE idproducts = :idproducts");
-        $statement->execute([
+    /**
+     * Update one product
+     */
+    public function update($idproducts, $product, $descpro, $quantity, $price, $idimages, $idcategories)
+    {
+        $statement = $this->db->prepare("UPDATE products SET product = :product, descpro = :descpro, quantity = :quantity, price = :price, idimages = :idimages, idcategories = :idcategories WHERE idproducts = :idproducts");
+        $statement->execute(
+            [
             ':idproducts' => $idproducts,
-            ':name' => $name,
-            ':description' => $description,
+            ':product' => $product,
+            ':descpro' => $descpro,
             ':quantity' => $quantity,
             ':price' => $price,
-            ':images_idimages' => $images_idimages,
-            ':categories_idcategories' => $categories_idcategories
-        ]);
-	}
+            ':idimages' => $idimages,
+            ':idcategories' => $idcategories
+            ]
+        );
+    }
 
-	/**
-	 * Delete one product
-	 */
-	public function delete($idproducts){
+    /**
+     * Delete one product
+     */
+    public function delete($idproducts)
+    {
         $statement = $this->db->prepare("DELETE FROM products WHERE idproducts = :idproducts");
-        $statement->execute([
+        $statement->execute(
+            [
             ':idproducts' => $idproducts
-        ]);
-	}
+            ]
+        );
+    }
 
 }

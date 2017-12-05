@@ -4,19 +4,20 @@ namespace Tea\Model\Entity;
 
 /**
  * Class Role
+ *
  * @package Tea\Model\Entity
  */
 class Role
 {
-	/**
-	 * @var string
-	 */
-	private $idroles;
+    /**
+     * @var string
+     */
+    private $idroles;
 
     /**
      * @var string
      */
-    private $type;
+    private $role;
 
     /**
      * @return string
@@ -29,9 +30,17 @@ class Role
     /**
      * @return string
      */
-    public function getType()
+    public function getRole()
     {
-        return $this->type;
+        return $this->role;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
     }
 
 }
