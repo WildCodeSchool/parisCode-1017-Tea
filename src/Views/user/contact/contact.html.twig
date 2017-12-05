@@ -77,7 +77,6 @@
                 <p>* Champs requis</p>
             </fieldset>
         </form>
-
         <section class="infos">
             <div class="col-lg-12 titlecontact" align="center">
                 <h2>Où nous trouver</h2>
@@ -88,12 +87,20 @@
                 </div>
                 <div class="col-lg-4 address">
                     <h3>Volup'T</h3>
-                    <p>
-                        22 rue Pierre Emile Casel<br>
-                        75020 Paris<br>
-                        Tel : 01 23 45 67 89<br>
-                        Ouvert du Lundi au Samedi de 10h à 19h.
-                    </p>
+                        <p>
+                            {% for content in contents %}
+                                {% if content.content == 'address' %}
+                                    <p>{{ content.desccon}}</p>
+                                {% endif %}
+                                {% if content.content == 'telephone' %}
+                                    <p>{{ content.desccon}}</p>
+                                {% endif %}
+                                {% if content.content == 'business_hours' %}
+                                    <p>{{ content.desccon}}</p>
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+
                     <p class="contactLien"><a class="btn btn-lg btncontact" href="index.php?section=contact">CONTACT</a></p>
                 </div>
             </div>

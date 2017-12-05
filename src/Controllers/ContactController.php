@@ -9,6 +9,7 @@
 namespace Tea\Controllers;
 
 use ReCaptcha\ReCaptcha;
+use Tea\Model\Repository\ContentManager;
 
 class ContactController extends Controller
 {
@@ -20,7 +21,11 @@ class ContactController extends Controller
         $secret = APP_CAPTCHA_SECRET;
 
         if (empty($_POST)) {
-            return $this->twig->render('user/contact/contact.html.twig');
+            $contentManager = new ContentManager();
+            $contents = $contentManager->getAll();
+            return $this->twig->render('user/contact/contact.html.twig', array(
+                'contents' => $contents
+            ));
         }
         else {
             $errors = array();
@@ -35,12 +40,13 @@ class ContactController extends Controller
                 $errors['message'] = "Merci de bien vouloir saisir votre message";
             }
             if (count($errors) > 0) {
-                return $this->twig->render(
-                    'user/contact/contact.html.twig', array(
+                $contentManager = new ContentManager();
+                $contents = $contentsManager->getAll();
+                return $this->twig->render('user/contact/contact.html.twig', array(
+                    'contents' => $contents,
                     'errors' => $errors,
                     'post' => $_POST
-                    )
-                );
+                ));
             }
             elseif (count($errors) == 0) {
 
@@ -49,7 +55,6 @@ class ContactController extends Controller
 
                 if ($resp->isSuccess()) {
                     return $this->sendEmail($_POST);
-                    //                    return $this->twig->render('user/contact/contactSuccess.html.twig');
                 }
                 else {
                     return $this->twig->render(
