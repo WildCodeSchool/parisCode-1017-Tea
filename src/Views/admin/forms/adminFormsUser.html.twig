@@ -34,16 +34,8 @@
                             {% endif %}
                         </div>
                         <div class="panel-body">
-                            {#{% if users.idusers is defined %}#}
-                            {#<form role="form" action="index.php?section=admin&page=tables&table=users&action=update&idusers={{ users.idusers }}" method="post">#}
-                            {#{% else %}#}
-                            {#<form role="form" action="index.php?section=admin&page=tables&table=users&action=add" method="post">#}
-
-
-                                <form role="form" action="index.php?section=admin&page=tables&table=users&action={{ users.idusers is defined ? 'update&idusers=' ~ users.idusers : 'add' }}"
+                            <form role="form" action="index.php?section=admin&page=tables&table=users&action={{ users.idusers is defined ? 'update&idusers=' ~ users.idusers : 'add' }}"
                                       method="post">
-
-                             {#{% endif %}#}
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -81,41 +73,37 @@
                                                 <label>Password</label>
                                                 <input class="form-control" placeholder="Enter password" name="password" value="{{ users.password }}">
                                             </div>
-                                        {#<div class="form-group">#}
-                                            {#<label>Role</label>#}
-                                            {#<input class="form-control" placeholder="Enter role" name="roles_idroles" value="{{ users.roles_idroles }}">#}
-                                        {#</div>#}
-                                        <div class="form-group">
-                                            <label>Role</label>
-                                            <select class="form-control" name="roles_idroles">
-                                                {% if users.type is defined %}
-                                                    <option value="{{ users.roles_idroles }}">{{ users.type }} (actual)</option>
-                                                {% endif %}
-                                                {% for role in roles  %}
-                                                    {% if users.type != role.type %}
-                                                        <option value="{{ role.idroles }}">{{ role.type }}</option>
+                                            <div class="form-group">
+                                                <label>Role</label>
+                                                <select class="form-control" name="idroles">
+                                                    {% if users.idroles is defined  %}
+                                                    <option value="{{ users.idroles }}">{{ users.role }} (actual)</option>
                                                     {% endif %}
-                                                {% endfor %}
-                                            </select>
+                                                    {% for role in roles  %}
+                                                        {% if users.idroles != role.idroles %}
+                                                            <option value="{{ role.idroles }}">{{ role.role }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
                                     <!-- /.col-lg-6 (nested) -->
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                                </div>
-                                <!-- /.row (nested) -->
-                        <!-- /.panel-body -->
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.row (nested) -->
+                                </form>
+                                <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
                     </div>
-                    <!-- /.panel -->
+                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
+            <!-- /#page-wrapper -->
         </div>
-        <!-- /#page-wrapper -->
-
-    </div>
     </div>
     <!-- /#wrapper -->
 

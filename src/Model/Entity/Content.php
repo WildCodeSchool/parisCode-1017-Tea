@@ -4,24 +4,25 @@ namespace Tea\Model\Entity;
 
 /**
  * Class Content
+ *
  * @package Tea\Model\Entity
  */
 class Content
 {
-	/**
-	 * @var string
-	 */
-	private $idcontents;
+    /**
+     * @var string
+     */
+    private $idcontents;
 
     /**
      * @var string
      */
-    private $title;
+    private $content;
 
     /**
      * @var string
      */
-    private $description;
+    private $desccon;
 
     /**
      * @return string
@@ -34,33 +35,33 @@ class Content
     /**
      * @return string
      */
-    public function getTitle()
+    public function getContent()
     {
-        return $this->title;
+        return $this->content;
     }
 
     /**
-     * @param string $title
+     * @param string $content
      */
-    public function setTitle($title)
+    public function setContent($content)
     {
-        $this->title = $title;
+        $this->content = $content;
     }
 
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDesccon()
     {
-        return $this->description;
+        return $this->desccon;
     }
 
     /**
-     * @param string $description
+     * @param string $desccon
      */
-    public function setDescription($description)
+    public function setDesccon($desccon)
     {
-        $this->description = $description;
+        $this->desccon = $desccon;
     }
 
 }

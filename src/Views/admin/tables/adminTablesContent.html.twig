@@ -32,8 +32,8 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Idcontents</th>
-                            <th>Title</th>
+                            <th>#</th>
+                            <th>Content</th>
                             <th>Description</th>
                             {#<th>More</th>#}
                             <th>Update</th>
@@ -42,8 +42,8 @@
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>Idcontents</th>
-                            <th>Title</th>
+                            <th>#</th>
+                            <th>Content</th>
                             <th>Description</th>
                             {#<th>More</th>#}
                             <th>Update</th>
@@ -55,8 +55,8 @@
                         {% for content in contents %}
                             <tr>
                                 <td>{{ content.idcontents }}</td>
-                                <td>{{ content.title }}</td>
-                                <td>{{ content.description }}</td>
+                                <td>{{ content.content }}</td>
+                                <td>{{ content.desccon }}</td>
                                 {#<td>#}
                                     {#<a class="btn btn-info" href="index.php?section=admin&page=tables&table=contents&action=add">#}
                                         {#<i class="fa fa-search-plus"></i>#}

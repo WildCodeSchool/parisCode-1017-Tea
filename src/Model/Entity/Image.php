@@ -4,14 +4,15 @@ namespace Tea\Model\Entity;
 
 /**
  * Class Image
+ *
  * @package Tea\Model\Entity
  */
 class Image
 {
-	/**
-	 * @var int
-	 */
-	private $idimages;
+    /**
+     * @var int
+     */
+    private $idimages;
 
     /**
      * @var string

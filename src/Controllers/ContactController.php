@@ -13,12 +13,13 @@ use ReCaptcha\ReCaptcha;
 class ContactController extends Controller
 {
 
-    public function contactAction(){
+    public function contactAction()
+    {
 
         $siteKey = APP_CAPTCHA_SITEKEY;
         $secret = APP_CAPTCHA_SECRET;
 
-        if (empty($_POST)){
+        if (empty($_POST)) {
             return $this->twig->render('user/contact/contact.html.twig');
         }
         else {
@@ -34,10 +35,12 @@ class ContactController extends Controller
                 $errors['message'] = "Merci de bien vouloir saisir votre message";
             }
             if (count($errors) > 0) {
-                return $this->twig->render('user/contact/contact.html.twig', array(
+                return $this->twig->render(
+                    'user/contact/contact.html.twig', array(
                     'errors' => $errors,
                     'post' => $_POST
-                ));
+                    )
+                );
             }
             elseif (count($errors) == 0) {
 
@@ -46,19 +49,22 @@ class ContactController extends Controller
 
                 if ($resp->isSuccess()) {
                     return $this->sendEmail($_POST);
-//                    return $this->twig->render('user/contact/contactSuccess.html.twig');
+                    //                    return $this->twig->render('user/contact/contactSuccess.html.twig');
                 }
                 else {
-                    return $this->twig->render('user/contact/contact.html.twig', array(
+                    return $this->twig->render(
+                        'user/contact/contact.html.twig', array(
                         'errors' => $errors,
                         'post' => $_POST
-                    ));
+                        )
+                    );
                 }
             }
         }
     }
 
-    public function sendEmail($infoForm){
+    public function sendEmail($infoForm)
+    {
         // Create the Transport
         $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
             ->setUsername(APP_CONTACT_MAIL)
@@ -71,15 +77,23 @@ class ContactController extends Controller
         $message1 = (new \Swift_Message('[VolupT] Vous avez reçu une demande.'))
             ->setFrom([$infoForm['email'] => $infoForm['firstname']])
             ->setTo(['contact.volupt@gmail.com' => 'VolupT'])
-            ->setBody($this->twig->render('user/contact/contactMailAdmin.html.twig', array(
-                'email' => $infoForm)),'text/html');
+            ->setBody(
+                $this->twig->render(
+                    'user/contact/contactMailAdmin.html.twig', array(
+                    'email' => $infoForm)
+                ), 'text/html'
+            );
 
         // Create a message for admin
         $message2 = (new \Swift_Message('[VolupT] Merci pour votre message !'))
             ->setFrom(['contact.volupt@gmail.com' => 'VolupT'])
             ->setTo([$infoForm['email'] => $infoForm['firstname']])
-            ->setBody($this->twig->render('user/contact/contactMailUser.html.twig', array(
-                'email' => $infoForm)),'text/html');
+            ->setBody(
+                $this->twig->render(
+                    'user/contact/contactMailUser.html.twig', array(
+                    'email' => $infoForm)
+                ), 'text/html'
+            );
 
         // Send the message
         $mailer->send($message1);

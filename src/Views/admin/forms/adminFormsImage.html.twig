@@ -15,7 +15,6 @@
                 </li>
                 <li class="breadcrumb-item active">Images</li>
             </ol>
-
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Images</h1>
@@ -34,32 +33,32 @@
                             {% endif %}
                         </div>
                         <div class="panel-body">
-                            {% if images.idimages is defined %}
-                            <form role="form" action="index.php?section=admin&page=forms&table=images&action=update&idimages={{ images.idimages }}" method="post" enctype="multipart/form-data">
-                            {% else %}
-                            <form role="form" action="index.php?section=admin&page=forms&table=images&action=add" method="post" enctype="multipart/form-data">
-                             {% endif %}
+                            <form role="form" action="index.php?section=admin&page=tables&table=images&action={{ images.idimages is defined ? 'update&idimages=' ~ images.idimages : 'add' }}"
+                                  method="post">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="disabledSelect">Idimage</label>
+                                            <label for="disabledSelect">#</label>
                                             <input class="form-control" id="disabledInput" type="text" placeholder="" value="{{ images.idimages }}" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <label>Url</label>
+                                            <label>Image</label>
                                             <input class="form-control" placeholder="Enter url" name="url" value="{{ images.url }}">
                                         </div>
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Alt</label>
                                             <input class="form-control" placeholder="Enter alt" name="alt" value="{{ images.alt }}">
                                         </div>
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
                                         {#<div>#}
                                             {#<div class="form-group">#}
                                             {#<label for="image">Images</label>#}
                                             {#<input name="images[]" id="image" type="file" multiple required>#}
                                         {#</div>#}
-                                    </div>
-
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>

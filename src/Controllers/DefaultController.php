@@ -8,6 +8,7 @@ use Tea\Model\Repository\ProductManager;
 
 /**
  * Class DefaultController
+ *
  * @package Tea\Controllers
  */
 class DefaultController extends Controller
