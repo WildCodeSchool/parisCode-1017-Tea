@@ -34,9 +34,10 @@
                         <tr>
                             <th>#</th>
                             <th>Image</th>
+                            <th>URL</th>
                             <th>Alt</th>
                             {#<th>More</th>#}
-                            <th>Update</th>
+                            {#<th>Update</th>#}
                             <th>Delete</th>
                         </tr>
                         </thead>
@@ -44,9 +45,10 @@
                         <tr>
                             <th>#</th>
                             <th>Image</th>
+                            <th>URL</th>
                             <th>Alt</th>
                             {#<th>More</th>#}
-                            <th>Update</th>
+                            {#<th>Update</th>#}
                             <th>Delete</th>
                         </tr>
                         </tfoot>
@@ -55,18 +57,19 @@
                             <tr>
                                 <td>{{ image.idimages }}</td>
                                 <td><img src="{{ image.url }}" height="100px" width="150px"></td>
+                                <td>{{ image.url }}</td>
                                 <td>{{ image.alt }}</td>
                                 {#<td>#}
                                     {#<a class="btn btn-info" href="index.php?section=admin&page=tables&table=users&action=add">#}
                                         {#<i class="fa fa-search-plus"></i>#}
                                     {#</a>#}
                                 {#</td>#}
-                                <td>
-                                    <a class="btn btn-warning"
-                                       href="index.php?section=admin&page=tables&table=images&action=update&idimages={{ image.idimages }}">
-                                        <i class="fa fa-inverse fa-pencil-square-o"></i>
-                                    </a>
-                                </td>
+                                {#<td>#}
+                                    {#<a class="btn btn-warning"#}
+                                       {#href="index.php?section=admin&page=tables&table=images&action=update&idimages={{ image.idimages }}">#}
+                                        {#<i class="fa fa-inverse fa-pencil-square-o"></i>#}
+                                    {#</a>#}
+                                {#</td>#}
                                 <td>
                                     <a class="btn btn-danger"
                                        href="index.php?section=admin&page=tables&table=images&action=delete&idimages={{ image.idimages }}">

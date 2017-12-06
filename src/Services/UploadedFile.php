@@ -134,6 +134,16 @@ class UploadedFile
      */
     public function setFileName($fileName)
     {
-        $this->fileName = pathinfo($fileName, PATHINFO_FILENAME) . '_' . uniqid() . '.' . $this->ext;
+//        $this->fileName = pathinfo($fileName, PATHINFO_FILENAME) . '_' . uniqid() . '.' . $this->ext;
+        $this->fileName = uniqid() . '.' . $this->ext;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getURL()
+    {
+        return Uploads::DIR_PATH . $this->fileName;
+    }
+
 }

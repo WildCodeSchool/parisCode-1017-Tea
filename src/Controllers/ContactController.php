@@ -16,7 +16,6 @@ class ContactController extends Controller
 
     public function contactAction()
     {
-
         $siteKey = APP_CAPTCHA_SITEKEY;
         $secret = APP_CAPTCHA_SECRET;
 
@@ -41,7 +40,7 @@ class ContactController extends Controller
             }
             if (count($errors) > 0) {
                 $contentManager = new ContentManager();
-                $contents = $contentsManager->getAll();
+                $contents = $contentManager->getAll();
                 return $this->twig->render('user/contact/contact.html.twig', array(
                     'contents' => $contents,
                     'errors' => $errors,
