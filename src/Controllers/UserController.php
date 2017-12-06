@@ -130,4 +130,6 @@ class UserController extends Controller
         header('Location: index.php?section=admin&page=tables&table=users&action=get');
     }
 
+
+
 }

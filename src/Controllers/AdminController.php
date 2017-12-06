@@ -1,6 +1,8 @@
 <?php
 
 namespace Tea\Controllers;
+use Tea\Model\Repository\AdminManager;
+
 
 /**
  * Class AdminController
@@ -15,10 +17,7 @@ class AdminController extends Controller
      *
      * @return string
      */
-    public function adminLoginAction()
-    {
-        return $this->twig->render('admin/adminLogin.html.twig');
-    }
+
 
     /**
      * function 'homeAdminAction'
@@ -73,6 +72,51 @@ class AdminController extends Controller
     public function adminTablesProductAction()
     {
         return $this->twig->render('admin/tables/adminTablesProduct.html.twig');
+    }
+
+    /**
+     * function 'connect'
+     *
+     */
+
+    public function loginAction()
+    {
+        if (empty($_POST)) {
+            return $this->twig->render('admin/adminLogin.html.twig');
+        } else {
+            $login = $_POST['login'];
+            $password = $_POST['password'];
+
+            $adminManager = new AdminManager();
+            $passwordAdmin = $adminManager->getAdmin($login);
+            if ($passwordAdmin==false) {
+                return $this->twig->render('admin/adminLogin.html.twig', array(
+                    "error"=>"Veuillez renseigner un id valide"
+                ));
+
+            }
+            if (password_verify($password, $passwordAdmin->getPassword())) {
+                $_SESSION['connect'] = $login;
+                return $this->twig->render('admin/adminHome.html.twig', array(
+                    'session' => $_SESSION
+                ));
+            } else {
+                return $this->twig->render('admin/adminLogin.html.twig');
+            }
+
+        }
+    }
+
+    /**
+     * function 'disconnect'
+     *
+     */
+
+    public function logoutAction()
+    {
+        session_unset();
+        session_destroy();
+        return $this->twig->render('admin/adminLogin.html.twig');
     }
 
 }
