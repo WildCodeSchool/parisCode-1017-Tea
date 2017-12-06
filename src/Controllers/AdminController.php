@@ -91,7 +91,7 @@ class AdminController extends Controller
             $passwordAdmin = $adminManager->getAdmin($login);
             if ($passwordAdmin==false) {
                 return $this->twig->render('admin/adminLogin.html.twig', array(
-                    "error"=>"Veuillez renseigner un id valide"
+                    "error"=>"Les informations saisies sont erronées"
                 ));
 
             }
