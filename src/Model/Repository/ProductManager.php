@@ -31,7 +31,12 @@ class ProductManager extends EntityManager
      */
     public function getOne($idproducts)
     {
-        $statement = $this->db->prepare("SELECT products.idproducts, products.product, products.descpro, products.quantity, products.price, products.idimages, products.idcategories, images.alt, images.url, categories.category FROM products JOIN images ON products.idimages = images.idimages JOIN categories ON products.idcategories = categories.idcategories WHERE idproducts = :idproducts;");
+        $statement = $this->db->prepare(
+            "SELECT products.idproducts, products.product, products.descpro, products.quantity, products.price, products.idimages, products.idcategories, images.alt, images.url, categories.category 
+                        FROM products 
+                        JOIN images ON products.idimages = images.idimages 
+                        JOIN categories ON products.idcategories = categories.idcategories 
+                        WHERE idproducts = :idproducts;");
         $statement->execute(
             [
             ':idproducts' => $idproducts

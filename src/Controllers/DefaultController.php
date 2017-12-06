@@ -48,7 +48,15 @@ class DefaultController extends Controller
     }
 
     public function productAction(){
-        return $this->twig->render('user/product.html.twig');
+        $id= $_GET['id'];
+        $productManager = new ProductManager();
+        $product = $productManager->getOne($id);
+
+        return $this->twig->render('user/product.html.twig', array(
+            'product' => $product,
+        ) );
+
+
     }
 
 }

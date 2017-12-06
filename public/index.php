@@ -42,7 +42,7 @@ if (empty($_GET) && empty($_POST)) {
 } elseif($_GET['section']=='contact') {
     $captchaController = new ContactController();
     echo $contactController->contactAction();
-} elseif($_GET['section']=='product') {
+} elseif($_GET['section']=='product' && isset($_GET['id'])) {
     $defaultController = new DefaultController();
     echo $defaultController->productAction();
 }
