@@ -18,8 +18,7 @@ class ImageController extends Controller
     {
         $manager = new ImageManager();
         $images = $manager->getAll();
-        return $this->twig->render(
-            'admin/tables/adminTablesImage.html.twig', array(
+        return $this->twig->render('admin/tables/adminTablesImage.html.twig', array(
             'images' => $images,
             )
         );
@@ -29,109 +28,65 @@ class ImageController extends Controller
     {
         if (empty($_POST)) {
             return $this->twig->render('admin/forms/adminFormsImage.html.twig');
-        } else {
-            if (empty($_POST['url']) 
-                || empty($_POST['alt'])
-            ) {
+        }
+        if (!empty($_POST)) {
+
+            if (empty($_POST['alt'])){
                 $error = "🔴 Please complete all required fields 🔴";
                 return $this->twig->render(
                     'admin/forms/adminFormsImage.html.twig', array(
-                    'errors' => $error,
-                    'images' => $_POST
-                    )
-                );
-            } else {
-                $url = htmlspecialchars($_POST['url']);
-                $alt = htmlspecialchars($_POST['alt']);
-
-                // Appel du modele ==> execution de la requete d'enregistrement en base de donné (addCitation())
-
-                $manager = new ImageManager();
-                $manager1 = $manager->getAll();
-
-                $manager->add($url, $alt);
-
-                // Redirection vers le Controllers frontal index.php
-                header('Location: index.php?section=admin&page=tables&table=images&action=get');
-            }
-        }
-    }
-
-    //        else {
-    //                // Récupérer du tableau d'image envoyé par le formulaire
-    //                $files = $_FILES['images'];
-    //
-    //                $upload = new Uploads();
-    //                $manager = new ImageManager();
-    //
-    //                // Parcourir le tableau d'image
-    //                foreach ($files['name'] as $position => $file_name) {
-    //
-    //                    // Pour chaque image, vérifier s'il n'y a pas d'erreur lié à php ($_FILES['files']['error']
-    //                    $error = $files['error'][$position];
-    //                    if ($error != 0) {
-    //                        // S'il il y a une erreur php, stocker le message d'erreur dans une variable
-    //                        $error[$file_name] = "upload error";
-    //
-    //                        // Sinon on upload
-    //                    } else {
-    //
-    //                        // Récupération et stockage du name, tmp_name, size du fichier
-    //                        $size = $files['size'][$position];
-    //                        $tmp_name = $files['tmp_name'][$position];
-    //
-    //                        // Instanciation d'une objet UploadedFile
-    //                        $uploadedFile = new UploadedFile($file_name, $tmp_name, $size);
-    //
-    //                        // Upload du fichier via la méthode défini dans le service
-    //                        $result = $upload->upload($uploadedFile);
-    //
-    //                        // Traitement du resultat, si pas d'erreur, on enregitre en BDD, sinon, on ajout un message en session
-    //                        if ($result == null) {
-    //                            $manager->addImage($uploadedFile->getFileName());
-    //                        }
-    //                    }
-    ////                }
-    //                // On redirige vers la page d'accueil
-    //                header("Location: index.php?section=admin&page=tables&table=images&action=get");
-    //        }
-    //    }
-
-
-    public function updateAction()
-    {
-        $idimages = $_GET['idimages'];
-
-        if ((is_numeric($idimages))) {
-            if (!empty($_POST)) {
-
-                $url = htmlspecialchars($_POST['url']);
-                $alt = htmlspecialchars($_POST['alt']);
-                // On les ajoute à la base de données grace à la fonction définit dans notre modèle (updateImage())
-
-                $manager = new ImageManager();
-                $manager->update($idimages, $url, $alt);
-
-                // On redirige vers la page d'accueil
-                header('Location: index.php?section=admin&page=tables&table=images&action=get');
-            } else {
-                $manager = new ImageManager();
-                $images = $manager->getOne($idimages);
-                return $this->twig->render(
-                    'admin/forms/adminFormsImage.html.twig', array(
-                    'images' => $images,
-                    'post' => $_POST
+                        'errors' => $error,
+                        'images' => $_POST
                     )
                 );
             }
-        } else {
-            return $this->twig->render('404.html.twig');
+            if (empty($_POST['url'])) {
+                // On les stocke dans la variable $files
+                $files = $_FILES['images'];
+
+                $upload = new Uploads();
+
+                foreach ($files['name'] as $key => $file_name) {
+                    // Récupération et stockage du name, tmp_name, size du fichier
+                    $size = $files['size'][$key];
+                    $tmp_name = $files['tmp_name'][$key];
+                    // Instanciation d'une objet UploadedFile
+                    $uploadedFile = new UploadedFile($file_name, $tmp_name, $size);
+
+                    $error = $upload->upload($uploadedFile);
+                    if (isset($error)){
+                        return $this->twig->render(
+                            'admin/forms/adminFormsImage.html.twig', array(
+                                'errors' => $error,
+                                'images' => $_POST
+                            )
+                        );
+                    }
+                    else {
+                        // On récupère le chemin du fichier uploadé pour l'ajouter en BDD
+                        $upload->upload($uploadedFile);
+                        $url = $uploadedFile->getURL();
+                    }
+                }
+            }
+            else {
+                $url = htmlspecialchars($_POST['url']);
+            }
+            $alt = htmlspecialchars($_POST['alt']);
+
+            // Appel du modele ==> execution de la requete d'enregistrement en base de donné (addCitation())
+            $manager = new ImageManager();
+            $manager1 = $manager->getAll();
+            $manager->add($url, $alt);
+
+            // Redirection vers le Controllers frontal index.php
+            header('Location: index.php?section=admin&page=tables&table=images&action=get');
         }
+
     }
 
     public function deleteAction()
     {
-
         $idimages = $_GET['idimages'];
 
         $manager = new ImageManager();
