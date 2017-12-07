@@ -50,6 +50,9 @@ if (empty($_GET) && empty($_POST)) {
 } elseif($_GET['section']=='product' && isset($_GET['id'])) {
     $defaultController = new DefaultController();
     echo $defaultController->productAction();
+} elseif($_GET['section']=='css') {
+    $defaultController = new DefaultController();
+    echo $defaultController->cssAction();
 }
 
 /**
@@ -60,6 +63,11 @@ if (empty($_GET) && empty($_POST)) {
 elseif (($_GET['section'] === 'admin')  && isset($_SESSION['connect'])) {
     if ($_GET['page'] === 'home') {
         echo $adminController->LoginAction();
+    }
+
+    if ($_GET['page'] === 'logout') {
+
+        echo $adminController->LogoutAction();
     }
 
     /**

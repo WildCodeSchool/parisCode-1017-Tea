@@ -21,6 +21,10 @@ class DefaultController extends Controller
         return $this->twig->render('user/home.html.twig');
     }
 
+    public function cssAction(){
+        return $this->twig->render('user/contact/contactMailAdmin.html.twig');
+    }
+
     public function homeAction(){
         return $this->twig->render('user/home.html.twig');
     }
