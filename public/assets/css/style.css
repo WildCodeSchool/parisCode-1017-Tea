@@ -29,7 +29,9 @@ body {
 
 }
 
-
+div {
+    margin-top: 2em;
+}
 
 img {
   height:100%;
