@@ -14,19 +14,23 @@
     <link href="https://fonts.googleapis.com/css?family=Sacramento|Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 
-    <link href="../../public/assets/css/style.css" rel="stylesheet">
+    <link href="../public/assets/css/stylemail.css" rel="stylesheet">
 
 </head>
     <body>
+        <div class="mailAdmin">
+            <div class="headerMail">
+        <h1>Volup't</h1>
+            </div>
 
-        <h4 class="logo">Volup't</h4>
+            <hr>
 
-        <h1>Nouvelle demande de {{ email.firstname }}</h1>
+        <h5>Nouvelle demande de {{ email.firstname }}</h5>
 
         <p>Bonjour VolupT,</p>
 
         <p>Un client vient de vous envoyer un message : </p>
-        <blockquote>
+        <blockquote class="list">
             <li>{{ email.firstname }}</li>
             <li>{{ email.lastname }}</li>
             <li>{{ email.phone }}</li>
@@ -36,9 +40,10 @@
 
     <p>A très bientôt.</p>
 
-    <p>L’équipe technique VolupT</p>
+    <p>L’équipe technique de Volup'T.</p>
+        </div>
 
-    <footer>Copyright © 2017, VolupT, Tous droits réservés. </footer>
+        <footer class="footerAdmin" align="center"><h4 class="logo">Volup't</h4><p class="copyright">Copyright © 2017, tous droits réservés.</p> </footer>
 
     </body>
 </html>
