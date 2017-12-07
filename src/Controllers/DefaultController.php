@@ -18,7 +18,14 @@ class DefaultController extends Controller
      * Render index
      */
     public function indexAction(){
-        return $this->twig->render('user/home.html.twig');
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->getAll();
+        $productManager = new ProductManager();
+        $products = $productManager->getAll();
+        return $this->twig->render('user/home.html.twig', array(
+            'products' => $products,
+            'categories' => $categories
+        ));
     }
 
     public function cssAction(){
@@ -26,7 +33,14 @@ class DefaultController extends Controller
     }
 
     public function homeAction(){
-        return $this->twig->render('user/home.html.twig');
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->getAll();
+        $productManager = new ProductManager();
+        $products = $productManager->getAll();
+        return $this->twig->render('user/home.html.twig', array(
+            'products' => $products,
+            'categories' => $categories
+        ));
     }
 
     public function conceptAction(){
