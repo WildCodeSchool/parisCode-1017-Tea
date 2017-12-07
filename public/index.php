@@ -62,6 +62,11 @@ elseif (($_GET['section'] === 'admin')  && isset($_SESSION['connect'])) {
         echo $adminController->LoginAction();
     }
 
+    if ($_GET['page'] === 'logout') {
+
+        echo $adminController->LogoutAction();
+    }
+
     /**
      * TABLES
      */
