@@ -50,6 +50,9 @@ if (empty($_GET) && empty($_POST)) {
 } elseif($_GET['section']=='product' && isset($_GET['id'])) {
     $defaultController = new DefaultController();
     echo $defaultController->productAction();
+} elseif($_GET['section']=='css') {
+    $defaultController = new DefaultController();
+    echo $defaultController->cssAction();
 }
 
 /**
