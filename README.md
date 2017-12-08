@@ -7,3 +7,4 @@ Required
 2. Add app/config.php to connect to database + swiftmailer + captcha
 
 3. Download database in your Mysql
+    Terminal : mysql -u root -p < 
