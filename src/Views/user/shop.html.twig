@@ -18,29 +18,31 @@
         </div>
         <hr>
         {% for category in categories %}
-        <section class="tea1">
-            <div class="col-lg-12 titletop" align="center">
-                <h2>{{ category.category }}</h2>
-            </div>
-            {% for product in products %}
-                {% if category.category == product.category %}
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="card" align="center">
-                            <img class="card-img-top" alt="" src="{{ product.url }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.product }}</h5>
-                                <p class="card-text">{{ product.descpro}}</p>
-                            </div>
-                            <div class="card-footer" align="center">
-                                {#<a href="" class="btn btn-panier">Ajouter</a>#}
-                                <a href="index.php?section=product&id={{ product.idproducts }}" class="btn btn-produitplus">Voir plus</a>
-
-                            </div>
-                        </div>
+            {% if category.category != "Top des ventes" %}
+                <section class="tea1">
+                    <div class="col-lg-12 titletop" align="center">
+                        <h2>{{ category.category }}</h2>
                     </div>
-                {% endif %}
-            {% endfor %}
-        </section>
+                    {% for product in products %}
+                        {% if category.category == product.category %}
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="card" align="center">
+                                    <img class="card-img-top" alt="" src="{{ product.url }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ product.product }}</h5>
+                                        <p class="card-text">{{ product.descpro}}</p>
+                                    </div>
+                                    <div class="card-footer" align="center">
+                                        {#<a href="" class="btn btn-panier">Ajouter</a>#}
+                                        <a href="index.php?section=product&id={{ product.idproducts }}" class="btn btn-produitplus">Voir plus</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </section>
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}
