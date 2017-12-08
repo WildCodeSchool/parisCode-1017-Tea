@@ -32,29 +32,31 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Idimages</th>
-                            <th>Url</th>
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>URL</th>
                             <th>Alt</th>
                             {#<th>More</th>#}
-                            <th>Update</th>
+                            {#<th>Update</th>#}
                             <th>Delete</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>Idimages</th>
-                            <th>Url</th>
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>URL</th>
                             <th>Alt</th>
                             {#<th>More</th>#}
-                            <th>Update</th>
+                            {#<th>Update</th>#}
                             <th>Delete</th>
                         </tr>
                         </tfoot>
                         <tbody>
-
                         {% for image in images %}
                             <tr>
                                 <td>{{ image.idimages }}</td>
+                                <td><img src="{{ image.url }}" height="100px" width="150px"></td>
                                 <td>{{ image.url }}</td>
                                 <td>{{ image.alt }}</td>
                                 {#<td>#}
@@ -62,12 +64,12 @@
                                         {#<i class="fa fa-search-plus"></i>#}
                                     {#</a>#}
                                 {#</td>#}
-                                <td>
-                                    <a class="btn btn-warning"
-                                       href="index.php?section=admin&page=tables&table=images&action=update&idimages={{ image.idimages }}">
-                                        <i class="fa fa-inverse fa-pencil-square-o"></i>
-                                    </a>
-                                </td>
+                                {#<td>#}
+                                    {#<a class="btn btn-warning"#}
+                                       {#href="index.php?section=admin&page=tables&table=images&action=update&idimages={{ image.idimages }}">#}
+                                        {#<i class="fa fa-inverse fa-pencil-square-o"></i>#}
+                                    {#</a>#}
+                                {#</td>#}
                                 <td>
                                     <a class="btn btn-danger"
                                        href="index.php?section=admin&page=tables&table=images&action=delete&idimages={{ image.idimages }}">

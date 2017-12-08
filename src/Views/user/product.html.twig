@@ -4,19 +4,18 @@
 
     <div class="container">
 
-
     <div class="content-wrapper"> 
     <div class="item-container">  
       <div class="container">
-
           <div class="col-md-12" align="center">
-          <h3>Thé vert - Fruit & Gingembre </h3> </div>
+          <h3>{{ product.category }}</h3> </div>
+
           <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="card showOne" align="center">
-                  <img class="card-img-top" src="https://www.cheatsheet.com/wp-content/uploads/2015/09/Lemon-Tea-300x200.jpg?x67376" alt="">
+                  <img class="card-img-top" src="{{ product.url }}" alt="">
                   <div class="card-body">
-                      <h5 class="card-title">Mashuihouhouhou</h5>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+                      <h5 class="card-title">{{ product.product }}</h5>
+                      <p class="card-text">{{ product.descpro }}</p>
                   </div>
                   <div class="card-footer" align="center">
 
@@ -24,16 +23,12 @@
               </div>
           </div>
 
-
-          
         <div class="col-md-6">
 
-          <div class="product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</div>
+          <div class="product-desc"> {{ product.descpro }}</div>
           <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
           <hr>
-          <div class="product-price">9.00 €</div>
+          <div class="product-price"> {{ product.price }} €</div>
           <div class="product-stock">En stock</div>
           <hr>
 
@@ -42,7 +37,7 @@
           <div class="col-md-12 div_shop" align="center">
           <div class="btn-group cart">
               <button type="button" class="btn btn-success">
-                  Ajouter
+                  <a href="index.php?section=shop">Ajouter</a>
               </button>
           </div>
           </div>

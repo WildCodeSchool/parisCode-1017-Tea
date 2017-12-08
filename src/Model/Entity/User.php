@@ -4,14 +4,15 @@ namespace Tea\Model\Entity;
 
 /**
  * Class User
+ *
  * @package Tea\Model\Entity
  */
 class User
 {
-	/**
-	 * @var string
-	 */
-	private $idusers;
+    /**
+     * @var string
+     */
+    private $idusers;
 
     /**
      * @var string
@@ -28,10 +29,10 @@ class User
      */
     private $address;
 
-	/**
-	 * @var string
-	 */
-	private $email;
+    /**
+     * @var string
+     */
+    private $email;
 
     /**
      * @var string
@@ -51,7 +52,7 @@ class User
     /**
      * @var string
      */
-    private $roles_idroles;
+    private $idroles;
 
     /**
      * @return string
@@ -176,17 +177,17 @@ class User
     /**
      * @return string
      */
-    public function getRolesIdroles()
+    public function getIdroles()
     {
-        return $this->roles_idroles;
+        return $this->idroles;
     }
 
     /**
-     * @param string $roles_idroles
+     * @param string $idroles
      */
-    public function setRolesIdroles($roles_idroles)
+    public function setIdroles($idroles)
     {
-        $this->roles_idroles = $roles_idroles;
+        $this->idroles = $idroles;
     }
 
 }

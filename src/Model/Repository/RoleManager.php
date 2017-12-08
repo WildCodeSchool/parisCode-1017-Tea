@@ -7,17 +7,20 @@ use Tea\Model\Entity\Role;
 
 /**
  * Class ContentManager
+ *
  * @package Tea\Repository
  */
 class RoleManager extends EntityManager
 {
-	/**
-	 * Get all content
-	 * @return array
-	 */
-	public function getAll(){
-		$statement = $this->db->query('SELECT * FROM roles');
-		return $statement->fetchAll(PDO::FETCH_CLASS, Role::class);
-	}
+    /**
+     * Get all content
+     *
+     * @return array
+     */
+    public function getAll()
+    {
+        $statement = $this->db->query("SELECT * FROM roles");
+        return $statement->fetchAll(PDO::FETCH_CLASS, Role::class);
+    }
 
 }

@@ -34,26 +34,21 @@
                             {% endif %}
                         </div>
                         <div class="panel-body">
-                            {% if products.idproducts is defined %}
-                            <form role="form" action="index.php?section=admin&page=tables&table=products&action=update&idproducts={{ products.idproducts }}" method="post">
-                            {% else %}
-                            <form role="form" action="index.php?section=admin&page=tables&table=products&action=add" method="post">
-                             {% endif %}
+                            <form role="form" action="index.php?section=admin&page=tables&table=products&action={{ products.idproducts is defined ? 'update&idproducts=' ~ products.idproducts: 'add' }}"
+                                  method="post">
                                 <div class="row">
-
                                     <div class="col-lg-6">
-
                                         <div class="form-group">
-                                            <label for="disabledSelect">Idproducts</label>
+                                            <label for="disabledSelect">#</label>
                                             <input class="form-control" id="disabledInput" type="text" placeholder="" value="{{ products.idproducts }}" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <label>Name</label>
-                                            <input class="form-control" placeholder="Enter name of the product" name="name" value="{{ products.name }}">
+                                            <label>Product</label>
+                                            <input class="form-control" placeholder="Enter reference of the product" name="product" value="{{ products.product }}">
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <input class="form-control" type="text" placeholder="Enter value here" name="description" value="{{ products.description }}">
+                                            <input class="form-control" type="text" placeholder="Enter value here" name="descpro" value="{{ products.descpro }}">
                                         </div>
                                         <div class="form-group">
                                             <label>Quantity</label>
@@ -67,18 +62,38 @@
                                             {#<label for="images">Images</label>#}
                                             {#<input type="file" name="images[]" multiple="multiple" id="images" value="{{ products.images_idimages }}">#}
                                         {#</div>#}
-                                        <div class="form-group">
-                                            <label>Categorie</label>
-                                            <input class="form-control" placeholder="Categorie" name="categories_idcategories" value="{{ products.categories_idcategories }}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Images</label>
-                                            <input class="form-control" placeholder="Images" name="images_idimages" value="{{ products.images_idimages }}">
-                                        </div>
-
                                     </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Image</label>
+                                            <select class="form-control" name="idimages">
+                                                {% if products.idimages is defined  %}
+                                                    <option value="{{ products.idimages }}">{{ products.alt }} (actual)</option>
+                                                {% endif %}
+                                                {% for image in images  %}
+                                                    {% if products.idimages != image.idimages %}
+                                                        <option value="{{ image.idimages }}">{{ image.alt }}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Category</label>
+                                            <select class="form-control" name="idcategories">
+                                                {% if products.idcategories is defined  %}
+                                                    <option value="{{ products.idcategories }}">{{ products.category }} (actual)</option>
+                                                {% endif %}
+                                                {% for category in categories  %}
+                                                    {% if products.idcategories != category.idcategories %}
+                                                        <option value="{{ category.idcategories }}">{{ category.category }}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
                                  </div>
-
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
                                 </div>

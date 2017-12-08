@@ -34,28 +34,25 @@
                             {% endif %}
                         </div>
                         <div class="panel-body">
-                            {% if contents.idcontents is defined %}
-                            <form role="form" action="index.php?section=admin&page=tables&table=contents&action=update&idcontents={{ contents.idcontents }}" method="post">
-                            {% else %}
-                            <form role="form" action="index.php?section=admin&page=tables&table=contents&action=add" method="post">
-                             {% endif %}
+                            <form role="form" action="index.php?section=admin&page=tables&table=contents&action={{ contents.idcontents is defined ? 'update&idcontents=' ~ contents.idcontents : 'add' }}"
+                                  method="post">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="disabledSelect">Idcontents</label>
+                                            <label for="disabledSelect">#</label>
                                             <input class="form-control" id="disabledInput" type="text" placeholder="" value="{{ contents.idcontents }}" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <label>Title</label>
-                                            <input class="form-control" placeholder="Enter title" name="title" value="{{ contents.title }}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Description</label>
-                                            <input class="form-control" placeholder="Enter description" name="description" value="{{ contents.description }}">
+                                            <label>Content</label>
+                                            <input class="form-control" placeholder="Enter title" name="content" value="{{ contents.content }}">
                                         </div>
                                     </div>
                                     <!-- /.col-lg-6 (nested) -->
                                     <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <input class="form-control" placeholder="Enter description" name="desccon" value="{{ contents.desccon }}">
+                                        </div>
                                     </div>
                                     <!-- /.col-lg-6 (nested) -->
                                 </div>

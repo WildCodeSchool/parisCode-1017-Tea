@@ -4,6 +4,7 @@ namespace Tea\Model\Entity;
 
 /**
  * Class Product
+ *
  * @package Tea\Model\Entity
  */
 class Product
@@ -13,15 +14,15 @@ class Product
      */
     private $idproducts;
 
-	/**
-	 * @var string
-	 */
-	private $name;
+    /**
+     * @var string
+     */
+    private $product;
 
     /**
      * @var string
      */
-    private $description;
+    private $descpro;
 
     /**
      * @var string
@@ -34,9 +35,19 @@ class Product
     private $price;
 
     /**
+     * @var string
+     */
+    private $idimages;
+
+    /**
+     * @var string
+     */
+    private $idcategories;
+
+    /**
      * @return string
      */
-    public function getIdproducts(): string
+    public function getIdproducts()
     {
         return $this->idproducts;
     }
@@ -44,39 +55,39 @@ class Product
     /**
      * @return string
      */
-    public function getName(): string
+    public function getProduct()
     {
-        return $this->name;
+        return $this->product;
     }
 
     /**
-     * @param string $name
+     * @param string $product
      */
-    public function setName(string $name)
+    public function setProduct($product)
     {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription(string $description)
-    {
-        $this->description = $description;
+        $this->product = $product;
     }
 
     /**
      * @return string
      */
-    public function getQuantity(): string
+    public function getDescpro()
+    {
+        return $this->descpro;
+    }
+
+    /**
+     * @param string $descpro
+     */
+    public function setDescpro($descpro)
+    {
+        $this->descpro = $descpro;
+    }
+
+    /**
+     * @return string
+     */
+    public function getQuantity()
     {
         return $this->quantity;
     }
@@ -84,7 +95,7 @@ class Product
     /**
      * @param string $quantity
      */
-    public function setQuantity(string $quantity)
+    public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
     }
@@ -92,7 +103,7 @@ class Product
     /**
      * @return string
      */
-    public function getPrice(): string
+    public function getPrice()
     {
         return $this->price;
     }
@@ -100,9 +111,41 @@ class Product
     /**
      * @param string $price
      */
-    public function setPrice(string $price)
+    public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdimages()
+    {
+        return $this->idimages;
+    }
+
+    /**
+     * @param string $idimages
+     */
+    public function setIdimages($idimages)
+    {
+        $this->idimages = $idimages;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdcategories()
+    {
+        return $this->idcategories;
+    }
+
+    /**
+     * @param string $idcategories
+     */
+    public function setIdcategories($idcategories)
+    {
+        $this->idcategories = $idcategories;
     }
 
 }

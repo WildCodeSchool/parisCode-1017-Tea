@@ -27,19 +27,18 @@
                     </div>
                 </div>
             </div>
-
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Idproducts</th>
-                            <th>Name</th>
+                            <th>#</th>
+                            <th>Product</th>
                             <th>Description</th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th>Image ID</th>
-                            <th>Category ID</th>
+                            <th>Image</th>
+                            <th>Category</th>
                             {#<th>More</th>#}
                             <th>Update</th>
                             <th>Delete</th>
@@ -47,13 +46,13 @@
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>Idproducts</th>
-                            <th>Name</th>
+                            <th>#</th>
+                            <th>Product</th>
                             <th>Description</th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th>Image ID</th>
-                            <th>Category ID</th>
+                            <th>Image</th>
+                            <th>Category</th>
                             {#<th>More</th>#}
                             <th>Update</th>
                             <th>Delete</th>
@@ -63,12 +62,12 @@
                         {% for product in products %}
                             <tr>
                                 <td>{{ product.idproducts }}</td>
-                                <td>{{ product.name }}</td>
-                                <td>{{ product.description }}</td>
+                                <td>{{ product.product }}</td>
+                                <td>{{ product.descpro }}</td>
                                 <td>{{ product.quantity }}</td>
                                 <td>{{ product.price }}</td>
-                                <td>{{ product.images_idimages }}</td>
-                                <td>{{ product.categories_idcategories }}</td>
+                                <td><img src="{{ product.url }}" height="100px" width="150px"></td>
+                                <td>{{ product.category }}</td>
                                 <td>
                                     <a class="btn btn-warning"
                                        href="index.php?section=admin&page=tables&table=products&action=update&idproducts={{ product.idproducts }}">

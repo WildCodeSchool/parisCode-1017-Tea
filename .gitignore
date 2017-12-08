@@ -1,6 +1,5 @@
 .idea
 .DS_Store
 Icon
-
 vendor
-app/config.php
+app
