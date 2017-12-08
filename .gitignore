@@ -2,5 +2,4 @@
 .DS_Store
 Icon
 vendor
-app/config.php
 app
