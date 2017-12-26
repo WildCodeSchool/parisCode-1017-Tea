@@ -8,28 +8,12 @@
  * @param [string] APP_DB_PWD
  * @param [string] APP_DB_NAME
  * @param [string] APP_DB_PORT
-// */
-define("APP_DB_HOST", "sql11.freemysqlhosting.net");
-define("APP_DB_USER", "sql11209713");
-define("APP_DB_PWD", "QqEL7bPAIW");
-define("APP_DB_NAME", "sql11209713");
-define("APP_DB_PORT", "3306");
-
-/**
- * Connect to local database
- *
- * @param [string] APP_DB_HOST
- * @param [string] APP_DB_USER
- * @param [string] APP_DB_PWD
- * @param [string] APP_DB_NAME
- * @param [string] APP_DB_PORT
  */
-//define("APP_DB_HOST", "localhost");
-//define("APP_DB_USER", "root");
-//define("APP_DB_PWD", "root");
-//define("APP_DB_NAME", "sql11206893");
-//define("APP_DB_PORT", "3306");
-
+define("APP_DB_HOST", "wcs-tea.ckudyeeceg7d.eu-west-3.rds.amazonaws.com");
+define("APP_DB_USER", "root");
+define("APP_DB_PWD", "rootroot");
+define("APP_DB_NAME", "wcs_tea");
+define("APP_DB_PORT", "3306");
 
 /**
  * Connect to Swiftmailer
