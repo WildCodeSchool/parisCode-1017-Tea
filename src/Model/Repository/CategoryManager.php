@@ -23,7 +23,6 @@ class CategoryManager extends EntityManager
         return $statement->fetchAll(PDO::FETCH_CLASS, Category::class);
     }
 
-
     /**
      * Get one category
      *
