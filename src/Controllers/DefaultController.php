@@ -2,9 +2,7 @@
 
 namespace Tea\Controllers;
 
-//use Tea\Model\Repository\UserManager;
 use Tea\Model\Repository\CategoryManager;
-use Tea\Model\Repository\ImageManager;
 use Tea\Model\Repository\ProductManager;
 
 /**
