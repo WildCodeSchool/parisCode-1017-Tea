@@ -2,5 +2,7 @@
 .DS_Store
 Icon
 vendor
-app
-/Procfile
+/config/amazon-rds-ca-cert.pem
+/app/config.php
+/app/
+/config/
